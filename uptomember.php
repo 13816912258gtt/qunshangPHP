@@ -12,10 +12,10 @@ addMemberCase($uid,$identity);
 //通过循环找到池主upgradeid
 $memberid=$uid;
 $upgradeid=0000000000;
-while(findIdentityById($memberid)<3){
-	$upgradeid=findPreinviteid($memberid);
-	$memberid=$upgradeid;
+while(findIdentityById($memberid)<2){
+	$memberid=findPreinviteid($memberid);
 }
+$upgradeid=$memberid;
 //记录会员支付以及上级领主会员费收益
 if(!findProfitByUid($uid)){
 	//在会员收益表内没有记录，在会员费收益表中加入，缴费次数设为1
@@ -30,8 +30,8 @@ if(!findProfitByUid($uid)){
 //消费行为积分收益
 $bili=array(1,1,1);
 $suid=$uid;
-for($i=0;$i<count($bili);$i++){
-	if(findIdentityById($suid)>=2){
+for($i=1;$i<count($bili);$i++){
+	if(findIdentityById($suid)>=1){
 		$rs=findUserByUid($suid);
 		$credit=$rs['credit'];
 		$credit+=200*bili[$i];
