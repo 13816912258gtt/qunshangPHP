@@ -1,7 +1,7 @@
 <?php
 	$token = $_GET['token'];
 	$uid = $_GET['uid'];
-	include('comm/userToken.dao.php');
+	require_once 'comm/userToken.dao.php';
 	$rs=updateLoginStatus($token,$uid);
 	if($rs){
 		$arr=array('statusCode'=>1,'Msg'=>"成功");

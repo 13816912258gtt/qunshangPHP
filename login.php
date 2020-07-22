@@ -1,7 +1,7 @@
 <?php
 	$phoneData = $_POST['phoneData'];
 	$passData = $_POST['passData'];
-	include('comm/user.php');
+	require_once 'comm/user.php';
 	if(!findUserByPhone($phoneData)){
 		$arr=array('statusCode'=>3,'errMsg'=>"手机号未注册");
 	}else{

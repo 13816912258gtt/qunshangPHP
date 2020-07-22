@@ -4,14 +4,14 @@
 require_once 'common.php';
 
 
-function addUser($utel,$upass,$identity){
+function addUser($utel,$upass,$preidentity){
 	$link = get_connect();
 	$utel=mysql_dataCheck($utel);
 	$upass=mysql_dataCheck($upass);
 	$uname="用户_".$utel;
 	$gender=1;
 	$headimage="//hbimg.huabanimg.com/6d28cfdb0f69acaa5c21651ebfb924a5b796dee646f30-JP2KuL_fw658/format/webp";
-	$sql="insert into `tbl_user` (`utel`,`upass`,`uname`,`headimage`,`gender`,`identity`)  values  ('$utel','$upass','$uname','$headimage',$gender,'$identity')";
+	$sql="insert into `tbl_user` (`utel`,`upass`,`uname`,`headimage`,`gender`,`preidentity`,`identity`)  values  ('$utel','$upass','$uname','$headimage',$gender,'$preidentity',1)";
 	$rs=execUpdate($sql,$link);
 	$getId=mysql_insert_id($link);
 	mysql_close($link);
@@ -64,5 +64,43 @@ function findUserByPhone($utel){
 	}
 	return $rs;
 }
-
+function findUserByUid($uid){
+	$link = get_connect();
+	$sql="select * from tbl_user where `utel`=$uid";
+	$rs=execQuery($sql,$link);
+	mysql_close($link);
+	if(count($rs)>0){
+		return $rs[0];
+	}
+	return $rs;
+}
+function updateIdentityToMember($uid){
+	$link = get_connect();
+	$sql="update `tbl_user` set `identity`=2 where `uid`=$uid";
+	$rs=execUpdate($sql,$link);
+	mysql_close($link);
+	return $rs;
+}
+function findIdentityById($uid){
+	$link = get_connect();
+	$sql="select * from tbl_user where `uid`=$uid";
+	$rs=execQuery($sql,$link);
+	mysql_close($link);
+	if(count($rs)>0){
+		$result=$rs[0]['identity'];
+		return $result;
+	}
+}
+function findPreinviteid($uid){
+	$rs=findUserByUid($uid);
+	$inviteid=$rs['inviteid'];
+	return $inviteid;
+}
+function updateUserCredit($uid,$credit){
+	$link = get_connect();
+	$sql="update `tbl_user` set `credit`=$credit where `uid`=$uid";
+	$rs=execUpdate($sql,$link);
+	mysql_close($link);
+	return $rs;
+}
 ?>
