@@ -4,7 +4,7 @@
 	$preidentity = $_POST['identity'];
 	// echo $phoneData."\n";
 	// echo $passData."\n";
-	include('comm/user.php');
+	require_once 'comm/user.php';
 	if(findUserByPhone($phoneData)){
 		$arr=array('statusCode'=>2,'errMsg'=>"手机号已注册");
 		echo json_encode($arr);	

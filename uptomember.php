@@ -12,7 +12,7 @@ addMemberCase($uid,$identity);
 //通过循环找到池主upgradeid
 $memberid=$uid;
 $upgradeid=0000000000;
-while(findIdentityById($memberid)<3){
+while(findIdentityById($memberid)<2){
 	$upgradeid=findPreinviteid($memberid);
 	$memberid=$upgradeid;
 }
@@ -31,9 +31,8 @@ if(!findProfitByUid($uid)){
 $bili=array(1,1,1);
 $suid=$uid;
 for($i=0;$i<count($bili);$i++){
-	if(findIdentityById($suid)>=2){
-		$rs=findUserByUid($suid);
-		$credit=$rs['credit'];
+	if($user=findIdentityById($suid)>=1){
+		$credit=$user['credit'];
 		$credit+=200*bili[$i];
 		updateUserCredit($suid,$credit);
 	}
