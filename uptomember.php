@@ -3,8 +3,7 @@ $uid=$_GET['uid'];
 //身份为1是会员
 $identity=1;
 require_once 'comm/user.php';
-require_once 'comm/membercase.dao.php';
-require_once 'comm/memberprofit.dao.php';
+require_once 'comm/member.dao.php';
 //升级用户表中的身份
 updateIdentityToMember($uid);
 //插入会员用户情况表
@@ -19,7 +18,7 @@ while(findIdentityById($memberid)<2){
 //记录会员支付以及上级领主会员费收益
 if(!findProfitByUid($uid)){
 	//在会员收益表内没有记录，在会员费收益表中加入，缴费次数设为1
-	addMembeProfit($uid,$upgradeid);
+	addMemberProfit($uid,$upgradeid);
 }else{
 	// 在会员收益表中有记录，在会员表中更新，缴费次数加1
 	$result=findProfitByUid($uid);
