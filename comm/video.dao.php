@@ -1,6 +1,6 @@
 <?PHP
 require_once 'common.php';
-/*---------videor.dao------*/
+/*---------video.dao------*/
 function findVideoCount(){
 	$sql="select count(`videoid`) as num from `tbl_video`";
 	$link=get_connect();
@@ -18,6 +18,15 @@ function findVideos(){
 }
 function findVideoByVideoid($videoid){
 	$sql="select * from `tbl_video` where `videoid`=$videoid";
+		$link=get_connect();
+		$rs=execQuery($sql,$link);
+		if(count($rs)>0){
+			return $rs[0];
+		}
+		return $rs;
+}
+function findPublishidByVideoid($videoid){
+	$sql="select publishid from `tbl_video` where `videoid`=$videoid";
 		$link=get_connect();
 		$rs=execQuery($sql,$link);
 		if(count($rs)>0){
@@ -49,6 +58,20 @@ function findVideoLikeByUid($videoid,$uid){
 	$sql="select * from `tbl_videolike` where `videoid`=$videoid and `uid`=$uid";
 	$link=get_connect();
 	$rs=execQuery($sql,$link);
+	return $rs;
+}
+function deleteVideoLike($videoid,$uid){
+	$sql="delete from `tbl_video` where `videoid`=$videoid and `uid`=$uid";
+		$link=get_connect();
+		$rs=execUpdate($sql,$link);
+		return $rs;
+}
+function addVideoLike($videoid,$uid){
+	$result=findPublishidByVideoid($videoid);
+	$publishid=$result['publishid'];
+	$sql="insert into  `tbl_videolike` (`videoid`,`uid`,`publishid`)  values  ('$videoid','$uid','$publishid')";
+	$link=get_connect();
+	$rs=execUpdate($sql,$link);
 	return $rs;
 }
 ?>
