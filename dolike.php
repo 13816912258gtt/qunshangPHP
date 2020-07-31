@@ -7,4 +7,7 @@ if(findVideoLikeByUid($uid,$videoid)){
 }else{
 	addVideoLike($videoid,$uid);
 }
+$likecount=findVideoLikeCount($videoid);
+$arr=array('likecount'=>$likecount);
+echo json_encode($arr);
 ?>
