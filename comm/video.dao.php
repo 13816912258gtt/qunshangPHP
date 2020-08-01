@@ -12,9 +12,15 @@ function findVideoCount(){
 }
 function findVideos(){
 	$sql="select * from `tbl_video`";
-		$link=get_connect();
-		$rs=execQuery($sql,$link);
-		return $rs;
+	$link=get_connect();
+	$rs=execQuery($sql,$link);
+	return $rs;
+}
+function findVideosByUid($uid){
+	$sql="select * from `tbl_video` where `publishid`=$uid";
+	$link=get_connect();
+	$rs=execQuery($sql,$link);
+	return $rs;
 }
 function findVideoByVideoid($videoid){
 	$sql="select * from `tbl_video` where `videoid`=$videoid";
@@ -33,6 +39,13 @@ function findPublishidByVideoid($videoid){
 			return $rs[0];
 		}
 		return $rs;
+}
+/*---------videolike.dao------*/
+function findLikeVideoByUid($uid){
+	$sql="select * from `tbl_video` where `videoid` in(select `videoid` from `tbl_videolike` where `uid`=$uid)";
+	$link=get_connect();
+	$rs=execQuery($sql,$link);
+	return $rs;
 }
 /*---------videoreply.dao------*/
 function findVideoReplyCount($videoid){
