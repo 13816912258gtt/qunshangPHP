@@ -2,7 +2,7 @@
 $uid=$_GET['uid'];
 //身份为1是会员
 $identity=1;
-require_once 'comm/user.php';
+require_once 'comm/user.dao.php';
 require_once 'comm/member.dao.php';
 //升级用户表中的身份
 updateIdentityToMember($uid);

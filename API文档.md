@@ -4,11 +4,11 @@
 [1、根据手机密码身份插入注册](#1根据手机密码身份插入注册)<br/>
 [2、根据手机密码进行登录](#2根据手机密码进行登录)<br/>
 [3、根据状态码和ID修改登录状态](#3根据状态码和ID修改登录状态)<br/>
-[4、根据视频和用户ID进行点赞或删除点赞操作](#4根据视频和用户ID进行点赞或删除点赞操作)<br/>
+[4、点赞或删除点赞操作](#4根据视频和用户ID进行点赞或删除点赞操作)<br/>
 [5、通过用户ID修改各类表升级成为会员](#5通过用户ID升级成为会员)<br/>
-[6、根据用户ID返回视频列表](#6根据用户ID返回视频列表)<br/>
-[7、根据用户ID返回带货商品信息列表](#7根据用户ID返回带货商品信息列表)<br/>
-[8、根据用户ID返回短视频列表，点赞列表，带货商品信息](#8根据用户ID返回短视频列表，点赞列表，带货商品信息)<br/>
+[6、首页视频推送](#6根据用户ID返回视频列表)<br/>
+[7、进入小黄车](#7根据用户ID返回带货商品信息列表)<br/>
+[8、点击我的](#8根据用户ID返回短视频列表，点赞列表，带货商品信息)<br/>
 
 ## 1、根据手机密码身份插入注册
      
@@ -175,41 +175,36 @@
 	|uid        |Y       |String     |用户ID
 
 ### 返回示例：
-	{
-		"videolist1":{
-			"videoid":2,
-			"url":"...",
-			"posterurl":"...",
-			"videodesc":"无描述",
-			"publishid":1,
-			"publishtime":"2020-06-06 16:16:16",
-			"islike":1,
-			"likecount":100,
-			"replycount":50
+	[
+		{
+			"videoid":10,
+			"url":"",
+			"posterurl":"",
+			"videodesc":"",
+			"uid":"0000000002",
+			"uname":"",
+			"hedimage":"",
+			"productid":"0",
+			"publishtime":"2020-08-04 18:44:23",
+			"islike":false,
+			"likecount":"0",
+			"replycount":"0"
 		},
-		"videolist2":{
-			"videoid":2,
-			"url":"...",
-			"posterurl":"...",
-			"videodesc":"无描述",
-			"publishid":1,
-			"publishtime":"2020-06-06 16:16:16",
-			"islike":1,
-			"likecount":100,
-			"replycount":50
-		},
-		"videolist3":{
-			"videoid":2,
-			"url":"...",
-			"posterurl":"...",
-			"videodesc":"无描述",
-			"publishid":1,
-			"publishtime":"2020-06-06 16:16:16",
-			"islike":1,
-			"likecount":100,
-			"replycount":50
+		{
+			"videoid":7,
+			"url":"",
+			"posterurl":"",
+			"videodesc":"",
+			"uid":"0000000002",
+			"uname":"",
+			"hedimage":"",
+			"productid":"0",
+			"publishtime":"2020-08-04 18:44:21",
+			"islike":false,
+			"likecount":"0",
+			"replycount":"0"
 		},10条数据
-	}
+	]
 
 ## 7、根据用户ID返回带货商品信息列表
      
@@ -229,20 +224,22 @@
 
 ### 返回示例：
 	{
-		"productInfo":{
-			"productid":"1",
-			"productname":"test",
-			"productcover":"..\/jpg",
-			"productoldprice":"100",
-			"productnewprice":"50",
-			"storenum":"1000",
-			"productdesc":"这个人很懒…",
-			"commissionrate":"5",
-			"productstate":"2",
-			"classchildid":"1",
-			"shoppingmall":"1"
-		}
-	}
+		"productid":"3",
+		"productname":"test",
+		"productcover":"..\/jpg",
+		"productimage":"..\/jpg",
+		"introduceimage":"..\/jpg",
+		"productoldprice":"0",
+		"productnewprice":"0",
+		"productdesc":"暂无描述",
+		"commissionrate":"3",
+		"sellerid":"0000000003",
+		"productstate":"2",
+		"replynum":"0",
+		"sellnum":"0",
+		"classchildid":"1",
+		"shoppingmall":"1"
+	} 
 ## 8、根据用户ID返回短视频列表，点赞列表，带货商品信息
      
 ### 请求URL：
@@ -261,42 +258,51 @@
 
 ### 返回示例：
 	{
-		"myvideolist":"{
-			\"myvideolist1\":{
-				\"videoid\":\"1\",
-				\"url\":\"\",
-				\"posterurl\":\"\",
-				\"videodesc\":\"\",
-				\"publishid\":\"0000000002\",
-				\"publishtime\":\"2020-07-23 21:34:14\",
-				\"uname\":\"\",
-				\"headimage\":\"\"
+		"myvideolist":[
+			{
+				"videoid":"1",
+				"url":"",
+				"posterurl":"",
+				"videodesc":"",
+				"uid":"0000000002",
+				"uname":"",
+				"hedimage":"",
+				"productid":"0",
+				"publishtime":"2020-07-23 21:34:14",
+				"likecount":"0"
+			},所有我的视频数据
+		],
+		"mylikevideolist":[
+			{
+				"videoid":"1",
+				"url":"",
+				"posterurl":"",
+				"videodesc":"",
+				"uid":"0000000002",
+				"uname":"",
+				"hedimage":"",
+				"productid":"0",
+				"publishtime":"2020-07-23 21:34:14",
+				"likecount":"0"
 			}
-		}",
-		"mylikevideolist":"{
-			\"mylikevideolist1\":{
-				\"videoid\":\"1\",
-				\"url\":\"\",
-				\"posterurl\":\"\",
-				\"videodesc\":\"\",
-				\"publishid\":\"0000000002\",
-				\"publishtime\":\"2020-07-23 21:34:14\",
-				\"uname\":\"\",
-				\"headimage\":\"\"
+		],
+		"product":[
+			{
+				"productid":"2",
+				"productname":"test",
+				"productcover":"..\/jpg",
+				"productimage":"",
+				"introduceimage":"",
+				"productoldprice":"100",
+				"productnewprice":"50",
+				"productdesc":"暂无描述",
+				"commissionrate":"5",
+				"sellerid":"0000000002",
+				"productstate":"2",
+				"replynum":"0",
+				"sellnum":"0",
+				"classchildid":"1",
+				"shoppingmall":"1"
 			}
-		}",
-		"product":"{
-			\"productInfo\":{
-				\"productid\":\"2\",
-				\"productname\":\"test\",
-				\"productcover\":\"..\\\/jpg\",
-				\"productoldprice\":\"100\",
-				\"productnewprice\":\"50\",
-				\"storenum\":\"1000\",
-				\"productdesc\":\"这个人很懒…",
-				\"productstate\":\"2\",
-				\"classchildid\":\"1\",
-				\"shoppingmall\":\"1\"
-			}
-		}"
-	}  
+		]
+	} 

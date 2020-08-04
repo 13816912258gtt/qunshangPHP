@@ -1,7 +1,7 @@
 <?php
 	$phoneData = $_POST['phoneData'];
 	$passData = $_POST['passData'];
-	require_once 'comm/user.php';
+	require_once 'comm/user.dao.php';
 	if(!findUserByPhone($phoneData)){
 		$arr=array('statusCode'=>3,'errMsg'=>"手机号未注册");
 	}else{

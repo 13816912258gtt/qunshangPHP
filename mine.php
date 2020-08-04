@@ -7,26 +7,28 @@ $myvideo=array();
 if(!empty($videolist)){
 	$i=1;
 	foreach($videolist as $v){
-		$myvideoarr=array("myvideolist".$i=>array("videoid"=>$v['videoid'],"url"=>$v['url'],"posterurl"=>$v['posterurl'],"videodesc"=>$v['videodesc'],"publishid"=>$v['publishid'],"publishtime"=>$v['publishtime'],"productid"=>$v['productid'],"uname"=>$v['uname'],"headimage"=>$v['headimage']));
+		$videoid=$v['videoid'];
+		$likecount=findVideoLikeCount($videoid);
+		$myvideoarr=array(array('videoid'=>$videoid,'url'=>$v['url'],'posterurl'=>$v['posterurl'],'videodesc'=>$v['videodesc'],'uid'=>$v['uid'],'uname'=>$v['uname'],'hedimage'=>$v['headimage'],'productid'=>$v['productid'],'publishtime'=>$v['publishtime'],'likecount'=>$likecount));
 		$myvideo=array_merge_recursive($myvideo,$myvideoarr);
 		$i++;
 	}
 }
-$myvideo=json_encode($myvideo);
 $videolike=findLikeVideoByUid($uid);
 $mylikevideo=array();
 if(!empty($videolike)){
 	$i=1;
 	foreach($videolike as $v){
-		$mylikevideoarr=array("mylikevideolist".$i=>array("videoid"=>$v['videoid'],"url"=>$v['url'],"posterurl"=>$v['posterurl'],"videodesc"=>$v['videodesc'],"publishid"=>$v['publishid'],"publishtime"=>$v['publishtime'],"productid"=>$v['productid'],"uname"=>$v['uname'],"headimage"=>$v['headimage']));
+		$videoid=$v['videoid'];
+		$likecount=findVideoLikeCount($videoid);
+		$mylikevideoarr=array(array('videoid'=>$videoid,'url'=>$v['url'],'posterurl'=>$v['posterurl'],'videodesc'=>$v['videodesc'],'uid'=>$v['uid'],'uname'=>$v['uname'],'hedimage'=>$v['headimage'],'productid'=>$v['productid'],'publishtime'=>$v['publishtime'],'likecount'=>$likecount));
 		$mylikevideo=array_merge_recursive($mylikevideo,$mylikevideoarr);
 		$i++;
 	}
 }
-$mylikevideo=json_encode($mylikevideo);
+
 $product=findProductByUid($uid);
-$productarr=array("productInfo"=>array('productid'=>$product['productid'],'productname'=>$product['productname'],'productcover'=>$product['productcover'],'productoldprice'=>$product['productoldprice'],'productnewprice'=>$product['productnewprice'],'storenum'=>$product['storenum'],'productdesc'=>$product['productdesc'],'commissionrate'=>$product['commissionrate'],'productstate'=>$product['productstate'],'classchildid'=>$product['classchildid'],'shoppingmall'=>$product['shoppingmall']));
-$productarr=json_encode($productarr);
+$productarr=array(array('productid'=>$product['productid'],'productname'=>$product['productname'],'productcover'=>$product['productcover'],'productimage'=>$product['productimage'],'introduceimage'=>$product['introduceimage'],'productoldprice'=>$product['productoldprice'],'productnewprice'=>$product['productnewprice'],'productdesc'=>$product['productdesc'],'commissionrate'=>$product['commissionrate'],'sellerid'=>$product['sellerid'],'productstate'=>$product['productstate'],'replynum'=>$product['replynum'],'sellnum'=>$product['sellnum'],'classchildid'=>$product['classchildid'],'shoppingmall'=>$product['shoppingmall']));
 $result=array("myvideolist"=>$myvideo,"mylikevideolist"=>$mylikevideo,"product"=>$productarr);
 echo json_encode($result);
 ?>
