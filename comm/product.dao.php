@@ -10,4 +10,18 @@ function findProductByUid($uid){
 	}
 	return $rs;
 }
+/*---------productclass.dao------*/
+function findParentCLass(){
+	$link = get_connect();
+	$sql="select * from tbl_productclass";
+	$rs=execQuery($sql,$link);
+	return $rs;
+}
+/*---------productclasschild.dao------*/
+function findChildCLassByClassid($classid){
+	$link = get_connect();
+	$sql="select * from tbl_productclasschild where `productclassid`=$classid";
+	$rs=execQuery($sql,$link);
+	return $rs;
+}
 ?>

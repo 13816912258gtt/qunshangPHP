@@ -2,7 +2,7 @@
 $uid=$_GET['uid'];
 $videoid=$_GET['videoid'];
 require_once 'comm/video.dao.php';
-if(findVideoLikeByUid($uid,$videoid)){
+if(findVideoLikeByUid($videoid,$uid)){
 	deleteVideoLike($videoid,$uid);
 }else{
 	addVideoLike($videoid,$uid);

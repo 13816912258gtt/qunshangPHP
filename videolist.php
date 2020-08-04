@@ -16,9 +16,9 @@ require_once 'comm/video.dao.php';
 			$replycount=findVideoReplyCount($videoid);
 			$islike=false;
 			if(findVideoLikeByUid($videoid,$uid)){
-				$idlike=true;
+				$islike=true;
 			}
-			$videolistarr=array(array('videoid'=>$videoid,'url'=>$rs['url'],'posterurl'=>$rs['posterurl'],'videodesc'=>$rs['videodesc'],'uid'=>$rs['uid'],'uname'=>$rs['uname'],'hedimage'=>$rs['headimage'],'productid'=>$rs['productid'],'publishtime'=>$rs['publishtime'],'islike'=>$islike,'likecount'=>$likecount,'replycount'=>$replycount));
+			$videolistarr=array(array('videoid'=>$videoid,'url'=>$rs['url'],'posterurl'=>$rs['posterurl'],'videodesc'=>$rs['videodesc'],'uid'=>$rs['uid'],'uname'=>$rs['uname'],'headimage'=>$rs['headimage'],'productid'=>$rs['productid'],'publishtime'=>$rs['publishtime'],'islike'=>$islike,'likecount'=>$likecount,'replycount'=>$replycount));
 			$videolist=array_merge_recursive($videolist,$videolistarr);
 		}else{
 			$i=$i-1;

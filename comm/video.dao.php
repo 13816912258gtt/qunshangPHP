@@ -17,7 +17,7 @@ function findVideos(){
 	return $rs;
 }
 function findVideosByUid($uid){
-	$sql="select * from `tbl_video` where `publishid`=$uid";
+	$sql="select * from `tbl_video` where `uid`=$uid";
 	$link=get_connect();
 	$rs=execQuery($sql,$link);
 	return $rs;
@@ -31,8 +31,8 @@ function findVideoByVideoid($videoid){
 		}
 		return $rs;
 }
-function findPublishidByVideoid($videoid){
-	$sql="select publishid from `tbl_video` where `videoid`=$videoid";
+function findUidByVideoid($videoid){
+	$sql="select uid from `tbl_video` where `videoid`=$videoid";
 		$link=get_connect();
 		$rs=execQuery($sql,$link);
 		if(count($rs)>0){
@@ -74,15 +74,13 @@ function findVideoLikeByUid($videoid,$uid){
 	return $rs;
 }
 function deleteVideoLike($videoid,$uid){
-	$sql="delete from `tbl_video` where `videoid`=$videoid and `uid`=$uid";
+	$sql="delete from `tbl_videolike` where `videoid`=$videoid and `uid`=$uid";
 		$link=get_connect();
 		$rs=execUpdate($sql,$link);
 		return $rs;
 }
 function addVideoLike($videoid,$uid){
-	$result=findPublishidByVideoid($videoid);
-	$publishid=$result['publishid'];
-	$sql="insert into  `tbl_videolike` (`videoid`,`uid`,`publishid`)  values  ('$videoid','$uid','$publishid')";
+	$sql="insert into  `tbl_videolike` (`videoid`,`uid`)  values  ('$videoid','$uid')";
 	$link=get_connect();
 	$rs=execUpdate($sql,$link);
 	return $rs;

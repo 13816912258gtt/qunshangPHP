@@ -9,7 +9,7 @@ if(!empty($videolist)){
 	foreach($videolist as $v){
 		$videoid=$v['videoid'];
 		$likecount=findVideoLikeCount($videoid);
-		$myvideoarr=array(array('videoid'=>$videoid,'url'=>$v['url'],'posterurl'=>$v['posterurl'],'videodesc'=>$v['videodesc'],'uid'=>$v['uid'],'uname'=>$v['uname'],'hedimage'=>$v['headimage'],'productid'=>$v['productid'],'publishtime'=>$v['publishtime'],'likecount'=>$likecount));
+		$myvideoarr=array(array('videoid'=>$videoid,'url'=>$v['url'],'posterurl'=>$v['posterurl'],'videodesc'=>$v['videodesc'],'uid'=>$v['uid'],'uname'=>$v['uname'],'headimage'=>$v['headimage'],'productid'=>$v['productid'],'publishtime'=>$v['publishtime'],'likecount'=>$likecount));
 		$myvideo=array_merge_recursive($myvideo,$myvideoarr);
 		$i++;
 	}
@@ -21,7 +21,7 @@ if(!empty($videolike)){
 	foreach($videolike as $v){
 		$videoid=$v['videoid'];
 		$likecount=findVideoLikeCount($videoid);
-		$mylikevideoarr=array(array('videoid'=>$videoid,'url'=>$v['url'],'posterurl'=>$v['posterurl'],'videodesc'=>$v['videodesc'],'uid'=>$v['uid'],'uname'=>$v['uname'],'hedimage'=>$v['headimage'],'productid'=>$v['productid'],'publishtime'=>$v['publishtime'],'likecount'=>$likecount));
+		$mylikevideoarr=array(array('videoid'=>$videoid,'url'=>$v['url'],'posterurl'=>$v['posterurl'],'videodesc'=>$v['videodesc'],'uid'=>$v['uid'],'uname'=>$v['uname'],'headimage'=>$v['headimage'],'productid'=>$v['productid'],'publishtime'=>$v['publishtime'],'likecount'=>$likecount));
 		$mylikevideo=array_merge_recursive($mylikevideo,$mylikevideoarr);
 		$i++;
 	}
