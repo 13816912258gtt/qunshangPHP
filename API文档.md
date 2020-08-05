@@ -11,6 +11,7 @@
 [8、点击我的](#8根据用户ID返回短视频列表，点赞列表，带货商品信息)<br/>
 [9、搜索界面](#9返回父分类子分类信息)<br/>
 [10、加入购物车](#10根据用户ID商品规格ID加购数量加入购物车获更新购物车)<br/>
+[11、购物车列表界面](#11根据用户ID获取购物车列表)<br/>
 
 ## 1、根据手机密码身份插入注册
      
@@ -396,3 +397,41 @@
 		"statusCode":2,
 		"Msg":"加入购物车失败"
 	}
+
+## 11、购物车列表界面
+     
+### 请求URL：
+	http://212.129.235.182/handlers/shoppingcartlist.php?uid=uid
+
+### 示例：
+[http://212.129.235.182/handlers/shoppingcartlist.php?uid=000000002](http://212.129.235.182/handlers/shoppingcartlist.php?uid=000000002)
+
+### 请求方式：
+	GET
+
+### 参数类型：param
+
+	|参数		   |是否必选 |类型       |说明
+	|uid           |Y       |String     |用户ID
+
+### 返回示例：
+	[
+		{
+			"cartid":"3",
+			"productid":"3",
+			"productimageurl":"..\/jpg",
+			"productname":"test",
+			"productspecid":"1",
+			"productspecdesc":"暂无",
+			"productnum":"8"
+		},
+		{
+			"cartid":"4",
+			"productid":"3",
+			"productimageurl":"..\/jpg",
+			"productname":"test",
+			"productspecid":"2",
+			"productspecdesc":"暂无",
+			"productnum":"2"
+		}
+	] 

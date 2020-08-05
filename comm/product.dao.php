@@ -38,6 +38,12 @@ function addShoppingCart($uid,$productid,$productimageurl,$productname,$products
 	$rs=execUpdate($sql,$link);
 	return $rs;
 }
+function findShoppingcartByUid($uid){
+	$link = get_connect();
+	$sql="select * from tbl_shoppingcart where `uid`=$uid";
+	$rs=execQuery($sql,$link);
+	return $rs;
+}
 function findShoppingcart($uid,$productspecid){
 	$link = get_connect();
 	$sql="select * from tbl_shoppingcart where `productspecid`=$productspecid and `uid`=$uid";
