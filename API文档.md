@@ -297,13 +297,6 @@
 				"productid":"2",
 				"productname":"test",
 				"productcover":"..\/jpg",
-				"productimage":[
-					"https:\/\/img.alicdn.com\/imgextra\/i2\/389048191\/O1CN01bBuDHw2ANWk6aEJHx_!!389048191.jpg"
-				],
-				"introduceimage":[
-					"https:\/\/img.alicdn.com\/imgextra\/i1\/389048191\/O1CN01qUL1sE2ANWjuoWvfw_!!389048191.jpg",
-					"https:\/\/img.alicdn.com\/imgextra\/i4\/389048191\/O1CN01bTjtOC2ANWk68PUG9_!!389048191.jpg"
-				],
 				"productoldprice":"100",
 				"productnewprice":"50",
 				"productdesc":"暂无描述",
