@@ -9,7 +9,8 @@
 [6、首页视频推送](#6根据用户ID返回视频列表)<br/>
 [7、进入小黄车](#7根据用户ID返回带货商品信息列表)<br/>
 [8、点击我的](#8根据用户ID返回短视频列表，点赞列表，带货商品信息)<br/>
-[9、搜索界面](#8返回父分类子分类信息)<br/>
+[9、搜索界面](#9返回父分类子分类信息)<br/>
+[10、加入购物车](#10根据用户ID商品规格ID加购数量加入购物车获更新购物车)<br/>
 
 ## 1、根据手机密码身份插入注册
      
@@ -364,3 +365,34 @@
 			]
 		}
 	]  
+
+## 10、加入购物车
+     
+### 请求URL：
+	http://212.129.235.182/handlers/addtoshoppingcart.php?uid=uid&productspecid=productspecid&productnum=productnum
+
+### 示例：
+[http://212.129.235.182/handlers/addtoshoppingcart.php?uid=000000002&productspecid=1&productnum=2](http://212.129.235.182/handlers/addtoshoppingcart.php?uid=000000002&productspecid=1&productnum=2)
+
+### 请求方式：
+	GET
+
+### 参数类型：param
+
+	|参数		   |是否必选 |类型       |说明
+	|uid           |Y       |String     |用户ID
+	|productspecid |Y       |String     |商品规格ID
+	|productnum    |Y       |String     |加购数量
+
+### 返回示例：
+	//成功事例
+	{
+		"statusCode":1,
+		"Msg":"加入购物车成功",
+		"num":"8"
+	} 
+	//失败事例
+	{
+		"statusCode":2,
+		"Msg":"加入购物车失败"
+	}
