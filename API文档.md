@@ -9,14 +9,15 @@
 [6、首页视频推送](#6根据用户ID返回视频列表)<br/>
 [7、进入小黄车](#7根据用户ID返回带货商品信息列表)<br/>
 [8、点击我的](#8根据用户ID返回短视频列表，点赞列表，带货商品信息)<br/>
+[9、搜索界面](#8返回父分类子分类信息)<br/>
 
 ## 1、根据手机密码身份插入注册
      
 ### 请求URL：
-	http://localhost:3000/register.php
+	http://212.129.235.182/handlers/register.php
 
 ### 示例：
-[http://localhost:3000/register.php](http://localhost:3000/register.php)
+[http://212.129.235.182/handlers/register.php](http://212.129.235.182/handlers/register.php)
 
 ### 请求方式：
 	POST
@@ -42,10 +43,10 @@
 ## 2、根据手机密码进行登录
      
 ### 请求URL：
-	http://localhost:3000/login.php
+	http://212.129.235.182/handlers/login.php
 
 ### 示例：
-[http://localhost:3000/login.php](http://localhost:3000/login.php)
+[http://212.129.235.182/handlers/login.php](http://212.129.235.182/handlers/login.php)
 
 ### 请求方式：
 	POST
@@ -91,10 +92,10 @@
 ## 3、根据状态码和ID修改登录状态
      
 ### 请求URL：
-	http://localhost:3000/index.php?token=token&uid=uid
+	http://212.129.235.182/handlers/index.php?token=token&uid=uid
 
 ### 示例：
-[http://localhost:3000/index.php?token=21983749&uid=000000001](http://localhost:3000/index.php?token=21983749&uid=000000001)
+[http://212.129.235.182/handlers/index.php?token=21983749&uid=000000001](http://212.129.235.182/handlers/index.php?token=21983749&uid=000000001)
 
 ### 请求方式：
 	GET
@@ -119,10 +120,10 @@
 ## 4、根据视频和用户ID进行点赞或删除点赞操作
      
 ### 请求URL：
-	http://localhost:3000/dolike.php?uid=uid&videoid=videoid
+	http://212.129.235.182/handlers/dolike.php?uid=uid&videoid=videoid
 
 ### 示例：
-[http://localhost:3000/dolike.php?uid=000000001&videoid=2](http://localhost:3000/dolike.php?uid=000000001&videoid=2)
+[http://212.129.235.182/handlers/dolike.php?uid=000000001&videoid=2](http://212.129.235.182/handlers/dolike.php?uid=000000001&videoid=2)
 
 ### 请求方式：
 	GET
@@ -142,10 +143,10 @@
 ## 5、通过用户ID修改各类表升级成为会员
      
 ### 请求URL：
-	http://localhost:3000/uptomember.php?uid=uid
+	http://212.129.235.182/handlers/uptomember.php?uid=uid
 
 ### 示例：
-[http://localhost:3000/dolike.php?uid=000000001](http://localhost:3000/dolike.php?uid=000000001)
+[http://212.129.235.182/handlers/dolike.php?uid=000000001](http://212.129.235.182/handlers/dolike.php?uid=000000001)
 
 ### 请求方式：
 	GET
@@ -161,10 +162,10 @@
 ## 6、根据用户ID返回视频列表
      
 ### 请求URL：
-	http://localhost:3000/videolist.php?uid=uid
+	http://212.129.235.182/handlers/videolist.php?uid=uid
 
 ### 示例：
-[http://localhost:3000/videolist.php?uid=000000001](http://localhost:3000/videolist.php?uid=000000001)
+[http://212.129.235.182/handlers/videolist.php?uid=000000001](http://212.129.235.182/handlers/videolist.php?uid=000000001)
 
 ### 请求方式：
 	GET
@@ -206,13 +207,13 @@
 		},10条数据
 	]
 
-## 7、根据用户ID返回带货商品信息列表
+## 7、进入小黄车
      
 ### 请求URL：
-	http://localhost:3000/yellowcar.php?uid=uid
+	http://212.129.235.182/handlers/yellowcar.php?uid=uid
 
 ### 示例：
-[http://localhost:3000/yellowcar.php?uid=000000001](http://localhost:3000/yellowcar.php?uid=000000001)
+[http://212.129.235.182/handlers/yellowcar.php?uid=000000001](http://212.129.235.182/handlers/yellowcar.php?uid=000000001)
 
 ### 请求方式：
 	GET
@@ -227,11 +228,16 @@
 		"productid":"3",
 		"productname":"test",
 		"productcover":"..\/jpg",
-		"productimage":"..\/jpg",
-		"introduceimage":"..\/jpg",
+		"productimage":[
+			"https:\/\/img.alicdn.com\/imgextra\/i2\/389048191\/O1CN01bBuDHw2ANWk6aEJHx_!!389048191.jpg"
+		],
+		"introduceimage":[
+			"https:\/\/img.alicdn.com\/imgextra\/i1\/389048191\/O1CN01qUL1sE2ANWjuoWvfw_!!389048191.jpg",
+			"https:\/\/img.alicdn.com\/imgextra\/i4\/389048191\/O1CN01bTjtOC2ANWk68PUG9_!!389048191.jpg"
+		],
 		"productoldprice":"0",
 		"productnewprice":"0",
-		"productdesc":"暂无描述",
+		"productdesc":"\u8fd9\u4e2a\u4eba\u5f88\u61d2\u2026",
 		"commissionrate":"3",
 		"sellerid":"0000000003",
 		"productstate":"2",
@@ -239,14 +245,14 @@
 		"sellnum":"0",
 		"classchildid":"1",
 		"shoppingmall":"1"
-	} 
-## 8、根据用户ID返回短视频列表，点赞列表，带货商品信息
+	}  
+## 8、点击我的
      
 ### 请求URL：
-	http://localhost:3000/mine.php?uid=uid
+	http://212.129.235.182/handlers/mine.php?uid=uid
 
 ### 示例：
-[http://localhost:3000/mine.php?uid=000000002](http://localhost:3000/mine.php?uid=000000002)
+[http://212.129.235.182/handlers/mine.php?uid=000000002](http://212.129.235.182/handlers/mine.php?uid=000000002)
 
 ### 请求方式：
 	GET
@@ -291,8 +297,13 @@
 				"productid":"2",
 				"productname":"test",
 				"productcover":"..\/jpg",
-				"productimage":"",
-				"introduceimage":"",
+				"productimage":[
+					"https:\/\/img.alicdn.com\/imgextra\/i2\/389048191\/O1CN01bBuDHw2ANWk6aEJHx_!!389048191.jpg"
+				],
+				"introduceimage":[
+					"https:\/\/img.alicdn.com\/imgextra\/i1\/389048191\/O1CN01qUL1sE2ANWjuoWvfw_!!389048191.jpg",
+					"https:\/\/img.alicdn.com\/imgextra\/i4\/389048191\/O1CN01bTjtOC2ANWk68PUG9_!!389048191.jpg"
+				],
 				"productoldprice":"100",
 				"productnewprice":"50",
 				"productdesc":"暂无描述",
@@ -306,3 +317,57 @@
 			}
 		]
 	} 
+	
+## 9、搜索界面
+     
+### 请求URL：
+	http://212.129.235.182/handlers/researchclass.php
+
+### 示例：
+[http://212.129.235.182/handlers/researchclass.php](http://212.129.235.182/handlers/researchclass.php)
+
+### 请求方式：
+	GET
+
+### 参数类型：param
+
+	|参数		|是否必选 |类型       |说明
+
+
+### 返回示例：
+	[
+		{
+			"productclassid":"2",
+			"classname":"医疗",
+			"classimage":"url..",
+			"childclass":[
+				{
+					"classchildid":"3",
+					"classchildname":"医疗器械",
+					"classchildimage":"url.."
+				},
+				{
+					"classchildid":"4",
+					"classchildname":"医疗药品",
+					"classchildimage":"url.."
+				}
+			]
+		},
+		{
+			"productclassid":"3",
+			"classname":"果蔬",
+			"classimage":"url..",
+			"childclass":[
+				{
+					"classchildid":"5",
+					"classchildname":"水果",
+					"classchildimage":"url.."
+				},
+				{
+					"classchildid":"6",
+					"classchildname":"蔬菜",
+					"classchildimage":"url.."
+				}
+			]
+		}
+	]  

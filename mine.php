@@ -28,7 +28,11 @@ if(!empty($videolike)){
 }
 
 $product=findProductByUid($uid);
-$productarr=array(array('productid'=>$product['productid'],'productname'=>$product['productname'],'productcover'=>$product['productcover'],'productimage'=>$product['productimage'],'introduceimage'=>$product['introduceimage'],'productoldprice'=>$product['productoldprice'],'productnewprice'=>$product['productnewprice'],'productdesc'=>$product['productdesc'],'commissionrate'=>$product['commissionrate'],'sellerid'=>$product['sellerid'],'productstate'=>$product['productstate'],'replynum'=>$product['replynum'],'sellnum'=>$product['sellnum'],'classchildid'=>$product['classchildid'],'shoppingmall'=>$product['shoppingmall']));
+$introduceimage=$product['introduceimage'];
+$introducearr=explode("\n",$introduceimage);
+$productimage=$product['productimage'];
+$productimagearr=explode("\n",$productimage);
+$productarr=array(array('productid'=>$product['productid'],'productname'=>$product['productname'],'productcover'=>$product['productcover'],'productimage'=>$productimagearr,'introduceimage'=>$introducearr,'productoldprice'=>$product['productoldprice'],'productnewprice'=>$product['productnewprice'],'productdesc'=>$product['productdesc'],'commissionrate'=>$product['commissionrate'],'sellerid'=>$product['sellerid'],'productstate'=>$product['productstate'],'replynum'=>$product['replynum'],'sellnum'=>$product['sellnum'],'classchildid'=>$product['classchildid'],'shoppingmall'=>$product['shoppingmall']));
 $result=array("myvideolist"=>$myvideo,"mylikevideolist"=>$mylikevideo,"product"=>$productarr);
-echo json_encode($result);
+echo json_encode($result,JSON_UNESCAPED_UNICODE);
 ?>
