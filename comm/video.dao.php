@@ -85,4 +85,29 @@ function addVideoLike($videoid,$uid){
 	$rs=execUpdate($sql,$link);
 	return $rs;
 }
+/*---------videofocus.dao------*/
+function findVideoFocus($followid,$leadid){
+	$sql="select * from `tbl_videofocus` where `followid`=$followid and `leadid`=$leadid";
+	$link=get_connect();
+	$rs=execQuery($sql,$link);
+	return $rs;
+}
+function deleteVideoFocus($followid,$leadid){
+	$sql="delete from `tbl_videofocus` where `followid`=$followid and `leadid`=$leadid";
+	$link=get_connect();
+	$rs=execUpdate($sql,$link);
+	return $rs;
+}
+function addVideoFocus($followid,$leadid){
+	$sql="insert into `tbl_videofocus`(`followid`,`leadid`)values($followid,$leadid)";
+	$link=get_connect();
+	$rs=execUpdate($sql,$link);
+	return $rs;
+}
+function findFocusVideoByUid($uid){
+	$sql="select * from `tbl_video` where `uid` in(select `leadid` from `tbl_videofocus` where `followid`=$uid) order by publishtime desc";
+	$link=get_connect();
+	$rs=execQuery($sql,$link);
+	return $rs;
+}
 ?>

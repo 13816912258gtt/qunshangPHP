@@ -18,12 +18,15 @@ require_once 'comm/video.dao.php';
 			if(findVideoLikeByUid($videoid,$uid)){
 				$islike=true;
 			}
-			$videolistarr=array(array('videoid'=>$videoid,'url'=>$rs['url'],'posterurl'=>$rs['posterurl'],'videodesc'=>$rs['videodesc'],'uid'=>$rs['uid'],'uname'=>$rs['uname'],'headimage'=>$rs['headimage'],'productid'=>$rs['productid'],'publishtime'=>$rs['publishtime'],'islike'=>$islike,'likecount'=>$likecount,'replycount'=>$replycount));
+			$isfocus=false;
+			if(findVideoFocus($uid,$rs['uid'])){
+				$isfocus=true;
+			}
+			$videolistarr=array(array('videoid'=>$videoid,'url'=>$rs['url'],'posterurl'=>$rs['posterurl'],'videodesc'=>$rs['videodesc'],'uid'=>$rs['uid'],'uname'=>$rs['uname'],'headimage'=>$rs['headimage'],'productid'=>$rs['productid'],'publishtime'=>$rs['publishtime'],'islike'=>$islike,'isfocus'=>$isfocus,'likecount'=>$likecount,'replycount'=>$replycount));
 			$videolist=array_merge_recursive($videolist,$videolistarr);
 		}else{
 			$i=$i-1;
 		}
 	}
-	echo json_encode($videolist);	
-
+	echo json_encode($videolist,JSON_UNESCAPED_UNICODE);	
 ?>

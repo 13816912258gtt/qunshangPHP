@@ -12,6 +12,7 @@
 [9、搜索界面](#9返回父分类子分类信息)<br/>
 [10、加入购物车](#10根据用户ID商品规格ID加购数量加入购物车获更新购物车)<br/>
 [11、购物车列表界面](#11根据用户ID获取购物车列表)<br/>
+[12、关注视频列表界面](#12根据用户ID获取关注的人的视频列表)<br/>
 
 ## 1、根据手机密码身份插入注册
      
@@ -190,6 +191,7 @@
 			"productid":"0",
 			"publishtime":"2020-08-04 18:44:23",
 			"islike":false,
+			"isfocus":false,
 			"likecount":"0",
 			"replycount":"0"
 		},
@@ -204,6 +206,7 @@
 			"productid":"0",
 			"publishtime":"2020-08-04 18:44:21",
 			"islike":false,
+			"isfocus":false,
 			"likecount":"0",
 			"replycount":"0"
 		},10条数据
@@ -435,3 +438,54 @@
 			"productnum":"2"
 		}
 	] 
+
+## 12、关注视频列表界面
+     
+### 请求URL：
+	http://212.129.235.182/handlers/videolistfocus.php?uid=uid
+
+### 示例：
+[http://212.129.235.182/handlers/videolistfocus.php?uid=000000001](http://212.129.235.182/handlers/videolistfocus.php?uid=000000001)
+
+### 请求方式：
+	GET
+
+### 参数类型：param
+
+	|参数		   |是否必选 |类型       |说明
+	|uid           |Y       |String     |用户ID
+
+### 返回示例：
+	[
+		{
+			"videoid":"15",
+			"url":"",
+			"posterurl":"",
+			"videodesc":"",
+			"uid":"0000000002",
+			"uname":"",
+			"headimage":"",
+			"productid":"0",
+			"publishtime":"2020-08-04 18:44:28",
+			"islike":false,
+			"isfocus":true,
+			"likecount":"0",
+			"replycount":"0"
+		},
+		{
+			"videoid":"14",
+			"url":"",
+			"posterurl":"",
+			"videodesc":"",
+			"uid":"0000000002",
+			"uname":"",
+			"headimage":"",
+			"productid":"0",
+			"publishtime":"2020-08-04 18:44:27",
+			"islike":false,
+			"isfocus":true,
+			"likecount":"0",
+			"replycount":"0"
+		},10条视频
+	]
+		
