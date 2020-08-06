@@ -13,6 +13,7 @@
 [10、加入购物车](#10根据用户ID商品规格ID加购数量加入购物车获更新购物车)<br/>
 [11、购物车列表界面](#11根据用户ID获取购物车列表)<br/>
 [12、关注视频列表界面](#12根据用户ID获取关注的人的视频列表)<br/>
+[13、获取商品规格](#13根据商品ID获取商品规格列表)<br/>
 
 ## 1、根据手机密码身份插入注册
      
@@ -488,4 +489,35 @@
 			"replycount":"0"
 		},10条视频
 	]
-		
+
+## 13、获取商品规格
+     
+### 请求URL：
+	http://212.129.235.182/handlers/getproductdedsc.php?productid=productid
+
+### 示例：
+[http://212.129.235.182/handlers/getproductdedsc.php?productid=3](http://212.129.235.182/handlers/getproductdedsc.php?productid=3)
+
+### 请求方式：
+	GET
+
+### 参数类型：param
+
+	|参数		   |是否必选 |类型       |说明
+	|productid     |Y       |String     |商品ID
+
+### 返回示例：
+	[
+		{
+			"productspecid":"1",
+			"productspecdesc":"暂无",
+			"storenum":"100",
+			"productoldprice":"0"
+		},
+		{
+			"productspecid":"2",
+			"productspecdesc":"暂无",
+			"storenum":"50",
+			"productoldprice":"20"
+		}
+	] 

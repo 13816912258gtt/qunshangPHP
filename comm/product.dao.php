@@ -31,6 +31,12 @@ function findProductSpecBySpecid($productspecid){
 	}
 	return $rs;
 }
+function findSpecByProductid($productid){
+	$link = get_connect();
+	$sql="select * from tbl_productspec where `productid`=$productid";
+	$rs=execQuery($sql,$link);
+	return $rs;
+}
 /*---------shoppingcart.dao------*/
 function addShoppingCart($uid,$productid,$productimageurl,$productname,$productspecid,$productspecdesc,$productnum){
 	$link=get_connect();
