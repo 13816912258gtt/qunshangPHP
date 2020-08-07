@@ -14,6 +14,7 @@
 [11、购物车列表界面](#11根据用户ID获取购物车列表)<br/>
 [12、关注视频列表界面](#12根据用户ID获取关注的人的视频列表)<br/>
 [13、获取商品规格](#13根据商品ID获取商品规格列表)<br/>
+[14、点击头像返回用户信息](#14根据用户ID和发布视频者ID获取发布者信息（包括是否关注）)<br/>
 
 ## 1、根据手机密码身份插入注册
      
@@ -521,3 +522,70 @@
 			"productoldprice":"20"
 		}
 	] 
+
+## 14、点击头像返回用户信息
+     
+### 请求URL：
+	http://212.129.235.182/handlers/headimagetoinfo.php?publishid=publishid&uid=uid
+
+### 示例：
+[http://212.129.235.182/handlers/headimagetoinfo.php?publishid=000000001&uid=000000002](http://212.129.235.182/handlers/headimagetoinfo.php?publishid=000000001&uid=000000002)
+
+### 请求方式：
+	GET
+
+### 参数类型：param
+
+	|参数		|是否必选 |类型       |说明
+	|publishid  |Y       |String     |发布视频用户ID
+	|uid        |Y       |String     |用户ID
+
+### 返回示例：
+	{
+		"isfocus":false,
+		"myvideolist":[
+			{
+				"videoid":"1",
+				"url":"",
+				"posterurl":"",
+				"videodesc":"",
+				"uid":"0000000002",
+				"uname":"",
+				"hedimage":"",
+				"productid":"0",
+				"publishtime":"2020-07-23 21:34:14",
+				"likecount":"0"
+			},所有我的视频数据
+		],
+		"mylikevideolist":[
+			{
+				"videoid":"1",
+				"url":"",
+				"posterurl":"",
+				"videodesc":"",
+				"uid":"0000000002",
+				"uname":"",
+				"hedimage":"",
+				"productid":"0",
+				"publishtime":"2020-07-23 21:34:14",
+				"likecount":"0"
+			}
+		],
+		"product":[
+			{
+				"productid":"2",
+				"productname":"test",
+				"productcover":"..\/jpg",
+				"productoldprice":"100",
+				"productnewprice":"50",
+				"productdesc":"暂无描述",
+				"commissionrate":"5",
+				"sellerid":"0000000002",
+				"productstate":"2",
+				"replynum":"0",
+				"sellnum":"0",
+				"classchildid":"1",
+				"shoppingmall":"1"
+			}
+		]
+	} 
