@@ -15,6 +15,7 @@
 [12、关注视频列表界面](#12根据用户ID获取关注的人的视频列表)<br/>
 [13、获取商品规格](#13根据商品ID获取商品规格列表)<br/>
 [14、点击头像返回用户信息](#14根据用户ID和发布视频者ID获取发布者信息（包括是否关注）)<br/>
+[15、提交订单生成主表和从表](#15根据订单信息新增订单信息)<br/>
 
 ## 1、根据手机密码身份插入注册
      
@@ -589,3 +590,33 @@
 			}
 		]
 	} 
+
+## 14、点击头像返回用户信息
+     
+### 请求URL：
+	http://212.129.235.182/handlers/submitorder.php?coupon=coupon
+
+### 示例：
+[http://212.129.235.182/handlers/submitorder.php?coupon=coupon](http://212.129.235.182/handlers/submitorder.php?coupon='{"uid":"000000002","addressid":"1","productlist":[{"cartid":"4","discountid":"1","discuss":"emm..."}]}')
+
+### 请求方式：
+	GET
+
+### 参数类型：param
+
+	|参数		|是否必选 |类型       |说明
+	|coupon     |Y       |Array      |订单信息
+
+### 返回示例：
+	[
+		{
+			"mainorderid":10,
+			"orderstate":0,
+			"finalprice":40
+		}
+	]
+	//库存不足
+	[
+		"statusCode"=>0,
+		"Msg"=>"库存不足"
+	]

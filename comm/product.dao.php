@@ -37,6 +37,21 @@ function findSpecByProductid($productid){
 	$rs=execQuery($sql,$link);
 	return $rs;
 }
+function findSpecByCartid($cartid){
+	$link = get_connect();
+	$sql="select * from `tbl_productspec` where `productspecid` in (select `productspecid` from `tbl_shoppingcart` where `cartid`=$cartid)";
+	$rs=execQuery($sql,$link);
+	if(count($rs)>0){
+		return $rs[0];
+	}
+	return $rs;
+}
+function updateStorenumBySpecid($productspecid,$storenum){
+	$link = get_connect();
+	$sql="update `tbl_productspec` set `storenum`=$storenum where `productspecid`=$productspecid";
+	$rs=execUpdate($sql,$link);
+	return $rs;
+}
 /*---------shoppingcart.dao------*/
 function addShoppingCart($uid,$productid,$productimageurl,$productname,$productspecid,$productspecdesc,$productnum){
 	$link=get_connect();
@@ -56,6 +71,24 @@ function findShoppingcart($uid,$productspecid){
 	$rs=execQuery($sql,$link);
 	if(count($rs)>0){
 		return $rs[0];
+	}
+	return $rs;
+}
+function findCartByCartid($cartid){
+	$link = get_connect();
+	$sql="select * from tbl_shoppingcart where `cartid`=$cartid";
+	$rs=execQuery($sql,$link);
+	if(count($rs)>0){
+		return $rs[0];
+	}
+	return $rs;
+}
+function findSelleridByCartid($cartid){
+	$link = get_connect();
+	$sql="select sellerid from `tbl_product` where `productid` in (select `productid` from `tbl_shoppingcart` where `cartid`=$cartid)";
+	$rs=execQuery($sql,$link);
+	if(count($rs)>0){
+		return $rs[0]["sellerid"];
 	}
 	return $rs;
 }
