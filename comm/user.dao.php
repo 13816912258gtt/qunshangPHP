@@ -74,6 +74,13 @@ function findUserByUid($uid){
 	}
 	return $rs;
 }
+function findUnameByUid($uid){
+	$link = get_connect();
+	$sql="select * from tbl_user where `uid`=$uid";
+	$rs=execQuery($sql,$link);
+	mysql_close($link);
+	return $rs[0]["uname"];
+}
 function updateIdentityToMember($uid){
 	$link = get_connect();
 	$sql="update `tbl_user` set `identity`=2 where `uid`=$uid";

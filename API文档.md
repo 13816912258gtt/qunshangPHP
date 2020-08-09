@@ -423,7 +423,7 @@
 ### 返回示例：
 	[
 		{
-			"sellerid":"0000000002",
+			"sellername":"用户_1381691",
 			"productid":"2",
 			"productimageurl":"\/",
 			"productname":"test",
@@ -438,11 +438,11 @@
 			]
 		},
 		{
-			"sellerid":"0000000003",
+			"sellername":"用户_1381691",
 			"productid":"3",
 			"productimageurl":"..\/jpg",
-			"productname":"test",
-			"productspeclist":[
+			"productname":"test","
+			productspeclist":[
 				{
 					"cartid":"3",
 					"productspecid":"1",
