@@ -98,6 +98,12 @@ function findSpecByUP($uid,$productid){
 	$rs=execQuery($sql,$link);
 	return $rs;
 }
+function findPriceBySpecid($productspecid){
+	$link = get_connect();
+	$sql="select * from `tbl_productspec` where `productspecid`=$productspecid";
+	$rs=execQuery($sql,$link);
+	return $rs[0]["productoldprice"];
+}
 function updateShoppingcart($uid,$productspecid,$productnum){
 	$link = get_connect();
 	$sql="update `tbl_shoppingcart` set `productnum`=$productnum where `uid`=$uid and `productspecid`=$productspecid";

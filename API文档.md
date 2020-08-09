@@ -432,6 +432,7 @@
 					"cartid":"5",
 					"productspecid":"1",
 					"productspecdesc":"..",
+					"productoldprice":"0",
 					"productnum":"4"
 				}
 			]
@@ -446,12 +447,14 @@
 					"cartid":"3",
 					"productspecid":"1",
 					"productspecdesc":"暂无",
+					"productoldprice":"0",
 					"productnum":"8"
 				},
 				{
 					"cartid":"4",
 					"productspecid":"2",
 					"productspecdesc":"暂无",
+					"productoldprice":"20",
 					"productnum":"8"
 				}
 			]
@@ -607,7 +610,7 @@
 		]
 	} 
 
-## 14、点击头像返回用户信息
+## 15、提交订单生成主表和从表
      
 ### 请求URL：
 	http://212.129.235.182/handlers/submitorder.php?coupon=coupon
@@ -621,7 +624,21 @@
 ### 参数类型：param
 
 	|参数		|是否必选 |类型       |说明
-	|coupon     |Y       |Array      |订单信息
+	|coupon     |Y       |Object     |订单信息
+	
+### coupon Object说明
+
+	|参数		 |是否必选 |类型            |说明
+	|uid         |Y       |String         |用户ID
+	|addressid   |Y       |String         |地址ID
+	|productlist |Y       |Array.<Object>  |商品列表
+
+### productlist Array.<Object>说明
+
+	|参数		 |是否必选 |类型       |说明
+	|cartid      |Y       |String     |购物车ID
+	|discountid  |Y       |String     |优惠券ID
+	|discuss     |Y       |String     |留言
 
 ### 返回示例：
 	[

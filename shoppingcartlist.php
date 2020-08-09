@@ -8,7 +8,9 @@ foreach($shoppingcartrs as $v){
 	$speclist=array();
 	$specarr=findSpecByUP($uid,$productid);
 	foreach($specarr as $x){
-		$speclistarr=array(array("cartid"=>$x['cartid'],"productspecid"=>$x['productspecid'],"productspecdesc"=>$x['productspecdesc'],"productnum"=>$v['productnum']));
+		$productspecid=$x['productspecid'];
+		$productoldprice=findPriceBySpecid($productspecid);
+		$speclistarr=array(array("cartid"=>$x['cartid'],"productspecid"=>$x['productspecid'],"productspecdesc"=>$x['productspecdesc'],"productoldprice"=>$productoldprice,"productnum"=>$v['productnum']));
 		$speclist=array_merge_recursive($speclist,$speclistarr);
 	}
 	$sellerid=findSelleridByCartid($v['cartid']);
