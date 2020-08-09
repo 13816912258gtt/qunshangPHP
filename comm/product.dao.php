@@ -61,7 +61,7 @@ function addShoppingCart($uid,$productid,$productimageurl,$productname,$products
 }
 function findShoppingcartByUid($uid){
 	$link = get_connect();
-	$sql="select * from tbl_shoppingcart where `uid`=$uid";
+	$sql="select * from tbl_shoppingcart where `uid`=$uid group by `productid` order by `cartid` desc";
 	$rs=execQuery($sql,$link);
 	return $rs;
 }
@@ -90,6 +90,12 @@ function findSelleridByCartid($cartid){
 	if(count($rs)>0){
 		return $rs[0]["sellerid"];
 	}
+	return $rs;
+}
+function findSpecByUP($uid,$productid){
+	$link = get_connect();
+	$sql="select * from `tbl_shoppingcart` where `productid`=$productid and `uid`=$uid";
+	$rs=execQuery($sql,$link);
 	return $rs;
 }
 function updateShoppingcart($uid,$productspecid,$productnum){

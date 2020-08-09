@@ -423,22 +423,38 @@
 ### 返回示例：
 	[
 		{
-			"cartid":"3",
-			"productid":"3",
-			"productimageurl":"..\/jpg",
+			"sellerid":"0000000002",
+			"productid":"2",
+			"productimageurl":"\/",
 			"productname":"test",
-			"productspecid":"1",
-			"productspecdesc":"暂无",
-			"productnum":"8"
+			"productspeclist":[
+				{
+					"cartid":"5",
+					"productspecid":"1",
+					"productspecdesc":"..",
+					"productnum":"4"
+				}
+			]
 		},
 		{
-			"cartid":"4",
+			"sellerid":"0000000003",
 			"productid":"3",
 			"productimageurl":"..\/jpg",
 			"productname":"test",
-			"productspecid":"2",
-			"productspecdesc":"暂无",
-			"productnum":"2"
+			"productspeclist":[
+				{
+					"cartid":"3",
+					"productspecid":"1",
+					"productspecdesc":"暂无",
+					"productnum":"8"
+				},
+				{
+					"cartid":"4",
+					"productspecid":"2",
+					"productspecdesc":"暂无",
+					"productnum":"8"
+				}
+			]
 		}
 	] 
 
