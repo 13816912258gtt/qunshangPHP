@@ -1,5 +1,11 @@
 <?PHP
 require_once 'common.php';
+function test_input($data) {
+   $data = trim($data); //去除左右两端的空白字符
+   $data = stripslashes($data); //去除输入中的反斜杠
+   $data = htmlspecialchars($data); //将特殊字符转换为实体引用
+   return $data;
+}
 /*---------video.dao------*/
 function findVideoCount(){
 	$sql="select count(`videoid`) as num from `tbl_video`";
@@ -39,6 +45,12 @@ function findUidByVideoid($videoid){
 			return $rs[0];
 		}
 		return $rs;
+}
+function findVideoByKey($keyword){
+	$sql = "select * from `tbl_video` where `videodesc` like '%$keyword%' order by `publishtime` desc"; 
+	$link=get_connect();
+	$rs=execQuery($sql,$link);
+	return $rs;
 }
 /*---------videolike.dao------*/
 function findLikeVideoByUid($uid){

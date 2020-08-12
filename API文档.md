@@ -16,6 +16,7 @@
 [13、获取商品规格](#13根据商品ID获取商品规格列表)<br/>
 [14、点击头像返回用户信息](#14根据用户ID和发布视频者ID获取发布者信息（包括是否关注）)<br/>
 [15、提交订单生成主表和从表](#15根据订单信息新增订单信息)<br/>
+[16、视频搜索返回相关视频](#16根据关键字返回相关视频信息)<br/>
 
 ## 1、根据手机密码身份插入注册
      
@@ -653,3 +654,31 @@
 		"statusCode"=>0,
 		"Msg"=>"库存不足"
 	]
+	
+## 16、视频搜索返回相关视频
+     
+### 请求URL：
+	http://212.129.235.182/handlers/researchvideo.php
+
+### 示例：
+[http://212.129.235.182/handlers/researchvideo.php](http://212.129.235.182/handlers/researchvideo.php)
+
+### 请求方式：
+	POST
+
+### 参数类型：param
+
+	|参数		|是否必选 |类型       |说明
+	|keyword    |Y       |String     |关键字搜索
+
+### 返回示例：
+	[
+		{
+			"videoid":"15",
+			"posterurl":"",
+			"videodesc":"test",
+			"uname":"",
+			"headimage":"",
+			"likecount":"0"
+		}
+	] 
