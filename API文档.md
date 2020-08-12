@@ -17,6 +17,9 @@
 [14、点击头像返回用户信息](#14根据用户ID和发布视频者ID获取发布者信息（包括是否关注）)<br/>
 [15、提交订单生成主表和从表](#15根据订单信息新增订单信息)<br/>
 [16、视频搜索返回相关视频](#16根据关键字返回相关视频信息)<br/>
+[17、视频提交评论](#17上传视频评论)<br/>
+[18、视频评论列表](#18根据视频ID返回列表，三个最热，剩下按时间)<br/>
+[19、视频评论点赞](#19通过评论ID来进行点赞数+1)<br/>
 
 ## 1、根据手机密码身份插入注册
      
@@ -682,3 +685,87 @@
 			"likecount":"0"
 		}
 	] 
+
+## 17、视频提交评论
+     
+### 请求URL：
+	http://212.129.235.182/handlers/submitvideoreply.php
+
+### 示例：
+[http://212.129.235.182/handlers/submitvideoreply.php](http://212.129.235.182/handlers/submitvideoreply.php)
+
+### 请求方式：
+	POST
+
+### 参数类型：param
+
+	|参数		  |是否必选 |类型       |说明
+	|uid          |Y       |String     |用户ID
+	|videoid      |Y       |String     |视频ID
+	|replycontent |Y       |String     |评论内容
+
+### 返回示例：
+	{
+		//添加评论成功
+		"statusCode":"1",
+		"Msg":"添加评论成功"
+	} 
+	
+## 18、视频评论列表
+     
+### 请求URL：
+	http://212.129.235.182/handlers/videoreplylist.php
+
+### 示例：
+[http://212.129.235.182/handlers/videoreplylist.php](http://212.129.235.182/handlers/videoreplylist.php)
+
+### 请求方式：
+	POST
+
+### 参数类型：param
+
+	|参数		  |是否必选 |类型       |说明
+	|videoid      |Y       |String     |视频ID
+
+### 返回示例：
+	[
+		{
+			"replyid":"12",
+			"replycontent":"test",
+			"headimage":"",
+			"uname":"\/\/hbimg.hu",
+			"likenum":"200",
+			"replytime":"2020-08-12 20:36:44"
+		},
+		{
+			"replyid":"6",
+			"replycontent":"test",
+			"headimage":"",
+			"uname":"\/\/hbimg.hu",
+			"likenum":"103",
+			"replytime":"2020-08-12 20:36:41"
+		},
+		//前三个按照点赞数排序，剩下的按照时间顺序排出最新的
+	]
+
+## 19、视频评论点赞
+     
+### 请求URL：
+	http://212.129.235.182/handlers/dovideoreplylike.php
+
+### 示例：
+[http://212.129.235.182/handlers/dovideoreplylike.php](http://212.129.235.182/handlers/dovideoreplylike.php)
+
+### 请求方式：
+	POST
+
+### 参数类型：param
+
+	|参数		  |是否必选 |类型       |说明
+	|replyid      |Y       |String     |评论ID
+
+### 返回示例：
+	{
+		"statusCode":"1",
+		"Msg":"点赞成功"
+	} 

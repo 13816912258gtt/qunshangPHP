@@ -69,6 +69,39 @@ function findVideoReplyCount($videoid){
 	}
 	return $rs;
 }
+function addVideoReply($videoid,$replycontent,$uid,$headimage,$uname){
+	$sql="insert into  `tbl_videoreply` (`videoid`,`replycontent`,`uid`,`headimage`,`uname`)  values  ($videoid,'$replycontent',$uid,'$headimage','$uname')";
+	$link=get_connect();
+	$rs=execUpdate($sql,$link);
+	return $rs;
+}
+function findVideoReplyById($replyid){
+	$sql="select * from `tbl_videoreply` where `replyid`=$replyid";
+	$link=get_connect();
+	$rs=execUpdate($sql,$link);
+	if(count($rs)>0){
+		return $rs[0];
+	}
+	return $rs;
+}
+function findHotVideoReplyById($videoid){
+	$sql="select * from `tbl_videoreply` where `videoid`=$videoid order by `likenum` desc limit 3";
+	$link=get_connect();
+	$rs=execQuery($sql,$link);
+	return $rs;
+}
+function findNewVideoReplyById($videoid){
+	$sql="select * from `tbl_videoreply` where `videoid`=$videoid order by `replytime` desc";
+	$link=get_connect();
+	$rs=execQuery($sql,$link);
+	return $rs;
+}
+function updateReplyLikenum($replyid,$likenum){
+	$sql="update `tbl_videoreply` set `likenum`=$likenum where `replyid`=$replyid";
+	$link=get_connect();
+	$rs=execUpdate($sql,$link);
+	return $rs;
+}
 /*---------videorlike.dao------*/
 function findVideoLikeCount($videoid){
 	$sql="select count(`likeid`) as num from `tbl_videolike` where `videoid`=$videoid";

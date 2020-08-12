@@ -66,7 +66,7 @@ function findUserByPhone($utel){
 }
 function findUserByUid($uid){
 	$link = get_connect();
-	$sql="select * from tbl_user where `utel`=$uid";
+	$sql="select * from tbl_user where `uid`=$uid";
 	$rs=execQuery($sql,$link);
 	mysql_close($link);
 	if(count($rs)>0){
