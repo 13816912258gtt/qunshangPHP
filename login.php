@@ -22,7 +22,8 @@
 			$invitenum=$result['invitenum'];
 			$credit=$result['credit'];
 			$wallet=$result['wallet'];
-			$arr=array('statusCode'=>1,'Msg'=>"登录成功",'userIofo'=>array('uid'=>$uid,'utel'=>"$utel",'uname'=>"$uname",'headimage'=>"$headimage",'gender'=>$gender,'introduce'=>"$introduce",'identity'=>$identity,'regtime'=>"$regtime",'invitecode'=>"$invitecode",'inviteid'=>$inviteid,'invitenum'=>$invitenum,'credit'=>$credit,'wallet'=>$wallet));
+			$address=$result['address'];
+			$arr=array('statusCode'=>1,'Msg'=>"登录成功",'userIofo'=>array('uid'=>$uid,'utel'=>"$utel",'uname'=>"$uname",'headimage'=>"$headimage",'gender'=>$gender,'introduce'=>"$introduce",'identity'=>$identity,'regtime'=>"$regtime",'invitecode'=>"$invitecode",'inviteid'=>$inviteid,'invitenum'=>$invitenum,'credit'=>$credit,'wallet'=>$wallet,"address"=>$address));
 		}
 	}
 	echo json_encode($arr);	

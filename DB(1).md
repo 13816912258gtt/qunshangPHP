@@ -436,6 +436,7 @@ foreign  key(productspecid) references tbl_productspec(productspecid)
 create  table tbl_shippingaddress(
 addressid int unsigned not null auto_increment comment  '收货地址编号',
 uid int(10) unsigned zerofill not null comment  '用户编号',
+defaultaddress tinyint not null comment '是否为默认地址',
 urealname char(10) not null comment  '收货人姓名',
 utel char(11) not null comment  '手机号',
 Realaddress varchar(50) not null comment  '地址',
@@ -508,12 +509,14 @@ foreign  key(productid) references tbl_product(productid)
 create table tbl_orderreply(
 orderreplyid int unsigned not null auto_increment comment '订单项编号',
 sellerid int(10) unsigned zerofill not null comment '卖家编号',
+productid int unsigned not null comment  '商品编号',
 uid int(10) unsigned zerofill not null comment '买家编号',
 replytext char(255) not null default "默认好评" comment '评论文字',
-replyimage text not null comment '评论图片',
+replyimage text comment '评论图片',
 replytime timestamp not null default current_timestamp comment '评论时间',
 primary key (orderreplyid),
 foreign key(sellerid) references tbl_user(uid),
+foreign key(productid) references tbl_product(productid),
 foreign key(uid) references tbl_user(uid)
 )engine=InnoDB default charset=utf8mb4;
 ```

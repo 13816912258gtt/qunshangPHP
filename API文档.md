@@ -20,6 +20,7 @@
 [17、视频提交评论](#17上传视频评论)<br/>
 [18、视频评论列表](#18根据视频ID返回列表，三个最热，剩下按时间)<br/>
 [19、视频评论点赞](#19通过评论ID来进行点赞数+1)<br/>
+[20、修改购物车数量并验证](#20通过购物车ID和数量来进行验证和修改购物车信息)<br/>
 
 ## 1、根据手机密码身份插入注册
      
@@ -85,7 +86,8 @@
 			"inviteid":6,
 			"invitenum":10,
 			"credit":20,
-			"wallet":50
+			"wallet":50,
+			"address":".."
 		}
 	} 
 	密码不正确
@@ -256,7 +258,12 @@
 		"replynum":"0",
 		"sellnum":"0",
 		"classchildid":"1",
-		"shoppingmall":"1"
+		"shoppingmall":"1",
+		"freight":"10",
+		"productaddress":"..",
+		"replylist":[
+			//三条最新评论
+		]
 	}  
 ## 8、点击我的
      
@@ -768,4 +775,35 @@
 	{
 		"statusCode":"1",
 		"Msg":"点赞成功"
+	} 
+	
+## 20、修改购物车数量并验证
+     
+### 请求URL：
+	http://212.129.235.182/handlers/cartnum.php
+
+### 示例：
+[http://212.129.235.182/handlers/cartnum.php](http://212.129.235.182/handlers/cartnum.php)
+
+### 请求方式：
+	POST
+
+### 参数类型：param
+
+	|参数	     |是否必选 |类型       |说明
+	|cartid      |Y       |String     |购物车ID
+	|number      |Y       |String     |修改后数量
+
+### 返回示例：
+	{
+		//number大于库存或小于0，不符合常理
+		"statusCode":"0"
+	} 
+	{
+		//number符合要求，修改购物车的数量
+		"statusCode":"1"
+	} 
+	{
+		//number=0,直接删除购物车记录
+		"statusCode":"2"
 	} 

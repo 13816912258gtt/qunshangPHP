@@ -110,6 +110,27 @@ function updateShoppingcart($uid,$productspecid,$productnum){
 	$rs=execUpdate($sql,$link);
 	return $rs;
 }
+function checkProductNum($productspecid,$productnum){
+	$flag=false;
+	$specarr=findProductSpecBySpecid($productspecid);
+	$storenum=$specarr['storenum'];
+	if($productnum<=$storenum && $productnum>=0){
+		$flag=true;
+	}
+	return $flag;
+}
+function deleteCartInfo($cartid){
+	$link = get_connect();
+	$sql="delete from `tbl_shoppingcart` where `cartid`=$cartid";
+	$rs=execUpdate($sql,$link);
+	return $rs;
+}
+function updateCartNum($cartid,$productnum){
+	$link = get_connect();
+	$sql="update `tbl_shoppingcart` set `productnum`=$productnum where `cartid`=$cartid";
+	$rs=execUpdate($sql,$link);
+	return $rs;
+}
 /*---------productclass.dao------*/
 function findParentCLass(){
 	$link = get_connect();

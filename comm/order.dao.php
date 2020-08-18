@@ -36,4 +36,11 @@ function findDiscontByDiscountid($discountid){
 	}
 	return $rs;
 }
+/*---------orderreply.dao------*/
+function findOrderReplyByProductid($productid){
+	$sql="select * from `tbl_orderreply` where `productid`=$productid order by `replytime` desc limit 3";
+	$link=get_connect();
+	$rs=execQuery($sql,$link);
+	return $rs;
+}
 ?>
