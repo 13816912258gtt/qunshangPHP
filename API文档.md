@@ -21,6 +21,8 @@
 [18、视频评论列表](#18根据视频ID返回列表，三个最热，剩下按时间)<br/>
 [19、视频评论点赞](#19通过评论ID来进行点赞数+1)<br/>
 [20、修改购物车数量并验证](#20通过购物车ID和数量来进行验证和修改购物车信息)<br/>
+[21、修改用户头像](#21通过用户ID和头像文件上传并修改)<br/>
+[22、修改用户个性签名](#22通过用户ID和个性签名修改)<br/>
 
 ## 1、根据手机密码身份插入注册
      
@@ -806,4 +808,58 @@
 	{
 		//number=0,直接删除购物车记录
 		"statusCode":"2"
+	}
+	
+## 21、修改用户头像
+     
+### 请求URL：
+	http://212.129.235.182/handlers/alterheadimage.php
+
+### 示例：
+[http://212.129.235.182/handlers/alterheadimage.php](http://212.129.235.182/handlers/alterheadimage.php)
+
+### 请求方式：
+	POST
+
+### 参数类型：param
+
+	|参数	     |是否必选 |类型       |说明
+	|uid         |Y       |String     |用户ID
+	|headimgFile |Y       |String     |头像文件
+
+### 返回示例： 
+	{
+		"statusCode":"1",
+		"Msg":"上传修改成功"
 	} 
+	{
+		"statusCode":"2",
+		"Msg":"上传失败"
+	}
+	
+## 22、修改用户个性签名
+     
+### 请求URL：
+	http://212.129.235.182/handlers/alterintroduce.php
+
+### 示例：
+[http://212.129.235.182/handlers/alterintroduce.php](http://212.129.235.182/handlers/alterintroduce.php)
+
+### 请求方式：
+	POST
+
+### 参数类型：param
+
+	|参数	     |是否必选 |类型       |说明
+	|uid         |Y       |String     |用户ID
+	|introduce   |Y       |String     |个性签名
+
+### 返回示例： 
+	{
+		"statusCode":"1",
+		"Msg":"修改成功"
+	} 
+	{
+		"statusCode":"2",
+		"Msg":"修改失败"
+	}  

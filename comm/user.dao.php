@@ -110,4 +110,18 @@ function updateUserCredit($uid,$credit){
 	mysql_close($link);
 	return $rs;
 }
+function updateUserHeadimage($uid,$headimage){
+	$link = get_connect();
+	$sql="update `tbl_user` set `headimage`=$headimage where `uid`=$uid";
+	$rs=execUpdate($sql,$link);
+	mysql_close($link);
+	return $rs;
+}
+function updateUserIntroduce($uid,$introduce){
+	$link = get_connect();
+	$sql="update `tbl_user` set `introduce`=$introduce where `uid`=$uid";
+	$rs=execUpdate($sql,$link);
+	mysql_close($link);
+	return $rs;
+}
 ?>
