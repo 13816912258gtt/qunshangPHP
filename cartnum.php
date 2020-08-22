@@ -1,7 +1,7 @@
 <?PHP
 include_once 'comm/product.dao.php';
-$cartid=$_POST['cartid'];
-$number=$_POST['number'];
+$cartid=(int)$_POST['cartid'];
+$number=(int)$_POST['number'];
 $cartarr=findCartByCartid($cartid);
 $info=array();
 if(checkProductNum($cartarr['productspecid'],$number)){

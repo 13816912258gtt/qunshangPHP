@@ -2,7 +2,7 @@
 include_once 'comm/user.dao.php';
 $imgname = $_FILES['headimgFile']['name'];
 $tmp = $_FILES['headimgFile']['tmp_name'];
-$uid=$_POST['uid'];
+$uid=(int)$_POST['uid'];
 $filepath = '../headimg/';
 if(move_uploaded_file($tmp,$filepath.$imgname)){
 	updateUserHeadimage($uid,$tmp);

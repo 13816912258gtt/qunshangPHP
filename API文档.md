@@ -23,6 +23,8 @@
 [20、修改购物车数量并验证](#20通过购物车ID和数量来进行验证和修改购物车信息)<br/>
 [21、修改用户头像](#21通过用户ID和头像文件上传并修改)<br/>
 [22、修改用户个性签名](#22通过用户ID和个性签名修改)<br/>
+[23、修改用户性别](#23通过用户ID和性别修改)<br/>
+[24、订单、商品评论列表](#24通过商品ID返回所有订单评论信息)<br/>
 
 ## 1、根据手机密码身份插入注册
      
@@ -75,7 +77,7 @@
 	{
 		"statusCode":1,
 		"Msg":"登陆成功",
-		"userIofo":{
+		"userInfo":{
 			"uid":1,
 			"utel":"12345678915",
 			"uname":"aa",
@@ -134,13 +136,13 @@
 ## 4、根据视频和用户ID进行点赞或删除点赞操作
      
 ### 请求URL：
-	http://212.129.235.182/handlers/dolike.php?uid=uid&videoid=videoid
+	http://212.129.235.182/handlers/dolike.php
 
 ### 示例：
-[http://212.129.235.182/handlers/dolike.php?uid=000000001&videoid=2](http://212.129.235.182/handlers/dolike.php?uid=000000001&videoid=2)
+[http://212.129.235.182/handlers/dolike.php](http://212.129.235.182/handlers/dolike.php)
 
 ### 请求方式：
-	GET
+	POST
 
 ### 参数类型：param
 
@@ -151,7 +153,13 @@
 ### 返回示例：
 	点赞成功
 	{
+		"statusCode":"0",
 		"likecount":2
+	}
+	取消点赞
+	{
+		"statusCode":"1",
+		"likecount":"3"
 	}
 	
 ## 5、通过用户ID修改各类表升级成为会员
@@ -265,6 +273,11 @@
 		"productaddress":"..",
 		"replylist":[
 			//三条最新评论
+			"headimage":"",
+			"uname":"",
+			"replytime":"",
+			"replytext":"",
+			"replyattitude":""
 		]
 	}  
 ## 8、点击我的
@@ -794,7 +807,7 @@
 
 	|参数	     |是否必选 |类型       |说明
 	|cartid      |Y       |String     |购物车ID
-	|number      |Y       |String     |修改后数量
+	|number      |Y       |Number     |修改后数量
 
 ### 返回示例：
 	{
@@ -862,4 +875,71 @@
 	{
 		"statusCode":"2",
 		"Msg":"修改失败"
-	}  
+	}
+	
+## 23、修改用户性别
+     
+### 请求URL：
+	http://212.129.235.182/handlers/alterusergender.php
+
+### 示例：
+[http://212.129.235.182/handlers/alterusergender.php](http://212.129.235.182/handlers/alterusergender.php)
+
+### 请求方式：
+	POST
+
+### 参数类型：param
+
+	|参数	     |是否必选 |类型       |说明
+	|uid         |Y       |String     |用户ID
+	|gender      |Y       |Number     |性别
+
+### 返回示例： 
+	{
+		"statusCode":"1",
+		"Msg":"修改成功"
+	} 
+	{
+		"statusCode":"2",
+		"Msg":"修改失败"
+	}
+	
+## 24、订单、商品评论列表
+     
+### 请求URL：
+	http://212.129.235.182/handlers/orderreplylist.php
+
+### 示例：
+[http://212.129.235.182/handlers/orderreplylist.php](http://212.129.235.182/handlers/orderreplylist.php)
+
+### 请求方式：
+	POST
+
+### 参数类型：param
+
+	|参数	     |是否必选 |类型       |说明
+	|productid   |Y       |String     |商品ID
+
+### 返回示例： 
+	[
+		{
+			"orderreplyid":"2",
+			"uname":"用户_1234567",
+			"headimage":"\/\/hbimg.huabanimg.com\/6d28cfdb0f69acaa5c21651ebfb924a5b796dee646f30-JP2KuL_fw658\/format\/webp",
+			"replytext":"good",
+			"replyimage":[
+				".."
+			],
+			"replytime":"2020-08-22 15:31:56"
+		},
+		{
+			"orderreplyid":"1",
+			"uname":"用户_1381691",
+			"headimage":"\/\/hbimg.huabanimg.com\/6d28cfdb0f69acaa5c21651ebfb924a5b796dee646f30-JP2KuL_fw658\/format\/webp",
+			"replytext":"henhao",
+			"replyimage":[
+				".."
+			],
+			"replytime":"2020-08-22 15:31:45"
+		}
+	] 

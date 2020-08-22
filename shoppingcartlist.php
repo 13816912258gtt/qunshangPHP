@@ -11,7 +11,7 @@ foreach($shoppingcartrs as $v){
 	foreach($specarr as $x){
 		$productspecid=$x['productspecid'];
 		$productoldprice=findPriceBySpecid($productspecid);
-		$speclistarr=array(array("cartid"=>$x['cartid'],"productspecid"=>$x['productspecid'],"productspecdesc"=>$x['productspecdesc'],"productoldprice"=>$productoldprice,"productnum"=>$v['productnum']));
+		$speclistarr=array(array("cartid"=>$x['cartid'],"productspecid"=>$x['productspecid'],"productspecdesc"=>$x['productspecdesc'],"productoldprice"=>$productoldprice,"productnum"=>$x['productnum']));
 		$speclist=array_merge_recursive($speclist,$speclistarr);
 	}
 	$sellerid=findSelleridByCartid($v['cartid']);

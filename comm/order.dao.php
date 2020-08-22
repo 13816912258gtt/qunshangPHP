@@ -43,4 +43,10 @@ function findOrderReplyByProductid($productid){
 	$rs=execQuery($sql,$link);
 	return $rs;
 }
+function findAllOrderReplyByProductid($productid){
+	$sql="select * from `tbl_orderreply` where `productid`=$productid order by `replytime` desc";
+	$link=get_connect();
+	$rs=execQuery($sql,$link);
+	return $rs;
+}
 ?>

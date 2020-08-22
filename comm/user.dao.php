@@ -112,14 +112,21 @@ function updateUserCredit($uid,$credit){
 }
 function updateUserHeadimage($uid,$headimage){
 	$link = get_connect();
-	$sql="update `tbl_user` set `headimage`=$headimage where `uid`=$uid";
+	$sql="update `tbl_user` set `headimage`='$headimage' where `uid`=$uid";
 	$rs=execUpdate($sql,$link);
 	mysql_close($link);
 	return $rs;
 }
 function updateUserIntroduce($uid,$introduce){
 	$link = get_connect();
-	$sql="update `tbl_user` set `introduce`=$introduce where `uid`=$uid";
+	$sql="update `tbl_user` set `introduce`='$introduce' where `uid`=$uid";
+	$rs=execUpdate($sql,$link);
+	mysql_close($link);
+	return $rs;
+}
+function updateUserGender($uid,$gender){
+	$link = get_connect();
+	$sql="update `tbl_user` set `gender`=$gender where `uid`=$uid";
 	$rs=execUpdate($sql,$link);
 	mysql_close($link);
 	return $rs;
