@@ -3,10 +3,13 @@ $uid=$_GET['uid'];
 $publishid=$_GET['publishid'];
 require_once 'comm/video.dao.php';
 require_once 'comm/product.dao.php';
+require_once 'comm/user.dao.php';
 $isfocus=false;
 if(findVideoFocus($uid,$publishid)){
 	$isfocus=true;
 }
+$infoarr=findUserByUid($publishid);
+$userinfo=array("uname"=>$infoarr['uname'],"headimage"=>$infoarr['headimage'],"gender"=>$infoarr['gender'],"introduce"=>$infoarr['introduce'],"identity"=>$infoarr['identity'],"regtime"=>$infoarr['regtime'],"invitenum"=>$infoarr['invitenum'],"credit"=>$infoarr['credit'],"wallet"=>$infoarr['wallet']);
 $videolist=findVideosByUid($publishid);
 $myvideo=array();
 if(!empty($videolist)){
@@ -34,6 +37,6 @@ if(!empty($videolike)){
 
 $product=findProductByUid($publishid);
 $productarr=array(array('productid'=>$product['productid'],'productname'=>$product['productname'],'productcover'=>$product['productcover'],'productoldprice'=>$product['productoldprice'],'productnewprice'=>$product['productnewprice'],'productdesc'=>$product['productdesc'],'commissionrate'=>$product['commissionrate'],'sellerid'=>$product['sellerid'],'productstate'=>$product['productstate'],'replynum'=>$product['replynum'],'sellnum'=>$product['sellnum'],'classchildid'=>$product['classchildid'],'shoppingmall'=>$product['shoppingmall']));
-$result=array("isfocus"=>$isfocus,"myvideolist"=>$myvideo,"mylikevideolist"=>$mylikevideo,"product"=>$productarr);
+$result=array("isfocus"=>$isfocus,"userInfo"=>$userinfo,"myvideolist"=>$myvideo,"mylikevideolist"=>$mylikevideo,"product"=>$productarr);
 echo json_encode($result,JSON_UNESCAPED_UNICODE);
 ?>

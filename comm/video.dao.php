@@ -102,7 +102,7 @@ function updateReplyLikenum($replyid,$likenum){
 	$rs=execUpdate($sql,$link);
 	return $rs;
 }
-/*---------videorlike.dao------*/
+/*---------videolike.dao------*/
 function findVideoLikeCount($videoid){
 	$sql="select count(`likeid`) as num from `tbl_videolike` where `videoid`=$videoid";
 	$link=get_connect();

@@ -25,6 +25,7 @@
 [22、修改用户个性签名](#22通过用户ID和个性签名修改)<br/>
 [23、修改用户性别](#23通过用户ID和性别修改)<br/>
 [24、订单、商品评论列表](#24通过商品ID返回所有订单评论信息)<br/>
+[25、短视频基本信息（包括islike）](#25通过短视频ID和用户ID返回短视频信息)<br/>
 
 ## 1、根据手机密码身份插入注册
      
@@ -589,6 +590,17 @@
 ### 返回示例：
 	{
 		"isfocus":false,
+		"userInfo":{
+			"uname":"用户_1381691",
+			"headimage":"\/\/hbimg.huabanimg.com\/6d28cfdb0f69acaa5c21651ebfb924a5b796dee646f30-JP2KuL_fw658\/format\/webp",
+			"gender":"1",
+			"introduce":"这个人很懒…",
+			"identity":"3",
+			"regtime":"2020-07-16 00:31:31",
+			"invitenum":"0",
+			"credit":"0",
+			"wallet":"0"
+		},
 		"myvideolist":[
 			{
 				"videoid":"1",
@@ -942,4 +954,37 @@
 			],
 			"replytime":"2020-08-22 15:31:45"
 		}
-	] 
+	]
+	
+## 25、短视频基本信息（包括islike）
+     
+### 请求URL：
+	http://212.129.235.182/handlers/videoinfo.php
+
+### 示例：
+[http://212.129.235.182/handlers/videoinfo.php](http://212.129.235.182/handlers/videoinfo.php)
+
+### 请求方式：
+	POST
+
+### 参数类型：param
+
+	|参数	     |是否必选 |类型       |说明
+	|videoid     |Y       |String     |短视频ID
+	|uid         |Y       |String     |用户ID
+
+### 返回示例： 
+	{
+		"islike":false,
+		"videoInfo":{
+			"videoid":"2",
+			"url":"",
+			"posterurl":"",
+			"videodesc":"",
+			"publishid":"0000000002",
+			"uname":"",
+			"headimage":"",
+			"productid":"0",
+			"publishtime":"2020-08-04 18:44:17"
+		}
+	} 
