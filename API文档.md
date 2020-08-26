@@ -975,16 +975,17 @@
 
 ### 返回示例： 
 	{
+		"videoid":10,
+		"url":"",
+		"posterurl":"",
+		"videodesc":"",
+		"uid":"0000000002",
+		"uname":"",
+		"hedimage":"",
+		"productid":"0",
+		"publishtime":"2020-08-04 18:44:23",
 		"islike":false,
-		"videoInfo":{
-			"videoid":"2",
-			"url":"",
-			"posterurl":"",
-			"videodesc":"",
-			"publishid":"0000000002",
-			"uname":"",
-			"headimage":"",
-			"productid":"0",
-			"publishtime":"2020-08-04 18:44:17"
-		}
+		"isfocus":false,
+		"likecount":"0",
+		"replycount":"0"
 	} 

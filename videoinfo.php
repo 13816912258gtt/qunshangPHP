@@ -7,7 +7,12 @@ $islike=false;
 if(findVideoLikeByUid($videoid,$uid)){
 	$islike=true;
 }
-$videoinfo=array("videoid"=>$videoinfoarr['videoid'],"url"=>$videoinfoarr['url'],"posterurl"=>$videoinfoarr['posterurl'],"videodesc"=>$videoinfoarr['videodesc'],"uid"=>$videoinfoarr['uid'],"uname"=>$videoinfoarr['uname'],"headimage"=>$videoinfoarr['headimage'],"productid"=>$videoinfoarr['productid'],"publishtime"=>$videoinfoarr['publishtime']);
-$rs=array("islike"=>$islike,"videoInfo"=>$videoinfo);
-echo json_encode($rs,JSON_UNESCAPED_UNICODE);
+$likecount=findVideoLikeCount($videoid);
+$replycount=findVideoReplyCount($videoid);
+$isfocus=false;
+if(findVideoFocus($uid,$rs['uid'])){
+	$isfocus=true;
+}
+$videoinfo=array("videoid"=>$videoinfoarr['videoid'],"url"=>$videoinfoarr['url'],"posterurl"=>$videoinfoarr['posterurl'],"videodesc"=>$videoinfoarr['videodesc'],"uid"=>$videoinfoarr['uid'],"uname"=>$videoinfoarr['uname'],"headimage"=>$videoinfoarr['headimage'],"productid"=>$videoinfoarr['productid'],"publishtime"=>$videoinfoarr['publishtime'],"islike"=>$islike,'isfocus'=>$isfocus,'likecount'=>$likecount,'replycount'=>$replycount);
+echo json_encode($videoinfo,JSON_UNESCAPED_UNICODE);
 ?>

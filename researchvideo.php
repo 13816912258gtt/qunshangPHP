@@ -1,5 +1,6 @@
 <?PHP
 require_once 'comm/video.dao.php';
+require_once 'comm/user.dao.php';
 $keyword=$_POST['keyword'];
 $videolist=array();
 if(isset($keyword)){
