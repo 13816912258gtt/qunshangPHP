@@ -17,7 +17,9 @@ foreach($orderreplyarr as $v){
 	$replytime=$v['replytime'];
 	$replytext=$v['replytext'];
 	$replyattitude=$v['replyattitude'];
-	$replylistarr=array(array("headimage"=>$headimage,"uname"=>$uname,"replytime"=>$replytime,"replytext"=>$replytext,"replyattitude"=>$replyattitude));
+	$replyimage=$v['replyimage'];
+	$replyimagearr=explode("\n",$replyimage);
+	$replylistarr=array(array("headimage"=>$headimage,"uname"=>$uname,"replytime"=>$replytime,"replytext"=>$replytext,"replyimage"=>$replyimagearr,"replyattitude"=>$replyattitude));
 	$replylist=array_merge_recursive($replylist,$replylistarr);
 }
 $arr=array('productid'=>$product['productid'],'productname'=>$product['productname'],'productcover'=>$product['productcover'],'productimage'=>$productimagearr,'introduceimage'=>$introducearr,'productoldprice'=>$product['productoldprice'],'productnewprice'=>$product['productnewprice'],'productdesc'=>$product['productdesc'],'commissionrate'=>$product['commissionrate'],'sellerid'=>$product['sellerid'],'productstate'=>$product['productstate'],'replynum'=>$product['replynum'],'sellnum'=>$product['sellnum'],'classchildid'=>$product['classchildid'],'shoppingmall'=>$product['shoppingmall'],'freight'=>$product['freight'],'productaddress'=>$product['productaddress'],"replylist"=>$replylist);

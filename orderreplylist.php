@@ -11,7 +11,7 @@ foreach($orderreplyarr as $v){
 	$uname=$userinfo['uname'];
 	$replyimage=$v['replyimage'];
 	$replyimagearr=explode("\n",$replyimage);
-	$replylistarr=array(array("orderreplyid"=>$v['orderreplyid'],"uname"=>$uname,"headimage"=>$headimage,"replytext"=>$v['replytext'],"replyimage"=>$replyimagearr,"replytime"=>$v['replytime']));
+	$replylistarr=array(array("orderreplyid"=>$v['orderreplyid'],"uname"=>$uname,"headimage"=>$headimage,"replytext"=>$v['replytext'],"replyimage"=>$replyimagearr,"replytime"=>$v['replytime'],"replyattitude"=>$v['replyattitude']));
 	$replylist=array_merge_recursive($replylist,$replylistarr);
 }
 echo json_encode($replylist,JSON_UNESCAPED_UNICODE);
