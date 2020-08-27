@@ -10,7 +10,7 @@ if(findVideoLikeByUid($videoid,$uid)){
 $likecount=findVideoLikeCount($videoid);
 $replycount=findVideoReplyCount($videoid);
 $isfocus=false;
-if(findVideoFocus($uid,$rs['uid'])){
+if(findVideoFocus($uid,$videoinfoarr['uid'])){
 	$isfocus=true;
 }
 $videoinfo=array("videoid"=>$videoinfoarr['videoid'],"url"=>$videoinfoarr['url'],"posterurl"=>$videoinfoarr['posterurl'],"videodesc"=>$videoinfoarr['videodesc'],"uid"=>$videoinfoarr['uid'],"uname"=>$videoinfoarr['uname'],"headimage"=>$videoinfoarr['headimage'],"productid"=>$videoinfoarr['productid'],"publishtime"=>$videoinfoarr['publishtime'],"islike"=>$islike,'isfocus'=>$isfocus,'likecount'=>$likecount,'replycount'=>$replycount);

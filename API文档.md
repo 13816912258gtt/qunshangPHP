@@ -232,7 +232,7 @@
 		},10条数据
 	]
 
-## 7、进入小黄车
+## 7、根据用户ID返回带货商品信息列表
      
 ### 请求URL：
 	http://212.129.235.182/handlers/yellowcar.php?uid=uid
@@ -281,7 +281,7 @@
 			"replyattitude":""
 		]
 	}  
-## 8、点击我的
+## 8、根据用户ID返回短视频列表，点赞列表，带货商品信息
      
 ### 请求URL：
 	http://212.129.235.182/handlers/mine.php?uid=uid
@@ -346,7 +346,7 @@
 		]
 	} 
 	
-## 9、搜索界面
+## 9、返回父分类子分类信息
      
 ### 请求URL：
 	http://212.129.235.182/handlers/researchclass.php
@@ -400,7 +400,7 @@
 		}
 	]  
 
-## 10、加入购物车
+## 10、根据用户ID商品规格ID加购数量加入购物车获更新购物车
      
 ### 请求URL：
 	http://212.129.235.182/handlers/addtoshoppingcart.php?uid=uid&productspecid=productspecid&productnum=productnum
@@ -431,7 +431,7 @@
 		"Msg":"加入购物车失败"
 	}
 
-## 11、购物车列表界面
+## 11、根据用户ID获取购物车列表
      
 ### 请求URL：
 	http://212.129.235.182/handlers/shoppingcartlist.php?uid=uid
@@ -488,7 +488,7 @@
 		}
 	] 
 
-## 12、关注视频列表界面
+## 12、根据用户ID获取关注的人的视频列表
      
 ### 请求URL：
 	http://212.129.235.182/handlers/videolistfocus.php?uid=uid
@@ -538,7 +538,7 @@
 		},10条视频
 	]
 
-## 13、获取商品规格
+## 13、根据商品ID获取商品规格列表
      
 ### 请求URL：
 	http://212.129.235.182/handlers/getproductdedsc.php?productid=productid
@@ -570,7 +570,7 @@
 		}
 	] 
 
-## 14、点击头像返回用户信息
+## 14、根据用户ID和发布视频者ID获取发布者信息（包括是否关注）
      
 ### 请求URL：
 	http://212.129.235.182/handlers/headimagetoinfo.php?publishid=publishid&uid=uid
@@ -648,7 +648,7 @@
 		]
 	} 
 
-## 15、提交订单生成主表和从表
+## 15、根据订单信息新增订单信息
      
 ### 请求URL：
 	http://212.129.235.182/handlers/submitorder.php?coupon=coupon
@@ -692,7 +692,7 @@
 		"Msg"=>"库存不足"
 	]
 	
-## 16、视频搜索返回相关视频
+## 16、根据关键字返回相关视频信息
      
 ### 请求URL：
 	http://212.129.235.182/handlers/researchvideo.php
@@ -720,7 +720,7 @@
 		}
 	] 
 
-## 17、视频提交评论
+## 17、上传视频评论
      
 ### 请求URL：
 	http://212.129.235.182/handlers/submitvideoreply.php
@@ -745,7 +745,7 @@
 		"Msg":"添加评论成功"
 	} 
 	
-## 18、视频评论列表
+## 18、根据视频ID返回列表，三个最热，剩下按时间
      
 ### 请求URL：
 	http://212.129.235.182/handlers/videoreplylist.php
@@ -782,7 +782,7 @@
 		//前三个按照点赞数排序，剩下的按照时间顺序排出最新的
 	]
 
-## 19、视频评论点赞
+## 19、通过评论ID来进行点赞数+1
      
 ### 请求URL：
 	http://212.129.235.182/handlers/dovideoreplylike.php
@@ -804,7 +804,7 @@
 		"Msg":"点赞成功"
 	} 
 	
-## 20、修改购物车数量并验证
+## 20、通过购物车ID和数量来进行验证和修改购物车信息
      
 ### 请求URL：
 	http://212.129.235.182/handlers/cartnum.php
@@ -835,7 +835,7 @@
 		"statusCode":"2"
 	}
 	
-## 21、修改用户头像
+## 21、通过用户ID和头像文件上传并修改
      
 ### 请求URL：
 	http://212.129.235.182/handlers/alterheadimage.php
@@ -862,7 +862,7 @@
 		"Msg":"上传失败"
 	}
 	
-## 22、修改用户个性签名
+## 22、通过用户ID和个性签名修改
      
 ### 请求URL：
 	http://212.129.235.182/handlers/alterintroduce.php
@@ -889,7 +889,7 @@
 		"Msg":"修改失败"
 	}
 	
-## 23、修改用户性别
+## 23、通过用户ID和性别修改
      
 ### 请求URL：
 	http://212.129.235.182/handlers/alterusergender.php
@@ -916,7 +916,7 @@
 		"Msg":"修改失败"
 	}
 	
-## 24、订单、商品评论列表
+## 24、通过商品ID返回所有订单评论信息
      
 ### 请求URL：
 	http://212.129.235.182/handlers/orderreplylist.php
@@ -956,7 +956,7 @@
 		}
 	]
 	
-## 25、短视频基本信息（包括islike）
+## 25、通过短视频ID和用户ID返回短视频信息
      
 ### 请求URL：
 	http://212.129.235.182/handlers/videoinfo.php
