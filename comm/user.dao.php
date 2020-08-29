@@ -131,4 +131,11 @@ function updateUserGender($uid,$gender){
 	mysql_close($link);
 	return $rs;
 }
+function updateDefaultAddress($uid,$address){
+	$link = get_connect();
+	$sql="update `tbl_user` set `address`='$address' where `uid`=$uid";
+	$rs=execUpdate($sql,$link);
+	mysql_close($link);
+	return $rs;
+}
 ?>

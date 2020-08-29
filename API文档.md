@@ -27,6 +27,8 @@
 [24、订单、商品评论列表](#24通过商品ID返回所有订单评论信息)<br/>
 [25、短视频基本信息（包括islike）](#25通过短视频ID和用户ID返回短视频信息)<br/>
 [26、收货地址列表](#26通过用户ID返回所有的收货地址列表)<br/>
+[27、新建收货地址](#27通过用户ID和收货地址信息新增)<br/>
+[28、修改收货地址](#28通过地址ID和收货地址信息修改)<br/>
 
 ## 1、根据手机密码身份插入注册
      
@@ -1028,4 +1030,56 @@
 			"utel":"123456",
 			"realaddress":"address..."
 		}
-	] 
+	]
+	
+## 27、通过用户ID和收货地址信息新增
+     
+### 请求URL：
+	http://212.129.235.182/handlers/addnewadress.php
+
+### 示例：
+[http://212.129.235.182/handlers/addnewaddress.php](http://212.129.235.182/handlers/addnewaddress.php)
+
+### 请求方式：
+	POST
+
+### 参数类型：param
+
+	|参数	       |是否必选 |类型       |说明
+	|uid           |Y       |String     |用户ID
+	|urealname     |Y       |String     |收货人姓名
+	|utel          |Y       |String     |收货人联系电话
+	|realaddress   |Y       |String     |收货地址
+	|defaultaddress|Y       |String     |是否为默认地址
+
+### 返回示例： 
+	{
+		"statusCode":"1",
+		"Msg":"新建收货地址成功"
+	}
+	
+## 28、通过地址ID和收货地址信息修改
+     
+### 请求URL：
+	http://212.129.235.182/handlers/updateaddress.php
+
+### 示例：
+[http://212.129.235.182/handlers/updateaddress.php](http://212.129.235.182/handlers/updateaddress.php)
+
+### 请求方式：
+	POST
+
+### 参数类型：param
+
+	|参数	       |是否必选 |类型       |说明
+	|addressid     |Y       |String     |地址ID
+	|urealname     |Y       |String     |收货人姓名
+	|utel          |Y       |String     |收货人联系电话
+	|realaddress   |Y       |String     |收货地址
+	|defaultaddress|Y       |String     |是否为默认地址
+
+### 返回示例： 
+	{
+		"statusCode":"1",
+		"Msg":"修改收货地址成功"
+	}  

@@ -12,6 +12,18 @@ function ob2ar($obj) {
     return $obj;
 }
 /*---------shippingaddress.dao------*/
+function addShippingAddress($uid,$defaultaddress,$urealname,$utel,$realaddress){
+	$link = get_connect();
+	$sql="insert into `tbl_shippingaddress`(`uid`,`defaultaddress`,`urealname`,`utel`,`Realaddress`)values($uid,$defaultaddress,'$urealname','$utel','$realaddress')";
+	$rs=execUpdate($sql,$link);
+	return $rs;
+}
+function updateAddress($addressid,$defaultaddress,$urealname,$utel,$realaddress){
+	$link = get_connect();
+	$sql="update `tbl_shippingaddress` set `defaultaddress`=$defaultaddress,`urealname`='$urealname',`utel`='$utel',`Realaddress`='$realaddress' where `addressid`=$addressid";
+	$rs=execUpdate($sql,$link);
+	return $rs;
+}
 function findDefaultAddressList($uid){
 	$sql="select * from `tbl_shippingaddress` where `uid`=$uid and `defaultaddress`=1";
 	$link=get_connect();
