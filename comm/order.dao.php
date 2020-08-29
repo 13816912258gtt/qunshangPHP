@@ -11,6 +11,22 @@ function ob2ar($obj) {
     }
     return $obj;
 }
+/*---------shippingaddress.dao------*/
+function findDefaultAddressList($uid){
+	$sql="select * from `tbl_shippingaddress` where `uid`=$uid and `defaultaddress`=1";
+	$link=get_connect();
+	$rs=execQuery($sql,$link);
+	if(count($rs)>0){
+		return $rs[0];
+	}
+	return $rs;
+}
+function findOtherAddressList($uid){
+	$sql="select * from `tbl_shippingaddress` where `uid`=$uid and `defaultaddress`=0";
+	$link=get_connect();
+	$rs=execQuery($sql,$link);
+	return $rs;
+}
 /*---------mainorder.dao------*/
 function addMainOrder($orderstate,$uid,$addressid,$totalprice,$countprice,$finalprice){
 	$link = get_connect();

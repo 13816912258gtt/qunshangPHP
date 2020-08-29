@@ -26,6 +26,7 @@
 [23、修改用户性别](#23通过用户ID和性别修改)<br/>
 [24、订单、商品评论列表](#24通过商品ID返回所有订单评论信息)<br/>
 [25、短视频基本信息（包括islike）](#25通过短视频ID和用户ID返回短视频信息)<br/>
+[26、收货地址列表](#26通过用户ID返回所有的收货地址列表)<br/>
 
 ## 1、根据手机密码身份插入注册
      
@@ -994,3 +995,37 @@
 		"likecount":"0",
 		"replycount":"0"
 	} 
+	
+## 26、通过用户ID返回所有的收货地址列表
+     
+### 请求URL：
+	http://212.129.235.182/handlers/addresslist.php
+
+### 示例：
+[http://212.129.235.182/handlers/addresslist.php](http://212.129.235.182/handlers/addresslist.php)
+
+### 请求方式：
+	POST
+
+### 参数类型：param
+
+	|参数	     |是否必选 |类型       |说明
+	|uid         |Y       |String     |用户ID
+
+### 返回示例： 
+	[
+		{
+			"addressid":"2",
+			"defaultaddress":"1",
+			"urealname":"",
+			"utel":"",
+			"realaddress":""
+		},
+		{
+			"addressid":"1",
+			"defaultaddress":"0",
+			"urealname":"gtt",
+			"utel":"123456",
+			"realaddress":"address..."
+		}
+	] 
