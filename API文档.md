@@ -748,7 +748,18 @@
 	{
 		//添加评论成功
 		"statusCode":"1",
-		"Msg":"添加评论成功"
+		"Msg":"添加评论成功",
+		"replyarr":{
+			"replyid":"21",
+			"videoid":"1",
+			"replycontent":"good",
+			"uid":"0000000003",
+			"headimage":"",
+			"uname":"用户_1381691",
+			"likenum":"0",
+			"fatherid":"0",
+			"replytime":"2020-08-30 13:18:02"
+		}
 	} 
 	
 ## 18、根据视频ID返回列表，三个最热，剩下按时间
@@ -1055,8 +1066,15 @@
 ### 返回示例： 
 	{
 		"statusCode":"1",
-		"Msg":"新建收货地址成功"
-	}
+		"Msg":"新建收货地址成功",
+		"newaddress":{
+			"addressid":"6",
+			"urealname":"emmm",
+			"utel":"123456",
+			"realaddress":"无",
+			"defaultaddress":"0"
+		}
+	} 
 	
 ## 28、通过地址ID和收货地址信息修改
      
@@ -1081,5 +1099,12 @@
 ### 返回示例： 
 	{
 		"statusCode":"1",
-		"Msg":"修改收货地址成功"
+		"Msg":"修改收货地址成功",
+		"newaddress":{
+			"addressid":"2",
+			"urealname":"test",
+			"utel":"123",
+			"realaddress":"test222",
+			"defaultaddress":"1"
+		}
 	}  

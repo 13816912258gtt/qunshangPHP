@@ -1,6 +1,6 @@
 <?PHP
 require_once 'comm/video.dao.php';
-$videoid=$_POST['videoid'];
+$videoid=(int)$_POST['videoid'];
 $replylist=array();
 $replyhotarr=findHotVideoReplyById($videoid);
 $hotid=array();

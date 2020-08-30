@@ -16,7 +16,8 @@ function addShippingAddress($uid,$defaultaddress,$urealname,$utel,$realaddress){
 	$link = get_connect();
 	$sql="insert into `tbl_shippingaddress`(`uid`,`defaultaddress`,`urealname`,`utel`,`Realaddress`)values($uid,$defaultaddress,'$urealname','$utel','$realaddress')";
 	$rs=execUpdate($sql,$link);
-	return $rs;
+	$getId=mysql_insert_id($link);
+	return $getId;
 }
 function updateAddress($addressid,$defaultaddress,$urealname,$utel,$realaddress){
 	$link = get_connect();
@@ -37,6 +38,15 @@ function findOtherAddressList($uid){
 	$sql="select * from `tbl_shippingaddress` where `uid`=$uid and `defaultaddress`=0";
 	$link=get_connect();
 	$rs=execQuery($sql,$link);
+	return $rs;
+}
+function findAddressById($addressid){
+	$sql="select * from `tbl_shippingaddress` where `addressid`=$addressid";
+	$link=get_connect();
+	$rs=execQuery($sql,$link);
+	if(count($rs)>0){
+		return $rs[0];
+	}
 	return $rs;
 }
 /*---------mainorder.dao------*/

@@ -67,12 +67,13 @@ function addVideoReply($videoid,$replycontent,$uid,$headimage,$uname){
 	$sql="insert into  `tbl_videoreply` (`videoid`,`replycontent`,`uid`,`headimage`,`uname`)  values  ($videoid,'$replycontent',$uid,'$headimage','$uname')";
 	$link=get_connect();
 	$rs=execUpdate($sql,$link);
-	return $rs;
+	$getId=mysql_insert_id($link);
+	return $getId;
 }
 function findVideoReplyById($replyid){
 	$sql="select * from `tbl_videoreply` where `replyid`=$replyid";
 	$link=get_connect();
-	$rs=execUpdate($sql,$link);
+	$rs=execQuery($sql,$link);
 	if(count($rs)>0){
 		return $rs[0];
 	}
