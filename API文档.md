@@ -673,8 +673,8 @@
 ### coupon Object说明
 
 	|参数		 |是否必选 |类型            |说明
-	|uid         |Y       |String         |用户ID
-	|addressid   |Y       |String         |地址ID
+	|uid         |Y       |String          |用户ID
+	|addressid   |Y       |String          |地址ID
 	|productlist |Y       |Array.<Object>  |商品列表
 
 ### productlist Array.<Object>说明
@@ -682,8 +682,21 @@
 	|参数		      |是否必选 |类型       |说明
 	|discountid       |Y       |String     |优惠券ID
 	|discuss          |Y       |String     |留言
-	|productspeclist  |Y       |Array      |留言
+	|productid        |Y       |String     |商品ID
+	|productspeclist  |Y       |Array      |商品规格列表
+	|productimageurl  |Y       |String     |商品主图
+	|productname      |Y       |String     |商品名称
+	|sellername       |Y       |String     |卖家姓名
+	
+### productspeclist Array.<Object>说明
 
+	|参数		      |是否必选 |类型       |说明
+	|cartid           |Y       |String     |购物车ID
+	|productspecid    |Y       |String     |商品规格ID
+	|productspecdesc  |Y       |String     |商品规格描述
+	|productoldprice  |Y       |String     |商品原价
+	|productnum       |Y       |String     |加购数量
+	
 ### 返回示例：
 	[
 		{

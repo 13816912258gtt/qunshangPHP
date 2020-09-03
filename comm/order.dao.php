@@ -58,9 +58,30 @@ function addMainOrder($orderstate,$uid,$addressid,$totalprice,$countprice,$final
 	return $getId;
 }
 /*---------minororder.dao------*/
-function addMinororder($mainorderid,$orderstate,$sellerid,$productprice,$totalprice,$countprice,$finalprice,$discuss){
+function addMinororder($orderstate,$sellerid,$uid,$productprice,$totalprice,$countprice,$finalprice,$discuss,$discountid){
 	$link = get_connect();
-	$sql="insert into `tbl_minororder`(`mainorderid`,`orderstate`,`sellerid`,`productprice`,`totalprice`,`countprice`,`finalprice`,`discuss`)values($mainorderid,$orderstate,$sellerid,$productprice,$totalprice,$countprice,$finalprice,$discuss)";
+	$sql="insert into `tbl_minororder`(`orderstate`,`sellerid`,`uid`,`productprice`,`freight`,`totalprice`,`countprice`,`finalprice`,`discuss`,`discountid`)values($orderstate,$sellerid,$uid,$productprice,0,$totalprice,$countprice,$finalprice,'$discuss','$discountid')";
+	$rs=execUpdate($sql,$link);
+	$getId=mysql_insert_id($link);
+	return $getId;
+}
+function updateMainid($mainorderid,$minororderid){
+	$link = get_connect();
+	$sql="update `tbl_minororder` set `mainorderid`=$mainorderid where `minororderid`=$minororderid";
+	$rs=execUpdate($sql,$link);
+	return $rs;
+}
+/*---------orderitem.dao------*/
+function addOrderItem($productname,$productimage,$productid,$productintroduce,$preprice,$productnum,$commissionrate){
+	$link = get_connect();
+	$sql="insert into `tbl_orderitem`(`productname`,`productimage`,`productid`,`productintroduce`,`preprice`,`productname`,`commissionrate`)values('$productname','$productimage',$productid,'$productintroduce',$preprice,$productnum,$commissionrate)";
+	$rs=execUpdate($sql,$link);
+	$getId=mysql_insert_id($link);
+	return $getId;
+}
+function updateMinorid($minororderid,$oderitemid){
+	$link = get_connect();
+	$sql="update `tbl_orderitem` set `minororderid`=$minororderid where `orderitemid`=$orderitemid";
 	$rs=execUpdate($sql,$link);
 	return $rs;
 }
