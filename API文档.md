@@ -679,10 +679,10 @@
 
 ### productlist Array.<Object>说明
 
-	|参数		 |是否必选 |类型       |说明
-	|cartid      |Y       |String     |购物车ID
-	|discountid  |Y       |String     |优惠券ID
-	|discuss     |Y       |String     |留言
+	|参数		      |是否必选 |类型       |说明
+	|discountid       |Y       |String     |优惠券ID
+	|discuss          |Y       |String     |留言
+	|productspeclist  |Y       |Array      |留言
 
 ### 返回示例：
 	[
