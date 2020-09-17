@@ -36,10 +36,10 @@
 ## 1、根据手机密码身份插入注册
      
 ### 请求URL：
-	http://212.129.235.182/handlers/register.php
+	http://106.14.206.115/handlers/register.php
 
 ### 示例：
-[http://212.129.235.182/handlers/register.php](http://212.129.235.182/handlers/register.php)
+[http://106.14.206.115/handlers/register.php](http://106.14.206.115/handlers/register.php)
 
 ### 请求方式：
 	POST
@@ -65,10 +65,10 @@
 ## 2、根据手机密码进行登录
      
 ### 请求URL：
-	http://212.129.235.182/handlers/login.php
+	http://106.14.206.115/handlers/login.php
 
 ### 示例：
-[http://212.129.235.182/handlers/login.php](http://212.129.235.182/handlers/login.php)
+[http://106.14.206.115/handlers/login.php](http://106.14.206.115/handlers/login.php)
 
 ### 请求方式：
 	POST
@@ -115,10 +115,10 @@
 ## 3、根据状态码和ID修改登录状态
      
 ### 请求URL：
-	http://212.129.235.182/handlers/index.php?token=token&uid=uid
+	http://106.14.206.115/handlers/index.php?token=token&uid=uid
 
 ### 示例：
-[http://212.129.235.182/handlers/index.php?token=21983749&uid=000000001](http://212.129.235.182/handlers/index.php?token=21983749&uid=000000001)
+[http://106.14.206.115/handlers/index.php?token=21983749&uid=000000001](http://106.14.206.115/handlers/index.php?token=21983749&uid=000000001)
 
 ### 请求方式：
 	GET
@@ -143,10 +143,10 @@
 ## 4、根据视频和用户ID进行点赞或删除点赞操作
      
 ### 请求URL：
-	http://212.129.235.182/handlers/dolike.php
+	http://106.14.206.115/handlers/dolike.php
 
 ### 示例：
-[http://212.129.235.182/handlers/dolike.php](http://212.129.235.182/handlers/dolike.php)
+[http://106.14.206.115/handlers/dolike.php](http://106.14.206.115/handlers/dolike.php)
 
 ### 请求方式：
 	POST
@@ -172,10 +172,10 @@
 ## 5、通过用户ID修改各类表升级成为会员
      
 ### 请求URL：
-	http://212.129.235.182/handlers/uptomember.php?uid=uid
+	http://106.14.206.115/handlers/uptomember.php?uid=uid
 
 ### 示例：
-[http://212.129.235.182/handlers/dolike.php?uid=000000001](http://212.129.235.182/handlers/dolike.php?uid=000000001)
+[http://106.14.206.115/handlers/dolike.php?uid=000000001](http://106.14.206.115/handlers/dolike.php?uid=000000001)
 
 ### 请求方式：
 	GET
@@ -191,10 +191,10 @@
 ## 6、根据用户ID返回视频列表
      
 ### 请求URL：
-	http://212.129.235.182/handlers/videolist.php?uid=uid
+	http://106.14.206.115/handlers/videolist.php?uid=uid
 
 ### 示例：
-[http://212.129.235.182/handlers/videolist.php?uid=000000001](http://212.129.235.182/handlers/videolist.php?uid=000000001)
+[http://106.14.206.115/handlers/videolist.php?uid=000000001](http://106.14.206.115/handlers/videolist.php?uid=000000001)
 
 ### 请求方式：
 	GET
@@ -241,10 +241,10 @@
 ## 7、根据用户ID返回带货商品信息列表
      
 ### 请求URL：
-	http://212.129.235.182/handlers/yellowcar.php?uid=uid
+	http://106.14.206.115/handlers/yellowcar.php?uid=uid
 
 ### 示例：
-[http://212.129.235.182/handlers/yellowcar.php?uid=000000001](http://212.129.235.182/handlers/yellowcar.php?uid=000000001)
+[http://106.14.206.115/handlers/yellowcar.php?uid=000000001](http://106.14.206.115/handlers/yellowcar.php?uid=000000001)
 
 ### 请求方式：
 	GET
@@ -293,10 +293,10 @@
 ## 8、根据用户ID返回短视频列表和点赞列表和带货商品信息
 
 ### 请求URL：
-	http://212.129.235.182/handlers/mine.php?uid=uid
+	http://106.14.206.115/handlers/mine.php?uid=uid
 
 ### 示例：
-[http://212.129.235.182/handlers/mine.php?uid=000000002](http://212.129.235.182/handlers/mine.php?uid=000000002)
+[http://106.14.206.115/handlers/mine.php?uid=000000002](http://106.14.206.115/handlers/mine.php?uid=000000002)
 
 ### 请求方式：
 	GET
@@ -358,10 +358,10 @@
 ## 9、返回父分类子分类信息
      
 ### 请求URL：
-	http://212.129.235.182/handlers/researchclass.php
+	http://106.14.206.115/handlers/researchclass.php
 
 ### 示例：
-[http://212.129.235.182/handlers/researchclass.php](http://212.129.235.182/handlers/researchclass.php)
+[http://106.14.206.115/handlers/researchclass.php](http://106.14.206.115/handlers/researchclass.php)
 
 ### 请求方式：
 	GET
@@ -412,10 +412,10 @@
 ## 10、根据用户ID商品规格ID加购数量加入购物车获更新购物车
      
 ### 请求URL：
-	http://212.129.235.182/handlers/addtoshoppingcart.php?uid=uid&productspecid=productspecid&productnum=productnum
+	http://106.14.206.115/handlers/addtoshoppingcart.php?uid=uid&productspecid=productspecid&productnum=productnum
 
 ### 示例：
-[http://212.129.235.182/handlers/addtoshoppingcart.php?uid=000000002&productspecid=1&productnum=2](http://212.129.235.182/handlers/addtoshoppingcart.php?uid=000000002&productspecid=1&productnum=2)
+[http://106.14.206.115/handlers/addtoshoppingcart.php?uid=000000002&productspecid=1&productnum=2](http://106.14.206.115/handlers/addtoshoppingcart.php?uid=000000002&productspecid=1&productnum=2)
 
 ### 请求方式：
 	GET
@@ -443,10 +443,10 @@
 ## 11、根据用户ID获取购物车列表
      
 ### 请求URL：
-	http://212.129.235.182/handlers/shoppingcartlist.php?uid=uid
+	http://106.14.206.115/handlers/shoppingcartlist.php?uid=uid
 
 ### 示例：
-[http://212.129.235.182/handlers/shoppingcartlist.php?uid=000000002](http://212.129.235.182/handlers/shoppingcartlist.php?uid=000000002)
+[http://106.14.206.115/handlers/shoppingcartlist.php?uid=000000002](http://106.14.206.115/handlers/shoppingcartlist.php?uid=000000002)
 
 ### 请求方式：
 	GET
@@ -500,10 +500,10 @@
 ## 12、根据用户ID获取关注的人的视频列表
      
 ### 请求URL：
-	http://212.129.235.182/handlers/videolistfocus.php?uid=uid
+	http://106.14.206.115/handlers/videolistfocus.php?uid=uid
 
 ### 示例：
-[http://212.129.235.182/handlers/videolistfocus.php?uid=000000001](http://212.129.235.182/handlers/videolistfocus.php?uid=000000001)
+[http://106.14.206.115/handlers/videolistfocus.php?uid=000000001](http://106.14.206.115/handlers/videolistfocus.php?uid=000000001)
 
 ### 请求方式：
 	GET
@@ -551,10 +551,10 @@
 ## 13、根据商品ID获取商品规格列表
      
 ### 请求URL：
-	http://212.129.235.182/handlers/getproductdedsc.php?productid=productid
+	http://106.14.206.115/handlers/getproductdedsc.php?productid=productid
 
 ### 示例：
-[http://212.129.235.182/handlers/getproductdedsc.php?productid=3](http://212.129.235.182/handlers/getproductdedsc.php?productid=3)
+[http://106.14.206.115/handlers/getproductdedsc.php?productid=3](http://106.14.206.115/handlers/getproductdedsc.php?productid=3)
 
 ### 请求方式：
 	GET
@@ -583,10 +583,10 @@
 ## 14、根据用户ID和发布视频者ID获取发布者信息（包括是否关注）
      
 ### 请求URL：
-	http://212.129.235.182/handlers/headimagetoinfo.php?publishid=publishid&uid=uid
+	http://106.14.206.115/handlers/headimagetoinfo.php?publishid=publishid&uid=uid
 
 ### 示例：
-[http://212.129.235.182/handlers/headimagetoinfo.php?publishid=000000001&uid=000000002](http://212.129.235.182/handlers/headimagetoinfo.php?publishid=000000001&uid=000000002)
+[http://106.14.206.115/handlers/headimagetoinfo.php?publishid=000000001&uid=000000002](http://106.14.206.115/handlers/headimagetoinfo.php?publishid=000000001&uid=000000002)
 
 ### 请求方式：
 	GET
@@ -661,10 +661,10 @@
 ## 15、根据订单信息新增订单信息
      
 ### 请求URL：
-	http://212.129.235.182/handlers/submitorder.php?coupon=coupon
+	http://106.14.206.115/handlers/submitorder.php?coupon=coupon
 
 ### 示例：
-[http://212.129.235.182/handlers/submitorder.php?coupon=coupon](http://212.129.235.182/handlers/submitorder.php?coupon='{"uid":"000000002","addressid":"1","productlist":[{"cartid":"4","discountid":"1","discuss":"emm..."}]}')
+[http://106.14.206.115/handlers/submitorder.php?coupon=coupon](http://106.14.206.115/handlers/submitorder.php?coupon='{"uid":"000000002","addressid":"1","productlist":[{"cartid":"4","discountid":"1","discuss":"emm..."}]}')
 
 ### 请求方式：
 	GET
@@ -718,10 +718,10 @@
 ## 16、根据关键字返回相关视频信息
      
 ### 请求URL：
-	http://212.129.235.182/handlers/researchvideo.php
+	http://106.14.206.115/handlers/researchvideo.php
 
 ### 示例：
-[http://212.129.235.182/handlers/researchvideo.php](http://212.129.235.182/handlers/researchvideo.php)
+[http://106.14.206.115/handlers/researchvideo.php](http://106.14.206.115/handlers/researchvideo.php)
 
 ### 请求方式：
 	POST
@@ -746,10 +746,10 @@
 ## 17、上传视频评论
      
 ### 请求URL：
-	http://212.129.235.182/handlers/submitvideoreply.php
+	http://106.14.206.115/handlers/submitvideoreply.php
 
 ### 示例：
-[http://212.129.235.182/handlers/submitvideoreply.php](http://212.129.235.182/handlers/submitvideoreply.php)
+[http://106.14.206.115/handlers/submitvideoreply.php](http://106.14.206.115/handlers/submitvideoreply.php)
 
 ### 请求方式：
 	POST
@@ -782,10 +782,10 @@
 ## 18、根据视频ID返回列表，三个最热，剩下按时间
      
 ### 请求URL：
-	http://212.129.235.182/handlers/videoreplylist.php
+	http://106.14.206.115/handlers/videoreplylist.php
 
 ### 示例：
-[http://212.129.235.182/handlers/videoreplylist.php](http://212.129.235.182/handlers/videoreplylist.php)
+[http://106.14.206.115/handlers/videoreplylist.php](http://106.14.206.115/handlers/videoreplylist.php)
 
 ### 请求方式：
 	POST
@@ -819,10 +819,10 @@
 ## 19、通过评论ID来进行点赞数+1
      
 ### 请求URL：
-	http://212.129.235.182/handlers/dovideoreplylike.php
+	http://106.14.206.115/handlers/dovideoreplylike.php
 
 ### 示例：
-[http://212.129.235.182/handlers/dovideoreplylike.php](http://212.129.235.182/handlers/dovideoreplylike.php)
+[http://106.14.206.115/handlers/dovideoreplylike.php](http://106.14.206.115/handlers/dovideoreplylike.php)
 
 ### 请求方式：
 	POST
@@ -841,10 +841,10 @@
 ## 20、通过购物车ID和数量来进行验证和修改购物车信息
      
 ### 请求URL：
-	http://212.129.235.182/handlers/cartnum.php
+	http://106.14.206.115/handlers/cartnum.php
 
 ### 示例：
-[http://212.129.235.182/handlers/cartnum.php](http://212.129.235.182/handlers/cartnum.php)
+[http://106.14.206.115/handlers/cartnum.php](http://106.14.206.115/handlers/cartnum.php)
 
 ### 请求方式：
 	POST
@@ -872,10 +872,10 @@
 ## 21、通过用户ID和头像文件上传并修改
      
 ### 请求URL：
-	http://212.129.235.182/handlers/alterheadimage.php
+	http://106.14.206.115/handlers/alterheadimage.php
 
 ### 示例：
-[http://212.129.235.182/handlers/alterheadimage.php](http://212.129.235.182/handlers/alterheadimage.php)
+[http://106.14.206.115/handlers/alterheadimage.php](http://106.14.206.115/handlers/alterheadimage.php)
 
 ### 请求方式：
 	POST
@@ -899,10 +899,10 @@
 ## 22、通过用户ID和个性签名修改
      
 ### 请求URL：
-	http://212.129.235.182/handlers/alterintroduce.php
+	http://106.14.206.115/handlers/alterintroduce.php
 
 ### 示例：
-[http://212.129.235.182/handlers/alterintroduce.php](http://212.129.235.182/handlers/alterintroduce.php)
+[http://106.14.206.115/handlers/alterintroduce.php](http://106.14.206.115/handlers/alterintroduce.php)
 
 ### 请求方式：
 	POST
@@ -926,10 +926,10 @@
 ## 23、通过用户ID和性别修改
      
 ### 请求URL：
-	http://212.129.235.182/handlers/alterusergender.php
+	http://106.14.206.115/handlers/alterusergender.php
 
 ### 示例：
-[http://212.129.235.182/handlers/alterusergender.php](http://212.129.235.182/handlers/alterusergender.php)
+[http://106.14.206.115/handlers/alterusergender.php](http://106.14.206.115/handlers/alterusergender.php)
 
 ### 请求方式：
 	POST
@@ -953,10 +953,10 @@
 ## 24、通过商品ID返回所有订单评论信息
      
 ### 请求URL：
-	http://212.129.235.182/handlers/orderreplylist.php
+	http://106.14.206.115/handlers/orderreplylist.php
 
 ### 示例：
-[http://212.129.235.182/handlers/orderreplylist.php](http://212.129.235.182/handlers/orderreplylist.php)
+[http://106.14.206.115/handlers/orderreplylist.php](http://106.14.206.115/handlers/orderreplylist.php)
 
 ### 请求方式：
 	POST
@@ -995,10 +995,10 @@
 ## 25、通过短视频ID和用户ID返回短视频信息
      
 ### 请求URL：
-	http://212.129.235.182/handlers/videoinfo.php
+	http://106.14.206.115/handlers/videoinfo.php
 
 ### 示例：
-[http://212.129.235.182/handlers/videoinfo.php](http://212.129.235.182/handlers/videoinfo.php)
+[http://106.14.206.115/handlers/videoinfo.php](http://106.14.206.115/handlers/videoinfo.php)
 
 ### 请求方式：
 	POST
@@ -1029,10 +1029,10 @@
 ## 26、通过用户ID返回所有的收货地址列表
      
 ### 请求URL：
-	http://212.129.235.182/handlers/addresslist.php
+	http://106.14.206.115/handlers/addresslist.php
 
 ### 示例：
-[http://212.129.235.182/handlers/addresslist.php](http://212.129.235.182/handlers/addresslist.php)
+[http://106.14.206.115/handlers/addresslist.php](http://106.14.206.115/handlers/addresslist.php)
 
 ### 请求方式：
 	POST
@@ -1063,10 +1063,10 @@
 ## 27、通过用户ID和收货地址信息新增
      
 ### 请求URL：
-	http://212.129.235.182/handlers/addnewadress.php
+	http://106.14.206.115/handlers/addnewadress.php
 
 ### 示例：
-[http://212.129.235.182/handlers/addnewaddress.php](http://212.129.235.182/handlers/addnewaddress.php)
+[http://106.14.206.115/handlers/addnewaddress.php](http://106.14.206.115/handlers/addnewaddress.php)
 
 ### 请求方式：
 	POST
@@ -1096,10 +1096,10 @@
 ## 28、通过地址ID和收货地址信息修改
      
 ### 请求URL：
-	http://212.129.235.182/handlers/updateaddress.php
+	http://106.14.206.115/handlers/updateaddress.php
 
 ### 示例：
-[http://212.129.235.182/handlers/updateaddress.php](http://212.129.235.182/handlers/updateaddress.php)
+[http://106.14.206.115/handlers/updateaddress.php](http://106.14.206.115/handlers/updateaddress.php)
 
 ### 请求方式：
 	POST
@@ -1129,7 +1129,7 @@
 ## 29、通过手机号调用阿里云接口发送验证码
      
 ### 请求URL：
-	http://212.129.235.182/aliApi/sendSms.php
+	http://106.14.206.115/aliApi/sendSms.php
 
 ### 示例：
 无
@@ -1153,7 +1153,7 @@
 ## 30、通过bizID和code校验验证码
      
 ### 请求URL：
-	http://212.129.235.182/handlers/checkCode.php
+	http://106.14.206.115/handlers/checkCode.php
 
 ### 示例：
 无
@@ -1188,7 +1188,7 @@
 ## 31、通过uid和leadid进行点赞或删除点赞操作
      
 ### 请求URL：
-	http://212.129.235.182/handlers/focusleaduser.php
+	http://106.14.206.115/handlers/focusleaduser.php
 
 ### 示例：
 无
