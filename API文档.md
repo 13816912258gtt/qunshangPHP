@@ -29,6 +29,9 @@
 [26、收货地址列表](#26通过用户ID返回所有的收货地址列表)<br/>
 [27、新建收货地址](#27通过用户ID和收货地址信息新增)<br/>
 [28、修改收货地址](#28通过地址ID和收货地址信息修改)<br/>
+[29、发送验证码](#29通过手机号调用阿里云接口发送验证码)<br/>
+[30、校验验证码](#29通过bizID和code校验验证码)<br/>
+[31、关注或取消关注](#31通过uid和leadid进行点赞或删除点赞操作)<br/>
 
 ## 1、根据手机密码身份插入注册
      
@@ -1120,4 +1123,87 @@
 			"realaddress":"test222",
 			"defaultaddress":"1"
 		}
-	}  
+	} 
+	
+## 29、通过手机号调用阿里云接口发送验证码
+     
+### 请求URL：
+	http://212.129.235.182/aliApi/sendSms.php
+
+### 示例：
+无
+
+### 请求方式：
+	POST
+
+### 参数类型：param
+
+	|参数	       |是否必选    |类型        |说明
+    |phoneNum      |Y          |String      |手机号码
+	
+
+### 返回示例： 
+	{
+	    "Message":"OK",
+	    "RequestId":"5FA1DEEF-C123-40E3-8B6D-E18521657F9F",
+	    "BizId":"135400600223487401^0",
+	    "Code":"OK"
+	}
+## 30、通过bizID和code校验验证码
+     
+### 请求URL：
+	http://212.129.235.182/handlers/checkCode.php
+
+### 示例：
+无
+
+### 请求方式：
+	POST
+
+### 参数类型：param
+
+
+	|参数	    |是否必选    |类型        |说明
+    |bizId      |Y          |String      |由发码接口返回的bizId
+    |code       |Y          |String      |用户输入的验证码
+	
+
+### 返回示例： 
+	{
+	"status":"OK"
+	}
+
+### 错误示例：
+    {
+        "status":"Wrong Code"//常用
+    }
+    {
+        "status":"Wrong BizId"
+    }
+    {
+        "status":"Parameter Missing"
+    }
+
+## 31、通过uid和leadid进行点赞或删除点赞操作
+     
+### 请求URL：
+	http://212.129.235.182/handlers/focusleaduser.php
+
+### 示例：
+无
+
+### 请求方式：
+	POST
+
+### 参数类型：param
+
+
+	|参数	    |是否必选    |类型        |说明
+    |followid   |Y          |String      |当前用户
+    |leadid     |Y          |String      |发布视频的用户
+	
+
+### 返回示例： 
+	{
+		"isfocus":false//或为true
+	}   

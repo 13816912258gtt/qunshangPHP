@@ -1,9 +1,7 @@
 <?PHP
-$followid=$_GET['uid'];
-$videoid=$_GET['videoid'];
+$followid=(int)$_POST['uid'];
+$leadid=(int)$_POST['leadid'];
 require_once 'comm/video.dao.php';
-$videors=findVideoByVideoid($videoid);
-$leadid=$videors['uid'];
 $isfocus=false;
 if(findVideoFocus($followid,$leadid)){
 	deleteVideoFocus($followid,$leadid);

@@ -204,7 +204,7 @@ foreign  key(videoid) references tbl_video(videoid)
 ####创建视频关注表tbl_videofocus
 ```sql
 create table tbl_videofocus(
-focusid int unsigned not null auto_increment comment '短视频评论编号',
+focusid int unsigned not null auto_increment comment '视频关注编号',
 followid int(10) unsigned zerofill not null comment '粉丝用户编号',
 leadid int(10) unsigned zerofill not null comment '关注用户编号',
 primary key (focusid),
@@ -481,7 +481,7 @@ finalprice int(11) not null comment '实付',
 logisticsname char(10) not null comment  '物流公司名称',
 discuss char(255) not null default "暂无留言" comment '留言',
 trackingnum char(15) not null comment  '快递单号',
-discountid varchar not null comment '优惠券字符串',
+discountid varchar(50) not null comment '优惠券字符串',
 primary key (minororderid),
 foreign key(mainorderid) references tbl_mainorder(mainorderid),
 foreign key(uid) references tbl_user(uid),
@@ -533,6 +533,8 @@ productid int unsigned not null comment  '对应商品编号',
 sillprice int(11) not null default 0 comment '门槛金额',
 discountprice int(11) not null default 0 comment '优惠金额',
 discountnum int not null default 0 comment '优惠券数量',
+starttime timestamp not null comment '开始时间',
+endtime timestamp not null comment '终止时间',
 primary key (discountid),
 foreign  key(productid) references tbl_product(productid)  
 )engine=InnoDB  default charset=utf8;
@@ -544,8 +546,7 @@ create  table tbl_discountget(
 discountgetid int unsigned not null auto_increment comment  '优惠券领取编号',
 discountid int unsigned not null comment  '优惠券编号',
 uid int(10) unsigned zerofill not null comment  '用户编号',
-starttime timestamp not null default current_timestamp comment '开始时间',
-endtime timestamp not null default current_timestamp comment '终止时间',
+gettime timestamp not null default current_timestamp comment '领取时间',
 primary key (discountgetid),
 foreign  key(discountid) references tbl_discount(discountid),
 foreign  key(uid) references tbl_user(uid)
@@ -589,7 +590,7 @@ primary key (provinceid)
 create  table tbl_city(
 cityid int not null auto_increment comment  '市编号',
 cityname char(15) not null comment  '市名',
-provinceid int not null comment  '省编号',
+provinceid int not null comment '省编号',
 primary key (cityid),
 foreign key(provinceid) references tbl_province(provinceid)
 )engine=InnoDB  default charset=utf8;
@@ -600,7 +601,7 @@ foreign key(provinceid) references tbl_province(provinceid)
 create  table tbl_region(
 regionid int not null auto_increment comment  '县区编号',
 regionname char(15) not null comment  '县区名',
-cityid int not null comment  '区编号',
+cityid int not null comment  '市编号',
 primary key (regionid),
 foreign key(cityid) references tbl_city(cityid)
 )engine=InnoDB  default charset=utf8;
