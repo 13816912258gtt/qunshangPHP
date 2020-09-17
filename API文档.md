@@ -512,6 +512,7 @@
 
 	|参数		   |是否必选 |类型       |说明
 	|uid           |Y       |String     |用户ID
+	|leadid        |Y       |String     |发布视频用户ID
 
 ### 返回示例：
 	[

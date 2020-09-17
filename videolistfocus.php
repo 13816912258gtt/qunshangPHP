@@ -1,9 +1,14 @@
 <?PHP
 $uid=$_GET['uid'];
+$leadid=$_GET['leadid'];
 require_once 'comm/video.dao.php';
 	//得到关注的人的video数组
 	$focusvideoarr=findFocusVideoByUid($uid);
+	$listcount=count($focusvideoarr);
 	$n=10;
+	if($listcount<10){
+		$n=$listcount;
+	}
 	//得到所有video的信息并且打乱顺序作为随机
 	$videolist=array();
 	for($i=0;$i<$n;$i++){
