@@ -9,7 +9,7 @@
 		$arr=array('statusCode'=>2,'errMsg'=>"手机号已注册");
 		echo json_encode($arr);	
 	}else{
-		$result=addUser($phoneData,$passData,$preidentity);
+		$result=addUser($phoneData,$preidentity);
 		$userid=$result;
 		$invitecode=createInviteCode($userid);
 		updateInviteCode($invitecode,$userid);

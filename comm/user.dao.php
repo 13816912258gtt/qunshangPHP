@@ -4,14 +4,14 @@
 require_once 'common.php';
 
 
-function addUser($utel,$upass,$preidentity){
+function addUser($utel,$preidentity){
 	$link = get_connect();
 	$utel=mysql_dataCheck($utel);
 	$upass=mysql_dataCheck($upass);
 	$uname="用户_".$utel;
 	$gender=1;
 	$headimage="//hbimg.huabanimg.com/6d28cfdb0f69acaa5c21651ebfb924a5b796dee646f30-JP2KuL_fw658/format/webp";
-	$sql="insert into `tbl_user` (`utel`,`upass`,`uname`,`headimage`,`gender`,`preidentity`,`identity`)  values  ('$utel','$upass','$uname','$headimage',$gender,'$preidentity',1)";
+	$sql="insert into `tbl_user` (`utel`,`uname`,`headimage`,`gender`,`preidentity`,`identity`)  values  ('$utel','$uname','$headimage',$gender,'$preidentity',1)";
 	$rs=execUpdate($sql,$link);
 	$getId=mysql_insert_id($link);
 	mysql_close($link);

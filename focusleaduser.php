@@ -1,6 +1,6 @@
 <?PHP
-$followid=(int)$_POST['uid'];
-$leadid=(int)$_POST['leadid'];
+$followid=$_POST['uid'];
+$leadid=$_POST['leadid'];
 require_once 'comm/video.dao.php';
 $isfocus=false;
 if(findVideoFocus($followid,$leadid)){

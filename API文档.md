@@ -48,7 +48,6 @@
 
 	|参数		|是否必选 |类型       |说明
 	|photoData  |Y       |String     |手机号
-	|passData   |Y       |String     |密码
 	|identity   |Y       |String     |预选身份
 
 ### 返回示例：
