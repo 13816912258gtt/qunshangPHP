@@ -3,7 +3,6 @@
 /**用户信息操作文件**/
 require_once 'common.php';
 
-
 function addUser($utel,$preidentity,$inviteid){
 	$link = get_connect();
 	$utel=mysql_dataCheck($utel);
@@ -16,6 +15,12 @@ function addUser($utel,$preidentity,$inviteid){
 	$getId=mysql_insert_id($link);
 	mysql_close($link);
 	return $getId;
+}
+function updateInviteNum($uid,$invitenum){
+	$link=get_connect();
+	$sql="update `tbl_user` set `invitenum`=$invitenum where `uid`=$uid";
+	$rs=execUpdate($sql,$link);
+	return $rs;
 }
 function findUserByInvited($invitecode){
 	$link=get_connect();
@@ -143,5 +148,11 @@ function updateDefaultAddress($uid,$address){
 	$rs=execUpdate($sql,$link);
 	mysql_close($link);
 	return $rs;
+}
+function findInviteNum($uid,$identity){
+	$link=get_connect();
+	$sql="select count(*) as num from `tbl_user` where `uid`=$uid and `identity`=$identity";
+	$rs=execQuery($sql,$link);
+	return $rs[0]['num'];
 }
 ?>

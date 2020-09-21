@@ -7,7 +7,7 @@ if(findVideoFocus($followid,$leadid)){
 	deleteVideoFocus($followid,$leadid);
 	$isfocus=false;
 }else{
-	addVideofocus($followid,$leadid);
+	addVideoFocus($followid,$leadid);
 	$isfocus=true;
 }
 $arr=array("isfocus"=>$isfocus);

@@ -34,6 +34,18 @@ primary key (uid)
 )engine=InnoDB  default charset=utf8;
 ```
 
+#### 创建行为积分表tbl_behaviorcredit
+```sql
+create  table tbl_behaviorcredit(
+creditid bigint not null auto_increment comment  '行为积分编号',
+uid int(10) unsigned zerofill not null comment  '用户编号',
+behavior tinyint not null comment '行为',
+getcredit double not null comment '获得积分',
+gettime timestamp not null default current_timestamp comment '获取时间',
+primary key (creditid),
+foreign key(uid) references tbl_user(uid)
+)engine=InnoDB  default charset=utf8;
+```
 
 #### 创建社群主类表tbl_groupclass
 ```sql
@@ -176,9 +188,11 @@ likeid int unsigned not null auto_increment comment  '短视频点赞编号',
 videoid int unsigned not null comment '短视频编号',
 uid int(10) unsigned zerofill not null comment  '用户编号',
 liketime timestamp not null default current_timestamp comment '点赞时间',
+creditid bigint not null comment '行为积分编号',
 primary key (likeid),
-foreign  key(uid) references tbl_user(uid) ,
-foreign  key(videoid) references tbl_video(videoid) ,
+foreign  key(uid) references tbl_user(uid),
+foreign  key(videoid) references tbl_video(videoid),
+foreign  key(creditid) references tbl_behaviorcredit(creditid),
 unique(videoid,uid)
 )engine=InnoDB  default charset=utf8;
 ```
@@ -226,7 +240,7 @@ livenum int not null default 0 comment  '当前人数',
 productidnum varchar(255) not null comment '带货商品id数组',
 productnowid int unsigned not null comment  '当前讲解商品id',
 productnowurl varchar(255) not null comment '当前讲解商品主图url',
-productnowprice double not null default 0 comment  '当前讲解商品价格',
+productnowprice int(11) not null default 0 comment  '当前讲解商品价格',
 begintime timestamp not null default current_timestamp comment '开始时间',
 finishtime timestamp comment '结束时间',
 primary key (liveroomid),
@@ -254,7 +268,7 @@ foreign  key(liveroomid) references tbl_liveroom(liveroomid)
 create  table tbl_livegift(
 livegiftid int unsigned not null auto_increment comment  '直播礼物编号',
 giftname char(10) not null comment  '礼物名称',
-giftprice double not null default 0 comment  '礼物价格',
+giftprice int(11) not null default 0 comment  '礼物价格',
 giftimage varchar(255) not null comment '礼物图片',
 primary key (livegiftid)
 )engine=InnoDB  default charset=utf8;
@@ -381,8 +395,8 @@ productname char(30) not null comment  '商品名称',
 productcover varchar(255) not null comment  '商品封面',
 productimage text not null comment '商品图片',
 introduceimage text not null comment '商品介绍图片',
-productnewprice double not null default 0 comment  '商品当前价',
-productoldprice double not null default 0 comment  '商品原价',
+productnewprice int(11) not null default 0 comment  '商品当前价',
+productoldprice int(11) not null default 0 comment  '商品原价',
 productdesc varchar(255) not null default '暂无描述' comment  '商品描述',
 commissionrate tinyint not null comment  '佣金比例',
 sellerid int(10) unsigned zerofill not null comment  '卖家编号',
@@ -406,7 +420,7 @@ productspecid int unsigned not null auto_increment comment  '商品规格编号'
 productid int unsigned not null comment  '商品编号',
 productspecdesc char(30) not null default '暂无描述' comment  '规格描述',
 storenum int not null default 0 comment  '商品库存',
-productoldprice double not null default 0 comment  '商品价格',
+productoldprice int(11) not null default 0 comment  '商品价格',
 primary key (productspecid),
 foreign  key(productid) references tbl_product(productid)
 )engine=InnoDB  default charset=utf8;
@@ -456,9 +470,9 @@ paytime timestamp not null comment '支付时间',
 payway tinyint not null comment  '支付方式',
 paynum varchar(50) not null comment  '支付订单流水号',
 addressid int unsigned not null comment  '收货地址编号',
-totalprice double not null comment '总价',
-countprice double not null default 0 comment '优惠',
-finalprice double not null comment '实付',
+totalprice int(11) not null comment '总价',
+countprice int(11) not null default 0 comment '优惠',
+finalprice int(11) not null comment '实付',
 primary key (mainorderid),
 foreign  key(uid) references tbl_user(uid) ,
 foreign  key(addressid) references tbl_shippingaddress(addressid) 
@@ -472,13 +486,11 @@ minororderid int unsigned not null auto_increment comment  '订单从表编号',
 mainorderid int unsigned not null comment  '订单主表编号',
 orderstate tinyint not null comment '订单状态',
 sellerid int(10) unsigned zerofill not null comment  '卖家编号',
-买家id
-productprice double not null comment '商品总价',
-freight double not null comment '运费',
-优惠券id（字符串）
-totalprice double not null comment '总价',
-countprice double not null default 0 comment '优惠',
-finalprice double not null comment '实付',
+productprice int(11) not null comment '商品总价',
+freight int(11) not null comment '运费',
+totalprice int(11) not null comment '总价',
+countprice int(11) not null default 0 comment '优惠',
+finalprice int(11) not null comment '实付',
 logisticsname char(10) not null comment  '物流公司名称',
 discuss char(255) not null default "暂无留言" comment '留言',
 trackingnum char(15) not null comment  '快递单号',
@@ -497,7 +509,7 @@ productname char(30) not null comment '商品名称',
 productimage varchar(255) not null comment '商品主图URL',
 productid int unsigned not null comment  '商品规格编号',
 productintroduce char(30) not null comment '商品规格描述',
-preprice double not null default 0 comment '商品单价',
+preprice int(11) not null default 0 comment '商品单价',
 productnum int not null default 0 comment  '商品数量',
 commissionrate tinyint not null comment '佣金比例',
 primary key (orderitemid),
@@ -513,6 +525,7 @@ orderreplyid int unsigned not null auto_increment comment '订单项编号',
 sellerid int(10) unsigned zerofill not null comment '卖家编号',
 productid int unsigned not null comment  '商品编号',
 uid int(10) unsigned zerofill not null comment '买家编号',
+replyattitude tinyint not null comment '评论态度',
 replytext char(255) not null default "默认好评" comment '评论文字',
 replyimage text comment '评论图片',
 replytime timestamp not null default current_timestamp comment '评论时间',
@@ -528,11 +541,9 @@ foreign key(uid) references tbl_user(uid)
 create  table tbl_discount(
 discountid int unsigned not null auto_increment comment  '优惠券编号',
 productid int unsigned not null comment  '对应商品编号',
-sillprice double not null default 0 comment '门槛金额',
-discountprice double not null default 0 comment '优惠金额',
+sillprice int(11) not null default 0 comment '门槛金额',
+discountprice int(11) not null default 0 comment '优惠金额',
 discountnum int not null default 0 comment '优惠券数量',
-起始时间
-终止时长
 primary key (discountid),
 foreign  key(productid) references tbl_product(productid)  
 )engine=InnoDB  default charset=utf8;
@@ -544,7 +555,6 @@ create  table tbl_discountget(
 discountgetid int unsigned not null auto_increment comment  '优惠券领取编号',
 discountid int unsigned not null comment  '优惠券编号',
 uid int(10) unsigned zerofill not null comment  '用户编号',
-领取时间
 primary key (discountgetid),
 foreign  key(discountid) references tbl_discount(discountid),
 foreign  key(uid) references tbl_user(uid)

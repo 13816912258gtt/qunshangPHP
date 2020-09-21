@@ -111,6 +111,18 @@ function findVideoLikeByUid($videoid,$uid){
 	$sql="select * from `tbl_videolike` where `videoid`=$videoid and `uid`=$uid";
 	$link=get_connect();
 	$rs=execQuery($sql,$link);
+	if(count($rs)>0){
+		return $rs[0];
+	}
+	return $rs;
+}
+function findVideoLikeById($likeid){
+	$sql="select * from `tbl_videolike` where `likeid`=$likeid";
+	$link=get_connect();
+	$rs=execQuery($sql,$link);
+	if(count($rs)>0){
+		return $rs[0]['creditid'];
+	}
 	return $rs;
 }
 function deleteVideoLike($videoid,$uid){
@@ -119,8 +131,14 @@ function deleteVideoLike($videoid,$uid){
 		$rs=execUpdate($sql,$link);
 		return $rs;
 }
-function addVideoLike($videoid,$uid){
-	$sql="insert into  `tbl_videolike` (`videoid`,`uid`)  values  ('$videoid','$uid')";
+function addVideoLike($videoid,$uid,$publishid){
+	$sql="insert into  `tbl_videolike` (`videoid`,`uid`,`publishid`)  values  ($videoid,$uid,$publishid)";
+	$link=get_connect();
+	$rs=execUpdate($sql,$link);
+	return $rs;
+}
+function updateVideoCredit($videoid,$creditid){
+	$sql="update `tbl_videolike` set `creditid`=$creditid where `videoid`=$videoid";
 	$link=get_connect();
 	$rs=execUpdate($sql,$link);
 	return $rs;
