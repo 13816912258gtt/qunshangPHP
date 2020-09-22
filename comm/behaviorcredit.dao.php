@@ -8,7 +8,7 @@ function addVideoCredit($uid){
 	$getId=mysql_insert_id($link);
 	return $getId;
 }
-//短视频取消点赞，0减0.1
+//短视频取消点赞
 function deleteVideoCredit($creditid){
 	$link=get_connect();
 	$sql="delete from `tbl_behaviorcredit` where `creditid`=$creditid";
@@ -26,6 +26,13 @@ function addReplyCredit($uid){
 function addMemberCredit($uid){
 	$link=get_connect();
 	$sql="insert into `tbl_behaviorcredit`(`uid`,`behavior`,`getcredit`)values($uid,4,100)";
+	$rs=execUpdate($sql,$link);
+	return $rs;
+}
+//浏览视频，一分钟1+0.3
+function addWatchVideo($uid){
+	$link=get_connect();
+	$sql="insert into `tbl_behaviorcredit`(`uid`,`behavior`,`getcredit`)values($uid,1,0.3)";
 	$rs=execUpdate($sql,$link);
 	return $rs;
 }
