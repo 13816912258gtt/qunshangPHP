@@ -11,7 +11,7 @@
 	require_once 'comm/behaviorcredit.dao.php';
 	require_once './comm/code.dao.php';
 	if(isset($_POST['invitedPeople'])){
-		$invitedPeople = $_POST['$invitedPeople'];
+		$invitedPeople = $_POST['invitedPeople'];
 		$inviteid=findUserByInvited($invitedPeople);
 	}else{
 		$inviteid=0000000001;

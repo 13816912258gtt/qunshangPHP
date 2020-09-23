@@ -1,5 +1,5 @@
 <?PHP
-$uid=$_GET['uid'];
+//$uid=$_GET['uid'];
 require_once 'comm/video.dao.php';
 	//得到video的总数，随机生成1到总数的数组
 	$videocount=findVideoCount();
@@ -15,12 +15,17 @@ require_once 'comm/video.dao.php';
 			$likecount=findVideoLikeCount($videoid);
 			$replycount=findVideoReplyCount($videoid);
 			$islike=false;
-			if(findVideoLikeByUid($videoid,$uid)){
-				$islike=true;
-			}
 			$isfocus=false;
-			if(findVideoFocus($uid,$rs['uid'])){
-				$isfocus=true;
+			if(isset($_GET['uid'])){
+				$uid=$_GET['uid'];
+				$islike=false;
+				if(findVideoLikeByUid($videoid,$uid)){
+					$islike=true;
+				}
+				$isfocus=false;
+				if(findVideoFocus($uid,$rs['uid'])){
+					$isfocus=true;
+				}
 			}
 			$videolistarr=array(array('videoid'=>$videoid,'url'=>$rs['url'],'posterurl'=>$rs['posterurl'],'videodesc'=>$rs['videodesc'],'uid'=>$rs['uid'],'uname'=>$rs['uname'],'headimage'=>$rs['headimage'],'productid'=>$rs['productid'],'publishtime'=>$rs['publishtime'],'islike'=>$islike,'isfocus'=>$isfocus,'likecount'=>$likecount,'replycount'=>$replycount));
 			$videolist=array_merge_recursive($videolist,$videolistarr);

@@ -50,7 +50,6 @@
 
 	|参数		   |是否必选 |类型       |说明
 	|photoData     |Y       |String     |手机号
-	|identity      |Y       |String     |预选身份
 	|checkCode     |Y       |String     |验证码
 	|bizId         |Y       |String     |回执ID
 	|invitedPeople |Y       |String     |邀请码

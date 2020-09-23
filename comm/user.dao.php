@@ -6,7 +6,6 @@ require_once 'common.php';
 function addUser($utel,$preidentity,$inviteid){
 	$link = get_connect();
 	$utel=mysql_dataCheck($utel);
-	$upass=mysql_dataCheck($upass);
 	$uname="用户_".$utel;
 	$gender=1;
 	$headimage="//hbimg.huabanimg.com/6d28cfdb0f69acaa5c21651ebfb924a5b796dee646f30-JP2KuL_fw658/format/webp";

@@ -602,3 +602,11 @@ primary key (cityid)
 )engine=InnoDB  default charset=utf8;
 ```
 
+#### 创建下载表tbl_download
+```sql
+create table tbl_download(
+downid int not null auto_increment comment  '下载编号',
+downtime timestamp not null default current_timestamp comment '下载时间',
+primary key (downid)
+)engine=InnoDB  default charset=utf8;
+```
