@@ -6,10 +6,11 @@ require_once 'common.php';
 function addUser($utel,$preidentity,$inviteid){
 	$link = get_connect();
 	$utel=mysql_dataCheck($utel);
-	$uname="用户_".$utel;
+	$uname = substr($utel,(strlen($utel)-3)); 
+	$uname="用户_".$uname;
 	$gender=1;
 	$headimage="//hbimg.huabanimg.com/6d28cfdb0f69acaa5c21651ebfb924a5b796dee646f30-JP2KuL_fw658/format/webp";
-	$sql="insert into `tbl_user` (`utel`,`uname`,`headimage`,`gender`,`preidentity`,`identity`,`inviteid`)  values  ('$utel','$uname','$headimage',$gender,'$preidentity',1,$inviteid)";
+	$sql="insert into `tbl_user` (`utel`,`uname`,`headimage`,`gender`,`preidentity`,`identity`,`inviteid`)  values  ('$utel','$uname','$headimage',$gender,'$preidentity',0,$inviteid)";
 	$rs=execUpdate($sql,$link);
 	$getId=mysql_insert_id($link);
 	mysql_close($link);
@@ -36,7 +37,7 @@ function getId(){
 */
 function createInviteCode($userId)
 {
-    $sourceString = array('0','1','2','3','4','5','6','7','8','9','10','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z');
+    $sourceString = array('0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z');
     $num = $userId;
     $code = '';
     while($num)
@@ -141,6 +142,12 @@ function updateUserGender($uid,$gender){
 	mysql_close($link);
 	return $rs;
 }
+function addInviteInfo($invitedid,$invitedidentity,$inviterid,$inviteridentity){
+	$link=get_connect();
+	$sql="insert into `tbl_invite`(`invitedid`,`invitedidentity`,`inviterid`,`inviteridentity`)values($invitedid,$invitedidentity,$inviterid,$inviteridentity)";
+	$rs=execUpdate($sql,$link);
+	return $rs;
+}
 function updateDefaultAddress($uid,$address){
 	$link = get_connect();
 	$sql="update `tbl_user` set `address`='$address' where `uid`=$uid";
@@ -148,9 +155,15 @@ function updateDefaultAddress($uid,$address){
 	mysql_close($link);
 	return $rs;
 }
-function findInviteNum($uid,$identity){
+function findInviteNum($inviterid,$invitedidentity){
 	$link=get_connect();
-	$sql="select count(*) as num from `tbl_user` where `uid`=$uid and `identity`=$identity";
+	$sql="select count(*) as num from `tbl_invite` where `inviterid`=$inviterid and `invitedidentity`=$invitedidentity";
+	$rs=execQuery($sql,$link);
+	return $rs[0]['num'];
+}
+function findBossIdentityNum($identity){
+	$link=get_connect();
+	$sql="select count(*) as num from `tbl_user` where `identity`=$identity";
 	$rs=execQuery($sql,$link);
 	return $rs[0]['num'];
 }

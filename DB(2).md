@@ -610,3 +610,14 @@ downtime timestamp not null default current_timestamp comment '下载时间',
 primary key (downid)
 )engine=InnoDB  default charset=utf8;
 ```
+#### 创建抽奖表tbl_lottery
+```sql
+create table tbl_lottery(
+lotteryid int not null auto_increment comment  '抽奖编号',
+uid int(10) unsigned zerofill not null comment  '用户编号',
+number char(5) not null comment '号码',
+period int not null comment '期数',
+primary key (lotteryid),
+foreign key(uid) references tbl_user(uid)
+)engine=InnoDB  default charset=utf8;
+```

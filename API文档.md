@@ -34,6 +34,9 @@
 [31、关注或取消关注](#31通过uid和leadid进行点赞或删除点赞操作)<br/>
 [32、行为积分](#32通过uid查找所有行为积分活动)<br/>
 [33、浏览视频增加行为积分](#33通过uid增加用户浏览视频的行为积分)<br/>
+[34、查询用户是否已经实名认证](#34通过uid查询用户是否已经实名认证)<br/>
+[35、上传身份证并OCR识别](#35通过uid和上传的图片进行实名认证)<br/>
+[36、获取抽奖码](#36通过uid获取抽奖码)<br/>
 
 ## 1、根据手机密码身份插入注册
      
@@ -1274,4 +1277,97 @@
 ### 返回示例： 
 	{
 		"statusCode":1 //成功
+	} 
+	
+## 34、通过uid查询用户是否已经实名认证
+     
+### 请求URL：
+	http://106.14.206.115/handlers/identity.php
+
+### 示例：
+无
+
+### 请求方式：
+	POST
+
+### 参数类型：param
+
+	|参数	    |是否必选    |类型        |说明
+    |uid        |Y          |String      |当前用户ID
+	
+
+### 返回示例： 
+	{
+		"statusCode": 'Unidentified' //未认证
+	} 
+	{
+    	"statusCode": 'Identified' //已认证
+    } 
+## 36、通过uid和上传的图片进行实名认证
+     
+### 请求URL：
+	http://106.14.206.115/handlers/checkIdCard.php
+
+### 示例：
+无
+
+### 请求方式：
+	POST
+
+### 参数类型：param
+
+	|参数	    |是否必选    |类型        |说明
+    |uid        |Y          |String      |当前用户ID
+    |img_1      |Y          |File        |身份证正面照片
+    |img_2      |Y          |File        |身份证反面照片
+	
+
+### 返回示例： 
+	{
+	    "status":"OK"  //成功
+	}
+	{
+	    "status":"Fail",
+	    "errMes":"User identified already."  //用户已经实名认证
+	}
+	{
+	    "status":"Fail",
+	    "errMes":"Parameter missing."  //缺少参数或者图片数据
+    }
+    {
+        "status":"Fail",
+        "errMes":"Aliyun OCR Fail."  //阿里云接口失效或者图片不是身份证
+    }
+    {
+        "status":"Fail",
+        "errMes":"Exception of img_1: wrong type of image."  //图片类型不支持，仅支持png，jpg和gif
+    }
+	
+## 35、通过uid获取抽奖码
+     
+### 请求URL：
+	http://106.14.206.115/handlers/getlottery.php
+
+### 示例：
+无
+
+### 请求方式：
+	POST
+
+### 参数类型：param
+
+	|参数	    |是否必选    |类型        |说明
+    |uid        |Y          |String      |当前用户ID
+
+### 返回示例： 
+	{
+		"statusCode":1,
+		"number":[
+			"A0003",
+			"A0004",
+			"A0005"
+		]
+	} 
+	{
+		"statusCode":0 //用户已经获取过抽奖码
 	} 

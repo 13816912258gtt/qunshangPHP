@@ -3,16 +3,23 @@ require_once 'comm/behaviorcredit.dao.php';
 require_once 'comm/user.dao.php';
 $uid=(int)$_POST['uid'];
 $userarr=findUserByUid($uid);
-$invitenum=$userarr['invitenum'];
-$identity0=findInviteNum($uid,0);
-$identity1=findInviteNum($uid,1);
-$identity2=findInviteNum($uid,2);
+//老板特权最高
+if($uid==0000000001){
+	$identity0=findBossIdentityNum(0);
+	$identity1=findBossIdentityNum(1);
+	$identity2=findBossIdentityNum(2);
+}else{
+	$identity0=findInviteNum($uid,0);
+	$identity1=findInviteNum($uid,1);
+	$identity2=findInviteNum($uid,2);
+}
 $invitearr=array("0"=>$identity0,"1"=>$identity1,"2"=>$identity2);
+$invitenum=$invitearr[0]+$invitearr[1]+$invitearr[2];
 $credit=$userarr['credit'];
-$videolike=findCreditById($uid,0);
-$videowatch=findCreditById($uid,1);
-$videoreply=findCreditById($uid,3);
-$newmember=findCreditById($uid,4);
+$videolike=findCreditById($uid,0)*0.1;
+$videowatch=findCreditById($uid,1)*0.3;
+$videoreply=findCreditById($uid,3)*1;
+$newmember=findCreditById($uid,4)*100;
 $shopping=findCreditById($uid,5);
 $subcredit=array("0"=>$videolike,"1"=>$videowatch,"3"=>$videoreply,"4"=>$newmember,"5"=>$shopping);
 $newcredit=findNewBehavior($uid);

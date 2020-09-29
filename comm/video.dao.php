@@ -131,8 +131,8 @@ function deleteVideoLike($videoid,$uid){
 		$rs=execUpdate($sql,$link);
 		return $rs;
 }
-function addVideoLike($videoid,$uid,$publishid){
-	$sql="insert into  `tbl_videolike` (`videoid`,`uid`,`publishid`)  values  ($videoid,$uid,$publishid)";
+function addVideoLike($videoid,$uid){
+	$sql="insert into  `tbl_videolike` (`videoid`,`uid`)values($videoid,$uid)";
 	$link=get_connect();
 	$rs=execUpdate($sql,$link);
 	return $rs;
@@ -145,7 +145,8 @@ function updateVideoCredit($videoid,$creditid){
 }
 /*---------videofocus.dao------*/
 function findVideoFocus($followid,$leadid){
-	$sql="select * from `tbl_videofocus` where `followid`=$followid and `leadid`=$leadid";
+    // echo "主：".$leadid."从：".$followid;
+	$sql="select * from `tbl_videofocus` where `followid`=".$followid." and `leadid`=$leadid";
 	$link=get_connect();
 	$rs=execQuery($sql,$link);
 	return $rs;

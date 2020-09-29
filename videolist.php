@@ -6,11 +6,16 @@ require_once 'comm/video.dao.php';
 	$vcount=$videocount['num'];
 	$number=range(1,$vcount);
 	shuffle($number);
-	$n=10;
+	$n=9;
+    // $n=6;
 	//得到所有video的信息并且打乱顺序作为随机
 	$videolist=array();
 	for($i=1;$i<=$n;$i++){
-		$videoid=$number[$i];
+		if($i==1){
+			$videoid=11;
+		}else{
+			$videoid=$number[$i];
+		}
 		if($rs=findVideoByVideoid($videoid)){
 			$likecount=findVideoLikeCount($videoid);
 			$replycount=findVideoReplyCount($videoid);

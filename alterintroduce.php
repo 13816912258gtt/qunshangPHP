@@ -1,6 +1,7 @@
 <?PHP
 $uid=(int)$_POST['uid'];
 $introduce=$_POST['introduce'];
+require_once 'comm/user.dao.php';
 if(updateUserIntroduce($uid,$introduce)){
 	$rs=array("statusCode"=>"1","Msg"=>"修改成功");
 }else{

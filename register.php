@@ -30,7 +30,17 @@
 			addMemberCredit($inviteid);
 			$credit=$invitearr['credit']+100;
 			updateUserCredit($inviteid,$credit);
-    		$userid=$result;
+			//把邀请信息加入邀请表
+			$userid=$result;
+			$inviteridentity=$invitearr['identity'];
+			addInviteInfo($userid,0,$inviteid,$inviteridentity);
+			if($inviteid!=0000000001){
+				$preid=findPreinviteid($inviteid);
+				$prearr=findUserByUid($preid);
+				$preidentity=$prearr['identity'];
+				addInviteInfo($userid,0,$preid,$preidentity);
+			}
+			//添加邀请码
     		$invitecode=createInviteCode($userid);
     		updateInviteCode($invitecode,$userid);
     		$arr=array('statusCode'=>1,'photoDate'=>$phoneData);
