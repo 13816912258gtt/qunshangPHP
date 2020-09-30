@@ -6,8 +6,13 @@ $uid=(int)$_POST['uid'];
 $period=1;
 $rs=array();
 //查找uid有没有取过抽奖码
-if(findUidGetNum($uid,$period)){
-	$rs=array("statusCode"=>0);
+if($numgot=findUidGetNum($uid,$period)){
+	$numarr=array();
+	for($i=0;$i<count($numgot);$i++){
+		$num=array($numgot[$i]['number']);
+		$numarr=array_merge_recursive($numarr,$num);
+	}
+	$rs=array("statusCode"=>1,"number"=>$numarr);
 }else{
 	//查找用户身份
 	$userarr=findUserByUid($uid);
@@ -35,7 +40,7 @@ if(findUidGetNum($uid,$period)){
 		$num=array($result[$i]['number']);
 		$numarr=array_merge_recursive($numarr,$num);
 	}
-	$rs=array("statusCode"=>1,"number"=>$numarr);
+	$rs=array("statusCode"=>0,"number"=>$numarr);
 }
 echo json_encode($rs,JSON_UNESCAPED_UNICODE);	
 
