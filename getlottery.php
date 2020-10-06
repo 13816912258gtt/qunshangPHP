@@ -4,6 +4,7 @@ require_once 'comm/lottery.dao.php';
 
 $uid=(int)$_POST['uid'];
 $period=1;
+$drawtime="2020-10-18 18:00:00";
 $rs=array();
 //查找uid有没有取过抽奖码
 if($numgot=findUidGetNum($uid,$period)){
@@ -40,7 +41,7 @@ if($numgot=findUidGetNum($uid,$period)){
 		$num=array($result[$i]['number']);
 		$numarr=array_merge_recursive($numarr,$num);
 	}
-	$rs=array("statusCode"=>0,"number"=>$numarr);
+	$rs=array("statusCode"=>0,"number"=>$numarr,"period"=>$period,"drawtime"=>$drawtime);
 }
 echo json_encode($rs,JSON_UNESCAPED_UNICODE);	
 

@@ -3,7 +3,7 @@ require_once 'common.php';
 
 function addLottery($uid,$number,$period){
 	$link=get_connect();
-	$sql="insert into `tbl_lottery`(`uid`,`number`,`period`)values($uid,'$number',$period)";
+	$sql="insert into `tbl_lottery`(`uid`,`number`,`period`,`drawtime`)values($uid,'$number',$period,'2020-10-18 18:00:00')";
 	$rs=execUpdate($sql,$link);
 	return $rs;
 }
