@@ -120,9 +120,6 @@ function findVideoLikeById($likeid){
 	$sql="select * from `tbl_videolike` where `likeid`=$likeid";
 	$link=get_connect();
 	$rs=execQuery($sql,$link);
-	if(count($rs)>0){
-		return $rs[0]['creditid'];
-	}
 	return $rs;
 }
 function deleteVideoLike($videoid,$uid){

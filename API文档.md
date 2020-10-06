@@ -1297,13 +1297,25 @@
 	
 
 ### 返回示例： 
+    {   
+        "status": 1,
+        "errMsg":"User unidentitied" //未认证
+    }
 	{
-		"statusCode": 'Unidentified' //未认证
-	} 
-	{
-    	"statusCode": 'Identified' //已认证
-    } 
-## 36、通过uid和上传的图片进行实名认证
+        "status": 0,
+        "realInfo": {
+            "realnameid": "4",
+            "uid": "0000000011",
+            "realname": "呵呵呵",
+            "realidentity": "361232200001160014",
+            "realaddress": "xx省xx市xx县xx街道xx室",
+            "realgender": "0",
+            "realbirth": "20000116",
+            "realnation": "汉"
+        }
+    }
+	
+## 35、通过uid和上传的图片进行实名认证
      
 ### 请求URL：
 	http://106.14.206.115/handlers/checkIdCard.php
@@ -1325,6 +1337,11 @@
 ### 返回示例： 
 	{
 	    "status":"OK"  //成功
+	    "used"：0 //身份证没有实名认证过
+	}
+	{
+	    "status":"OK"  //成功
+        "used"：1 //身份证已经实名认证过
 	}
 	{
 	    "status":"Fail",
@@ -1343,7 +1360,7 @@
         "errMes":"Exception of img_1: wrong type of image."  //图片类型不支持，仅支持png，jpg和gif
     }
 	
-## 35、通过uid获取抽奖码
+## 36、通过uid获取抽奖码
      
 ### 请求URL：
 	http://106.14.206.115/handlers/getlottery.php

@@ -13,7 +13,10 @@ require_once 'comm/video.dao.php';
 	for($i=1;$i<=$n;$i++){
 		if($i==1){
 			$videoid=11;
-		}else{
+		}else if($i==2){
+			$videoid=18;
+		}
+		else{
 			$videoid=$number[$i];
 		}
 		if($rs=findVideoByVideoid($videoid)){

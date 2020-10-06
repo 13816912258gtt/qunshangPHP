@@ -12,10 +12,23 @@ $headimage=$userarr["headimage"];
 $uname=$userarr["uname"];
 $id=addVideoReply($videoid,$replycontent,$uid,$headimage,$uname);
 if($num>10){
-	addReplyCredit($uid);
-	$userarr=findUserByUid($uid);
-	$credit=$userarr['credit']+1;
-	updateUserCredit($uid,$credit);
+	
+	$bili=array(1,1,1);
+	for($i=0;$i<count($bili);$i++){
+		$userarr=findUserByUid($uid);
+		if($userarr['identity']>=0){
+			addReplyCredit($uid);
+			$userarr=findUserByUid($uid);
+			$credit=$userarr['credit']+1;
+			updateUserCredit($uid,$credit);
+		}
+		if(findPreinviteid($uid)!=0){
+			$uid=findPreinviteid($uid);
+		}else{
+			break;
+		}
+	}
+	
 }
 $replyarr=findVideoReplyById($id);
 $rs=array("statusCode"=>"1","Msg"=>"添加评论成功","replyarr"=>$replyarr);

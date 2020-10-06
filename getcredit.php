@@ -8,8 +8,13 @@ if($uid==0000000001){
 	$identity0=findBossIdentityNum(0);
 	$identity1=findBossIdentityNum(1);
 	$identity2=findBossIdentityNum(2);
-}else{
-	$identity0=findInviteNum($uid,0);
+}else if($userarr['inviteid']==0000000001){
+	$identity0=findLuoIdentityNum($uid,0);
+	$identity1=findLuoIdentityNum($uid,1);
+	$identity2=findLuoIdentityNum($uid,2);
+}
+else{
+    $identity0=findInviteNum($uid,0);
 	$identity1=findInviteNum($uid,1);
 	$identity2=findInviteNum($uid,2);
 }

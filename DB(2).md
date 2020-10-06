@@ -30,6 +30,7 @@ invitenum int not null comment '邀请人数',
 credit double not null default 0  comment '行为积分',
 wallet double not null default 0  comment '礼物钱包',
 address varchar(50) not null comment  '默认收获地址',
+partnerid int(10) unsigned zerofill not null comment '合伙人id',
 primary key (uid)
 )engine=InnoDB  default charset=utf8;
 ```

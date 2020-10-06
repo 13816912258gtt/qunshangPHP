@@ -155,6 +155,12 @@ function updateDefaultAddress($uid,$address){
 	mysql_close($link);
 	return $rs;
 }
+function updatePartnerid($uid,$partnerid){
+	$link=get_connect();
+	$sql="update `tbl_user` set `partnerid`=$partnerid where `uid`=$uid";
+	$rs=execUpdate($sql,$link);
+	return $rs;
+}
 function findInviteNum($inviterid,$invitedidentity){
 	$link=get_connect();
 	$sql="select count(*) as num from `tbl_invite` where `inviterid`=$inviterid and `invitedidentity`=$invitedidentity";
@@ -164,6 +170,12 @@ function findInviteNum($inviterid,$invitedidentity){
 function findBossIdentityNum($identity){
 	$link=get_connect();
 	$sql="select count(*) as num from `tbl_user` where `identity`=$identity";
+	$rs=execQuery($sql,$link);
+	return $rs[0]['num'];
+}
+function findLuoIdentityNum($partnerid,$identity){
+	$link=get_connect();
+	$sql="select count(*) as num from `tbl_user` where `partnerid`=$partnerid and `identity`=$identity";
 	$rs=execQuery($sql,$link);
 	return $rs[0]['num'];
 }

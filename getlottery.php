@@ -45,13 +45,26 @@ if($numgot=findUidGetNum($uid,$period)){
 echo json_encode($rs,JSON_UNESCAPED_UNICODE);	
 
 //获取该抽奖码的后一个
+/*
 function getBehindNum($number){
-	$str1=substr($number, 0, strlen($number)-1);
-	$str2=substr($number, -1, 1)+1;
+	$str1=substr($number, 0,1);
+	$str2=(int)substr($number, -4)+1;
+	$str2= str_pad($str2,4,'0',STR_PAD_LEFT);
 	if($str2==10000){
 		$str2='0000';
 		$str1=chr(ord($str1)+1);
 	}
 	return $str1.$str2;
+}
+*/
+function getbehindNum($number){
+	$arr=array("A"=>"0","B"=>"1","C"=>"2","D"=>"3","E"=>"4","F"=>"5","G"=>"6","H"=>"7","I"=>"8","J"=>"9","K"=>"10","L"=>"11","M"=>"12","N"=>"13","O"=>"14","P"=>"15","Q"=>"16","R"=>"17","S"=>"18","T"=>"19","U"=>"20","V"=>"21","W"=>"22","X"=>"23","Y"=>"24","Z"=>"25");
+	$str1=substr($number, 0, 1);
+	$str2=substr($number, 1, 4);
+	$num=$arr["str1"]*9999+$str2+1;
+//	$newstr1=$num mod 9999;
+	$newstr1=array_search(($num % 9999),$arr);
+	$newstr2=floor($num/9999);
+	return $newstr1.$newstr2;
 }
 ?>

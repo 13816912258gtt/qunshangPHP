@@ -8,6 +8,25 @@ if($likearr=findVideoLikeByUid($videoid,$uid)){
 	$likeid=$likearr['likeid'];
 	$creditid=findVideoLikeById($likeid);
 	deleteVideoLike($videoid,$uid);
+	
+	$bili=array(1,1,1);
+	for($i=0;$i<count($bili);$i++){
+		$userarr=findUserByUid($uid);
+		if($userarr['identity']>=0){
+			$creditid=addVideoCredit($uid);
+			updateVideoCredit($videoid,$creditid);
+			$rs=findUserByUid($uid);
+			$credit=$rs['credit'];
+			$credit+=0.1;
+			updateUserCredit($uid,$credit);
+		}
+		if(findPreinviteid($uid)!=0){
+			$uid=findPreinviteid($uid);
+		}else{
+			break;
+		}
+	}
+	
 	deleteVideoCredit($creditid);
 	$rs=findUserByUid($uid);
 	$credit=$rs['credit'];
@@ -17,13 +36,24 @@ if($likearr=findVideoLikeByUid($videoid,$uid)){
 }else{
 	$videoarr=findVideoByVideoid($videoid);
 	$publishid=$videoarr['publishid'];
-	addVideoLike($videoid,$uid,$publishid);
-	$creditid=addVideoCredit($uid);
-	updateVideoCredit($videoid,$creditid);
-	$rs=findUserByUid($uid);
-	$credit=$rs['credit'];
-	$credit+=0.1;
-	updateUserCredit($uid,$credit);
+	addVideoLike($videoid,$uid);
+	$bili=array(1,1,1);
+	for($i=0;$i<count($bili);$i++){
+		$userarr=findUserByUid($uid);
+		if($userarr['identity']>=0){
+			$creditid=addVideoCredit($uid);
+			updateVideoCredit($videoid,$creditid);
+			$rs=findUserByUid($uid);
+			$credit=$rs['credit'];
+			$credit+=0.1;
+			updateUserCredit($uid,$credit);
+		}
+		if(findPreinviteid($uid)!=0){
+			$uid=findPreinviteid($uid);
+		}else{
+			break;
+		}
+	}
 	$code=0;
 }
 $likecount=findVideoLikeCount($videoid);

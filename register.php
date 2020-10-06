@@ -10,7 +10,7 @@
 	require_once 'comm/user.dao.php';
 	require_once 'comm/behaviorcredit.dao.php';
 	require_once './comm/code.dao.php';
-	if(isset($_POST['invitedPeople'])){
+	if(!empty($_POST['invitedPeople'])){
 		$invitedPeople = $_POST['invitedPeople'];
 		$inviteid=findUserByInvited($invitedPeople);
 	}else{
@@ -22,16 +22,44 @@
     		$arr=array('statusCode'=>2,'errMsg'=>"手机号已注册");
     		echo json_encode($arr,JSON_UNESCAPED_UNICODE);	
 	    }else{
-    		$result=addUser($phoneData,$identity,$inviteid);//此处减去了密码，数据库与一些dao成需要改变
-			$invitearr=findUserByUid($inviteid);
+			if($inviteid==0000000001){
+				$result=addUser($phoneData,$identity,$inviteid);
+				updatePartnerid($result,$result);
+			}else{
+				$invitearr=findUserByUid($inviteid);
+				$partnerid=$invitearr['partnerid'];
+				$result=addUser($phoneData,$identity,$inviteid);
+				updatePartnerid($result,$partnerid);
+			}
+		//	$result=addUser($phoneData,$identity,$inviteid);
+    		//此处减去了密码，数据库与一些dao成需要改变
+    		$invitearr=findUserByUid($inviteid);
 			//邀请人的邀请人数+1，行为积分+100，更新行为积分动态
 			$invitenum=$invitearr['invitenum']+1;
 			updateInviteNum($inviteid,$invitenum);
+			
+			$bili=array(1,1,1);
+			for($i=0;$i<count($bili);$i++){
+				$invitearr=findUserByUid($inviteid);
+				if($invitearr['identity']>=0){
+					$credit=$invitearr['credit']+100;
+					updateUserCredit($inviteid,$credit);
+					addMemberCredit($inviteid);
+				}
+				if(findPreinviteid($inviteid)!=0){
+					$inviteid=findPreinviteid($inviteid);
+				}else{
+					break;
+				}
+			}
+			/*
 			addMemberCredit($inviteid);
 			$credit=$invitearr['credit']+100;
 			updateUserCredit($inviteid,$credit);
-			//把邀请信息加入邀请表
-			$userid=$result;
+			*/
+			
+    		$userid=$result;
+    		//把邀请信息加入邀请表
 			$inviteridentity=$invitearr['identity'];
 			addInviteInfo($userid,0,$inviteid,$inviteridentity);
 			if($inviteid!=0000000001){
@@ -40,7 +68,6 @@
 				$preidentity=$prearr['identity'];
 				addInviteInfo($userid,0,$preid,$preidentity);
 			}
-			//添加邀请码
     		$invitecode=createInviteCode($userid);
     		updateInviteCode($invitecode,$userid);
     		$arr=array('statusCode'=>1,'photoDate'=>$phoneData);
