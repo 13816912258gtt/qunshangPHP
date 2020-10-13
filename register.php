@@ -96,7 +96,6 @@ function checkCode($bizId,$code){
         }
     }
 }
-
 return $res;
 }
 ?>

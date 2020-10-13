@@ -41,10 +41,10 @@
 ## 1、根据手机密码身份插入注册
      
 ### 请求URL：
-	http://106.14.206.115/handlers/register.php
+	http://www.equnshang.com/handlers/register.php
 
 ### 示例：
-[http://106.14.206.115/handlers/register.php](http://106.14.206.115/handlers/register.php)
+[http://www.equnshang.com/handlers/register.php](http://www.equnshang.com/handlers/register.php)
 
 ### 请求方式：
 	POST
@@ -61,20 +61,26 @@
 	注册成功
 	{
 		"statusCode":1,
-		"photoData":123
+		"photoData":12345678910
 	} 
 	手机号已被注册
 	{
 		"statusCode":2,
 		"errMsg":"手机号已注册"
 	} 
+	验证码错误
+	{
+		"statusCode":2,
+		"errMsg":"Wrong Code"
+	} 
+	
 ## 2、根据手机密码进行登录
      
 ### 请求URL：
-	http://106.14.206.115/handlers/login.php
+	http://www.equnshang.com/handlers/login.php
 
 ### 示例：
-[http://106.14.206.115/handlers/login.php](http://106.14.206.115/handlers/login.php)
+[http://www.equnshang.com/handlers/login.php](http://www.equnshang.com/handlers/login.php)
 
 ### 请求方式：
 	POST
@@ -93,7 +99,7 @@
 		"userInfo":{
 			"uid":1,
 			"utel":"12345678915",
-			"uname":"aa",
+			"uname":"用户915",
 			"headimage":"img\jpg",
 			"gender":1,
 			"introduce":"这个人很懒。。",
@@ -121,10 +127,10 @@
 ## 3、根据状态码和ID修改登录状态
      
 ### 请求URL：
-	http://106.14.206.115/handlers/index.php?token=token&uid=uid
+	http://www.equnshang.com/handlers/index.php?token=token&uid=uid
 
 ### 示例：
-[http://106.14.206.115/handlers/index.php?token=21983749&uid=000000001](http://106.14.206.115/handlers/index.php?token=21983749&uid=000000001)
+[http://www.equnshang.com/handlers/index.php?token=21983749&uid=000000001](http://www.equnshang.com/handlers/index.php?token=21983749&uid=000000001)
 
 ### 请求方式：
 	GET
@@ -149,10 +155,10 @@
 ## 4、根据视频和用户ID进行点赞或删除点赞操作
      
 ### 请求URL：
-	http://106.14.206.115/handlers/dolike.php
+	http://www.equnshang.com/handlers/dolike.php
 
 ### 示例：
-[http://106.14.206.115/handlers/dolike.php](http://106.14.206.115/handlers/dolike.php)
+[http://www.equnshang.com/handlers/dolike.php](http://www.equnshang.com/handlers/dolike.php)
 
 ### 请求方式：
 	POST
@@ -178,10 +184,10 @@
 ## 5、通过用户ID修改各类表升级成为会员
      
 ### 请求URL：
-	http://106.14.206.115/handlers/uptomember.php?uid=uid
+	http://www.equnshang.com/handlers/uptomember.php?uid=uid
 
 ### 示例：
-[http://106.14.206.115/handlers/dolike.php?uid=000000001](http://106.14.206.115/handlers/dolike.php?uid=000000001)
+[http://www.equnshang.com/handlers/dolike.php?uid=000000001](http://www.equnshang.com/handlers/dolike.php?uid=000000001)
 
 ### 请求方式：
 	GET
@@ -197,10 +203,10 @@
 ## 6、根据用户ID返回视频列表
      
 ### 请求URL：
-	http://106.14.206.115/handlers/videolist.php?uid=uid
+	http://www.equnshang.com/handlers/videolist.php?uid=uid
 
 ### 示例：
-[http://106.14.206.115/handlers/videolist.php?uid=000000001](http://106.14.206.115/handlers/videolist.php?uid=000000001)
+[http://www.equnshang.com/handlers/videolist.php?uid=000000001](http://www.equnshang.com/handlers/videolist.php?uid=000000001)
 
 ### 请求方式：
 	GET
@@ -247,10 +253,10 @@
 ## 7、根据用户ID返回带货商品信息列表
      
 ### 请求URL：
-	http://106.14.206.115/handlers/yellowcar.php?uid=uid
+	http://www.equnshang.com/handlers/yellowcar.php?uid=uid
 
 ### 示例：
-[http://106.14.206.115/handlers/yellowcar.php?uid=000000001](http://106.14.206.115/handlers/yellowcar.php?uid=000000001)
+[http://www.equnshang.com/handlers/yellowcar.php?uid=000000001](http://www.equnshang.com/handlers/yellowcar.php?uid=000000001)
 
 ### 请求方式：
 	GET
@@ -299,10 +305,10 @@
 ## 8、根据用户ID返回短视频列表和点赞列表和带货商品信息
 
 ### 请求URL：
-	http://106.14.206.115/handlers/mine.php?uid=uid
+	http://www.equnshang.com/handlers/mine.php?uid=uid
 
 ### 示例：
-[http://106.14.206.115/handlers/mine.php?uid=000000002](http://106.14.206.115/handlers/mine.php?uid=000000002)
+[http://www.equnshang.com/handlers/mine.php?uid=000000002](http://www.equnshang.com/handlers/mine.php?uid=000000002)
 
 ### 请求方式：
 	GET
@@ -364,10 +370,10 @@
 ## 9、返回父分类子分类信息
      
 ### 请求URL：
-	http://106.14.206.115/handlers/researchclass.php
+	http://www.equnshang.com/handlers/researchclass.php
 
 ### 示例：
-[http://106.14.206.115/handlers/researchclass.php](http://106.14.206.115/handlers/researchclass.php)
+[http://www.equnshang.com/handlers/researchclass.php](http://www.equnshang.com/handlers/researchclass.php)
 
 ### 请求方式：
 	GET
@@ -418,10 +424,10 @@
 ## 10、根据用户ID商品规格ID加购数量加入购物车获更新购物车
      
 ### 请求URL：
-	http://106.14.206.115/handlers/addtoshoppingcart.php?uid=uid&productspecid=productspecid&productnum=productnum
+	http://www.equnshang.com/handlers/addtoshoppingcart.php?uid=uid&productspecid=productspecid&productnum=productnum
 
 ### 示例：
-[http://106.14.206.115/handlers/addtoshoppingcart.php?uid=000000002&productspecid=1&productnum=2](http://106.14.206.115/handlers/addtoshoppingcart.php?uid=000000002&productspecid=1&productnum=2)
+[http://www.equnshang.com/handlers/addtoshoppingcart.php?uid=000000002&productspecid=1&productnum=2](http://www.equnshang.com/handlers/addtoshoppingcart.php?uid=000000002&productspecid=1&productnum=2)
 
 ### 请求方式：
 	GET
@@ -449,10 +455,10 @@
 ## 11、根据用户ID获取购物车列表
      
 ### 请求URL：
-	http://106.14.206.115/handlers/shoppingcartlist.php?uid=uid
+	http://www.equnshang.com/handlers/shoppingcartlist.php?uid=uid
 
 ### 示例：
-[http://106.14.206.115/handlers/shoppingcartlist.php?uid=000000002](http://106.14.206.115/handlers/shoppingcartlist.php?uid=000000002)
+[http://www.equnshang.com/handlers/shoppingcartlist.php?uid=000000002](http://www.equnshang.com/handlers/shoppingcartlist.php?uid=000000002)
 
 ### 请求方式：
 	GET
@@ -506,10 +512,10 @@
 ## 12、根据用户ID获取关注的人的视频列表
      
 ### 请求URL：
-	http://106.14.206.115/handlers/videolistfocus.php?uid=uid
+	http://www.equnshang.com/handlers/videolistfocus.php?uid=uid
 
 ### 示例：
-[http://106.14.206.115/handlers/videolistfocus.php?uid=000000001](http://106.14.206.115/handlers/videolistfocus.php?uid=000000001)
+[http://www.equnshang.com/handlers/videolistfocus.php?uid=000000001](http://www.equnshang.com/handlers/videolistfocus.php?uid=000000001)
 
 ### 请求方式：
 	GET
@@ -557,10 +563,10 @@
 ## 13、根据商品ID获取商品规格列表
      
 ### 请求URL：
-	http://106.14.206.115/handlers/getproductdedsc.php?productid=productid
+	http://www.equnshang.com/handlers/getproductdedsc.php?productid=productid
 
 ### 示例：
-[http://106.14.206.115/handlers/getproductdedsc.php?productid=3](http://106.14.206.115/handlers/getproductdedsc.php?productid=3)
+[http://www.equnshang.com/handlers/getproductdedsc.php?productid=3](http://www.equnshang.com/handlers/getproductdedsc.php?productid=3)
 
 ### 请求方式：
 	GET
@@ -589,10 +595,10 @@
 ## 14、根据用户ID和发布视频者ID获取发布者信息（包括是否关注）
      
 ### 请求URL：
-	http://106.14.206.115/handlers/headimagetoinfo.php?publishid=publishid&uid=uid
+	http://www.equnshang.com/handlers/headimagetoinfo.php?publishid=publishid&uid=uid
 
 ### 示例：
-[http://106.14.206.115/handlers/headimagetoinfo.php?publishid=000000001&uid=000000002](http://106.14.206.115/handlers/headimagetoinfo.php?publishid=000000001&uid=000000002)
+[http://www.equnshang.com/handlers/headimagetoinfo.php?publishid=000000001&uid=000000002](http://www.equnshang.com/handlers/headimagetoinfo.php?publishid=000000001&uid=000000002)
 
 ### 请求方式：
 	GET
@@ -667,10 +673,10 @@
 ## 15、根据订单信息新增订单信息
      
 ### 请求URL：
-	http://106.14.206.115/handlers/submitorder.php?coupon=coupon
+	http://www.equnshang.com/handlers/submitorder.php?coupon=coupon
 
 ### 示例：
-[http://106.14.206.115/handlers/submitorder.php?coupon=coupon](http://106.14.206.115/handlers/submitorder.php?coupon='{"uid":"000000002","addressid":"1","productlist":[{"cartid":"4","discountid":"1","discuss":"emm..."}]}')
+[http://www.equnshang.com/handlers/submitorder.php?coupon=coupon](http://www.equnshang.com/handlers/submitorder.php?coupon='{"uid":"000000002","addressid":"1","productlist":[{"cartid":"4","discountid":"1","discuss":"emm..."}]}')
 
 ### 请求方式：
 	GET
@@ -724,10 +730,10 @@
 ## 16、根据关键字返回相关视频信息
      
 ### 请求URL：
-	http://106.14.206.115/handlers/researchvideo.php
+	http://www.equnshang.com/handlers/researchvideo.php
 
 ### 示例：
-[http://106.14.206.115/handlers/researchvideo.php](http://106.14.206.115/handlers/researchvideo.php)
+[http://www.equnshang.com/handlers/researchvideo.php](http://www.equnshang.com/handlers/researchvideo.php)
 
 ### 请求方式：
 	POST
@@ -752,10 +758,10 @@
 ## 17、上传视频评论
      
 ### 请求URL：
-	http://106.14.206.115/handlers/submitvideoreply.php
+	http://www.equnshang.com/handlers/submitvideoreply.php
 
 ### 示例：
-[http://106.14.206.115/handlers/submitvideoreply.php](http://106.14.206.115/handlers/submitvideoreply.php)
+[http://www.equnshang.com/handlers/submitvideoreply.php](http://www.equnshang.com/handlers/submitvideoreply.php)
 
 ### 请求方式：
 	POST
@@ -788,10 +794,10 @@
 ## 18、根据视频ID返回列表，三个最热，剩下按时间
      
 ### 请求URL：
-	http://106.14.206.115/handlers/videoreplylist.php
+	http://www.equnshang.com/handlers/videoreplylist.php
 
 ### 示例：
-[http://106.14.206.115/handlers/videoreplylist.php](http://106.14.206.115/handlers/videoreplylist.php)
+[http://www.equnshang.com/handlers/videoreplylist.php](http://www.equnshang.com/handlers/videoreplylist.php)
 
 ### 请求方式：
 	POST
@@ -825,10 +831,10 @@
 ## 19、通过评论ID来进行点赞数+1
      
 ### 请求URL：
-	http://106.14.206.115/handlers/dovideoreplylike.php
+	http://www.equnshang.com/handlers/dovideoreplylike.php
 
 ### 示例：
-[http://106.14.206.115/handlers/dovideoreplylike.php](http://106.14.206.115/handlers/dovideoreplylike.php)
+[http://www.equnshang.com/handlers/dovideoreplylike.php](http://www.equnshang.com/handlers/dovideoreplylike.php)
 
 ### 请求方式：
 	POST
@@ -847,10 +853,10 @@
 ## 20、通过购物车ID和数量来进行验证和修改购物车信息
      
 ### 请求URL：
-	http://106.14.206.115/handlers/cartnum.php
+	http://www.equnshang.com/handlers/cartnum.php
 
 ### 示例：
-[http://106.14.206.115/handlers/cartnum.php](http://106.14.206.115/handlers/cartnum.php)
+[http://www.equnshang.com/handlers/cartnum.php](http://www.equnshang.com/handlers/cartnum.php)
 
 ### 请求方式：
 	POST
@@ -878,10 +884,10 @@
 ## 21、通过用户ID和头像文件上传并修改
      
 ### 请求URL：
-	http://106.14.206.115/handlers/alterheadimage.php
+	http://www.equnshang.com/handlers/alterheadimage.php
 
 ### 示例：
-[http://106.14.206.115/handlers/alterheadimage.php](http://106.14.206.115/handlers/alterheadimage.php)
+[http://www.equnshang.com/handlers/alterheadimage.php](http://www.equnshang.com/handlers/alterheadimage.php)
 
 ### 请求方式：
 	POST
@@ -905,10 +911,10 @@
 ## 22、通过用户ID和个性签名修改
      
 ### 请求URL：
-	http://106.14.206.115/handlers/alterintroduce.php
+	http://www.equnshang.com/handlers/alterintroduce.php
 
 ### 示例：
-[http://106.14.206.115/handlers/alterintroduce.php](http://106.14.206.115/handlers/alterintroduce.php)
+[http://www.equnshang.com/handlers/alterintroduce.php](http://www.equnshang.com/handlers/alterintroduce.php)
 
 ### 请求方式：
 	POST
@@ -932,10 +938,10 @@
 ## 23、通过用户ID和性别修改
      
 ### 请求URL：
-	http://106.14.206.115/handlers/alterusergender.php
+	http://www.equnshang.com/handlers/alterusergender.php
 
 ### 示例：
-[http://106.14.206.115/handlers/alterusergender.php](http://106.14.206.115/handlers/alterusergender.php)
+[http://www.equnshang.com/handlers/alterusergender.php](http://www.equnshang.com/handlers/alterusergender.php)
 
 ### 请求方式：
 	POST
@@ -959,10 +965,10 @@
 ## 24、通过商品ID返回所有订单评论信息
      
 ### 请求URL：
-	http://106.14.206.115/handlers/orderreplylist.php
+	http://www.equnshang.com/handlers/orderreplylist.php
 
 ### 示例：
-[http://106.14.206.115/handlers/orderreplylist.php](http://106.14.206.115/handlers/orderreplylist.php)
+[http://www.equnshang.com/handlers/orderreplylist.php](http://www.equnshang.com/handlers/orderreplylist.php)
 
 ### 请求方式：
 	POST
@@ -1001,10 +1007,10 @@
 ## 25、通过短视频ID和用户ID返回短视频信息
      
 ### 请求URL：
-	http://106.14.206.115/handlers/videoinfo.php
+	http://www.equnshang.com/handlers/videoinfo.php
 
 ### 示例：
-[http://106.14.206.115/handlers/videoinfo.php](http://106.14.206.115/handlers/videoinfo.php)
+[http://www.equnshang.com/handlers/videoinfo.php](http://www.equnshang.com/handlers/videoinfo.php)
 
 ### 请求方式：
 	POST
@@ -1035,10 +1041,10 @@
 ## 26、通过用户ID返回所有的收货地址列表
      
 ### 请求URL：
-	http://106.14.206.115/handlers/addresslist.php
+	http://www.equnshang.com/handlers/addresslist.php
 
 ### 示例：
-[http://106.14.206.115/handlers/addresslist.php](http://106.14.206.115/handlers/addresslist.php)
+[http://www.equnshang.com/handlers/addresslist.php](http://www.equnshang.com/handlers/addresslist.php)
 
 ### 请求方式：
 	POST
@@ -1069,10 +1075,10 @@
 ## 27、通过用户ID和收货地址信息新增
      
 ### 请求URL：
-	http://106.14.206.115/handlers/addnewadress.php
+	http://www.equnshang.com/handlers/addnewadress.php
 
 ### 示例：
-[http://106.14.206.115/handlers/addnewaddress.php](http://106.14.206.115/handlers/addnewaddress.php)
+[http://www.equnshang.com/handlers/addnewaddress.php](http://www.equnshang.com/handlers/addnewaddress.php)
 
 ### 请求方式：
 	POST
@@ -1102,10 +1108,10 @@
 ## 28、通过地址ID和收货地址信息修改
      
 ### 请求URL：
-	http://106.14.206.115/handlers/updateaddress.php
+	http://www.equnshang.com/handlers/updateaddress.php
 
 ### 示例：
-[http://106.14.206.115/handlers/updateaddress.php](http://106.14.206.115/handlers/updateaddress.php)
+[http://www.equnshang.com/handlers/updateaddress.php](http://www.equnshang.com/handlers/updateaddress.php)
 
 ### 请求方式：
 	POST
@@ -1135,7 +1141,7 @@
 ## 29、通过手机号调用阿里云接口发送验证码
      
 ### 请求URL：
-	http://106.14.206.115/aliApi/sendSms.php
+	http://www.equnshang.com/aliApi/sendSms.php
 
 ### 示例：
 无
@@ -1159,7 +1165,7 @@
 ## 30、通过bizID和code校验验证码
      
 ### 请求URL：
-	http://106.14.206.115/handlers/checkCode.php
+	http://www.equnshang.com/handlers/checkCode.php
 
 ### 示例：
 无
@@ -1194,7 +1200,7 @@
 ## 31、通过uid和leadid进行关注或删除关注操作
      
 ### 请求URL：
-	http://106.14.206.115/handlers/focusleaduser.php
+	http://www.equnshang.com/handlers/focusleaduser.php
 
 ### 示例：
 无
@@ -1218,7 +1224,7 @@
 ## 32、通过uid查找所有行为积分活动
      
 ### 请求URL：
-	http://106.14.206.115/handlers/getcredit.php
+	http://www.equnshang.com/handlers/getcredit.php
 
 ### 示例：
 无
@@ -1260,7 +1266,7 @@
 ## 33、通过uid增加用户浏览视频的行为积分
      
 ### 请求URL：
-	http://106.14.206.115/handlers/watchvideo.php
+	http://www.equnshang.com/handlers/watchvideo.php
 
 ### 示例：
 无
@@ -1282,7 +1288,7 @@
 ## 34、通过uid查询用户是否已经实名认证
      
 ### 请求URL：
-	http://106.14.206.115/handlers/identity.php
+	http://www.equnshang.com/handlers/identity.php
 
 ### 示例：
 无
@@ -1318,7 +1324,7 @@
 ## 35、通过uid和上传的图片进行实名认证
      
 ### 请求URL：
-	http://106.14.206.115/handlers/checkIdCard.php
+	http://www.equnshang.com/handlers/checkIdCard.php
 
 ### 示例：
 无
@@ -1363,7 +1369,7 @@
 ## 36、通过uid获取抽奖码
      
 ### 请求URL：
-	http://106.14.206.115/handlers/getlottery.php
+	http://www.equnshang.com/handlers/getlottery.php
 
 ### 示例：
 无

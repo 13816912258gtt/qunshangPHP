@@ -97,6 +97,18 @@ function updateReplyLikenum($replyid,$likenum){
 	$rs=execUpdate($sql,$link);
 	return $rs;
 }
+function findReplyByUid($uid){
+	$sql="select * from `tbl_videoreply` where `uid`=$uid";
+	$link=get_connect();
+	$rs=execQuery($sql,$link);
+	return $rs;
+}
+function updateReplyHeadimg($uid,$headimage){
+	$sql="update `tbl_videoreply` set `headimage`='$headimage' where `uid`=$uid";
+	$link=get_connect();
+	$rs=execUpdate($sql,$link);
+	return $rs;
+}
 /*---------videolike.dao------*/
 function findVideoLikeCount($videoid){
 	$sql="select count(`likeid`) as num from `tbl_videolike` where `videoid`=$videoid";
@@ -164,6 +176,18 @@ function findFocusVideoByUid($uid){
 	$sql="select * from `tbl_video` where `uid` in(select `leadid` from `tbl_videofocus` where `followid`=$uid) order by publishtime desc";
 	$link=get_connect();
 	$rs=execQuery($sql,$link);
+	return $rs;
+}
+function updateHeadimg($uid,$headimage){
+	$sql="update `tbl_video` set `headimage`='$headimage' where `uid`=$uid";
+	$link=get_connect();
+	$rs=execUpdate($sql,$link);
+	return $rs;
+}
+function updateReplyHead($uid,$headimage){
+	$sql="update `tbl_videoreply` set `headimage`='$headimage' where `uid`=$uid";
+	$link=get_connect();
+	$rs=execUpdate($sql,$link);
 	return $rs;
 }
 ?>
