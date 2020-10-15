@@ -29,6 +29,19 @@ if($num>10){
 		}
 	}
 	
+	//转换群币 10000积分转换一个
+	$userarr=findUserByUid($uid);
+	$quncoin=$userarr['quncoin'];
+	$creditcoin=$userarr['credit'];
+	if($creditcoin>=10000){
+		for($i=0;$i<(int)($creditcoin/10000);$i++){
+		$creditcoin=$creditcoin-10000;
+		updateUserCredit($uid,$creditcoin);
+		$quncoin=$quncoin+1;
+		updateUserCoin($uid,$quncoin);
+		}
+	}
+	
 }
 $replyarr=findVideoReplyById($id);
 $rs=array("statusCode"=>"1","Msg"=>"添加评论成功","replyarr"=>$replyarr);

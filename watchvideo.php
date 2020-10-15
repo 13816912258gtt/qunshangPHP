@@ -19,6 +19,19 @@ $bili=array(1,1,1);
 		}
 	}
 
+//转换群币 10000积分转换一个
+	$userarr=findUserByUid($uid);
+	$quncoin=$userarr['quncoin'];
+	$creditcoin=$userarr['credit'];
+	if($creditcoin>=10000){
+		for($i=0;$i<(int)($creditcoin/10000);$i++){
+			$creditcoin=$creditcoin-10000;
+			updateUserCredit($uid,$creditcoin);
+			$quncoin=$quncoin+1;
+			updateUserCoin($uid,$quncoin);
+		}
+	}
+
 if($rs){
 	$result=array("statusCode"=>1);
 }else{

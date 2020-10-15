@@ -21,6 +21,7 @@ else{
 $invitearr=array("0"=>$identity0,"1"=>$identity1,"2"=>$identity2);
 $invitenum=$invitearr[0]+$invitearr[1]+$invitearr[2];
 $credit=$userarr['credit'];
+$quncoin=$userarr['quncoin'];
 $videolike=findCreditById($uid,0)*0.1;
 $videowatch=findCreditById($uid,1)*0.3;
 $videoreply=findCreditById($uid,3)*1;
@@ -34,6 +35,6 @@ for($i=0;$i<count($newcredit);$i++){
 	$behaviorlistarr=array(array("behavior"=>$behavior['behavior'],"getcredit"=>$behavior['getcredit'],"gettime"=>$behavior['gettime']));
 	$behaviorlist=array_merge_recursive($behaviorlist,$behaviorlistarr);
 }
-$rs=array("credit"=>$credit,"invitenum"=>$invitenum,"invitearr"=>$invitearr,"subcredit"=>$subcredit,"behaviorlist"=>$behaviorlist);
+$rs=array("credit"=>$credit,"invitenum"=>$invitenum,"invitearr"=>$invitearr,"quncoin"=>$quncoin,"subcredit"=>$subcredit,"behaviorlist"=>$behaviorlist);
 echo json_encode($rs,JSON_UNESCAPED_UNICODE);
 ?>

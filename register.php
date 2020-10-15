@@ -52,6 +52,18 @@
 					break;
 				}
 			}
+			//转换群币 10000积分转换一个
+			$quncoin=$invitearr['quncoin'];
+			$creditcoin=$invitearr['credit'];
+			if($creditcoin>=10000){
+				for($i=0;$i<(int)($creditcoin/10000);$i++){
+				$creditcoin=$creditcoin-10000;
+				updateUserCredit($inviteid,$creditcoin);
+				$quncoin=$quncoin+1;
+				updateUserCoin($inviteid,$quncoin);
+				}
+			}
+			
 			/*
 			addMemberCredit($inviteid);
 			$credit=$invitearr['credit']+100;
