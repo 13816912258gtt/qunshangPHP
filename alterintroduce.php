@@ -3,7 +3,7 @@ $uid=(int)$_POST['uid'];
 $introduce=$_POST['introduce'];
 require_once 'comm/user.dao.php';
 if(updateUserIntroduce($uid,$introduce)){
-	$rs=array("statusCode"=>"1","Msg"=>"修改成功");
+	$rs=array("statusCode"=>"1","introduce"=>$introduce);
 }else{
 	$rs=array("statusCode"=>"2","Msg"=>"修改失败");
 }

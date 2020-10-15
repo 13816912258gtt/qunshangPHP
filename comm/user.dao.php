@@ -193,4 +193,13 @@ function findLuoIdentityNum($partnerid,$identity){
 	$rs=execQuery($sql,$link);
 	return $rs[0]['num'];
 }
+function findRealById($uid){
+	$link=get_connect();
+	$sql="select * from `tbl_realname` where `uid`=$uid";
+	$rs=execQuery($sql,$link);
+	if(count($rs)>0){
+		return $rs[0];
+	}
+	return $rs;
+}
 ?>
