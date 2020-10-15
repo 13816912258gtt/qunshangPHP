@@ -27,6 +27,7 @@ $bili=array(1,1,1);
 		for($i=0;$i<(int)($creditcoin/10000);$i++){
 			$creditcoin=$creditcoin-10000;
 			updateUserCredit($uid,$creditcoin);
+			addChangeCoin($uid);
 			$quncoin=$quncoin+1;
 			updateUserCoin($uid,$quncoin);
 		}

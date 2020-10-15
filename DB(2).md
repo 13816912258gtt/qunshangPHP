@@ -612,6 +612,7 @@ downtime timestamp not null default current_timestamp comment '下载时间',
 primary key (downid)
 )engine=InnoDB  default charset=utf8;
 ```
+
 #### 创建抽奖表tbl_lottery
 ```sql
 create table tbl_lottery(
@@ -622,6 +623,22 @@ period int not null comment '期数',
 gettime timestamp not null default current_timestamp comment '获取时间',
 drawtime timestamp not null comment '开奖时间',
 primary key (lotteryid),
+foreign key(uid) references tbl_user(uid)
+)engine=InnoDB  default charset=utf8;
+```
+
+#### 创建开奖表tbl_drawlottery
+```sql
+create table tbl_drawlottery(
+drawid int not null auto_increment comment  '开奖编号',
+number char(5) not null comment '中奖号码',
+uid int(10) unsigned zerofill not null comment  '中奖用户编号',
+realname char(10) not null comment  '姓名',
+realidentity char(18) not null comment  '身份证号',
+utel char(11) not null comment  '中奖用户手机号',
+level tinyint not null comment '级别',
+period int not null comment '期数',
+primary key (drawid),
 foreign key(uid) references tbl_user(uid)
 )engine=InnoDB  default charset=utf8;
 ```

@@ -36,6 +36,13 @@ function addWatchVideo($uid){
 	$rs=execUpdate($sql,$link);
 	return $rs;
 }
+//兑换群币，一次6-10000
+function addChangeCoin($uid){
+	$link=get_connect();
+	$sql="insert into `tbl_behaviorcredit`(`uid`,`behavior`,`getcredit`)values($uid,6,-10000)";
+	$rs=execUpdate($sql,$link);
+	return $rs;
+}
 function findCreditById($uid,$behavior){
 	$link=get_connect();
 	$sql="select count(`creditid`) as num from `tbl_behaviorcredit` where `uid`=$uid and `behavior`=$behavior";

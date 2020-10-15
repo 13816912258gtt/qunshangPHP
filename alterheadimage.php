@@ -27,7 +27,7 @@ if(move_uploaded_file($tmp,$filepath.$imgname)){
 	if(findLGiftByLiverid($uid)){
 		updateLGiftHead($uid,$headimage);
 	}
-	$rs=array("statusCode"=>"1","Msg"=>"上传修改成功");
+	$rs=array("statusCode"=>"1","imgurl"=>$headimage);
 }else{
 	$rs=array("statusCode"=>"2","Msg"=>"上传失败");
 }

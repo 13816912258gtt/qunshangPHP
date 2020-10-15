@@ -48,4 +48,28 @@ function updateLGiftHead($liverid,$liverheadimage){
 	$rs=execUpdate($sql,$link);
 	return $rs;
 }
+function updateLiverNmae($liverid,$livername){
+	$sql="update `tbl_liveroom` set `livername`='$livername' where `liverid`=$liverid";
+	$link=get_connect();
+	$rs=execUpdate($sql,$link);
+	return $rs;
+}
+function updateLiveAudienceUname($uid,$uname){
+	$sql="update `tbl_liveaudience` set `uname`='$uname' where `uid`=$uid";
+	$link=get_connect();
+	$rs=execUpdate($sql,$link);
+	return $rs;
+}
+function updateGiveUname($uid,$uname){
+	$sql="update `tbl_givegift` set `uname`='$uname' where `uid`=$uid";
+	$link=get_connect();
+	$rs=execUpdate($sql,$link);
+	return $rs;
+}
+function updateGetUname($liverid,$livername){
+	$sql="update `tbl_givegift` set `livername`='$livername' where `liverid`=$liverid";
+	$link=get_connect();
+	$rs=execUpdate($sql,$link);
+	return $rs;
+}
 ?>

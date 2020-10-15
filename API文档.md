@@ -37,7 +37,9 @@
 [34、查询用户是否已经实名认证](#34通过uid查询用户是否已经实名认证)<br/>
 [35、上传身份证并OCR识别](#35通过uid和上传的图片进行实名认证)<br/>
 [36、获取抽奖码](#36通过uid获取抽奖码)<br/>
+[37、修改用户名](#37通过uid和uname修改用户名)<br/>
 
+通过uid和uname修改用户名
 ## 1、根据手机密码身份插入注册
      
 ### 请求URL：
@@ -901,7 +903,7 @@
 ### 返回示例： 
 	{
 		"statusCode":"1",
-		"Msg":"上传修改成功"
+		"imgurl":"http://www.equnshang.com/asdsf.jpg"
 	} 
 	{
 		"statusCode":"2",
@@ -1401,4 +1403,31 @@
 		],
 		"period":1,
 		"drawtime":"2020-10-18 18:00:00"
+	} 
+	
+## 37、通过uid和uname修改用户名
+     
+### 请求URL：
+	http://www.equnshang.com/handlers/alteruname.php
+
+### 示例：
+无
+
+### 请求方式：
+	POST
+
+### 参数类型：param
+
+	|参数	    |是否必选    |类型        |说明
+    |uid        |Y          |String      |当前用户ID
+	|uname      |Y          |String      |用户名
+
+### 返回示例： 
+	{
+		"statusCode":0,
+		"uname":"abc"
+	} 
+	{
+		"statusCode":1, 
+		"Msg": "用户名长度错误"
 	} 

@@ -190,4 +190,16 @@ function updateReplyHead($uid,$headimage){
 	$rs=execUpdate($sql,$link);
 	return $rs;
 }
+function updateVideoUname($uid,$uname){
+	$sql="update `tbl_video` set `uname`='$uname' where `uid`=$uid";
+	$link=get_connect();
+	$rs=execUpdate($sql,$link);
+	return $rs;
+}
+function updateVideoReplyUname($uid,$uname){
+	$sql="update `tbl_videoreply` set `uname`='$uname' where `uid`=$uid";
+	$link=get_connect();
+	$rs=execUpdate($sql,$link);
+	return $rs;
+}
 ?>

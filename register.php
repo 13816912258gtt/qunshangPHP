@@ -59,6 +59,7 @@
 				for($i=0;$i<(int)($creditcoin/10000);$i++){
 				$creditcoin=$creditcoin-10000;
 				updateUserCredit($inviteid,$creditcoin);
+				addChangeCoin($inviteid);
 				$quncoin=$quncoin+1;
 				updateUserCoin($inviteid,$quncoin);
 				}
