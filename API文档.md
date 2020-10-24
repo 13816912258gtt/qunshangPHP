@@ -39,9 +39,9 @@
 [36、获取抽奖码](#36通过uid获取抽奖码)<br/>
 [37、修改用户名](#37通过uid和uname修改用户名)<br/>
 [38、获取抽奖结果](#38获取抽奖结果)<br/>
+[39、通过uid和上传的图片进行实名认证（新）](#39通过uid和上传的图片进行实名认证（新）)<br/>
+[39、实名认证](#39实名认证)<br/>
 
-
-通过uid和uname修改用户名
 ## 1、根据手机密码身份插入注册
      
 ### 请求URL：
@@ -1474,4 +1474,89 @@
 	    },
 		...
 	]
+
+## 39、通过uid和上传的图片进行实名认证（新）
+     
+### 请求URL：
+	http://www.equnshang.com/handlers/checkIdCard1.php
+
+### 示例：
+无
+
+### 请求方式：
+	POST
+
+### 参数类型：param
+
+	|参数	    |是否必选    |类型        |说明
+    |uid        |Y          |String      |当前用户ID
+    |img_1      |Y          |File        |身份证正面照片
+    |img_2      |Y          |File        |身份证反面照片
 	
+
+### 返回示例： 
+	{
+	    "status":"OK",  //成功
+	    "used"：0, //身份证没有实名认证过
+	    "data": {
+                "uid": "187",
+                "name": "杨彪",
+                "num": "430122199101270013",
+                "address": "湖南省望城县乔口镇湛水村熊家湾组112号",
+                "sex": 0,
+                "birth": "19910127",
+                "nationality": "汉"
+        }
+	}
+	{
+	    "status":"OK",  //成功
+        "used"：1 //身份证已经实名认证过
+	}
+	{
+	    "status":"Fail",
+	    "errMes":"User identified already."  //用户已经实名认证
+	}
+	{
+	    "status":"Fail",
+	    "errMes":"Parameter missing."  //缺少参数或者图片数据
+    }
+    {
+        "status":"Fail",
+        "errMes":"Aliyun OCR Fail."  //阿里云接口失效或者图片不是身份证
+    }
+    {
+        "status":"Fail",
+        "errMes":"Exception of img_1: wrong type of image."  //图片类型不支持，仅支持png，jpg和gif
+    }
+    
+## 40、实名认证
+     
+### 请求URL：
+	http://www.equnshang.com/handlers/doRealname.php
+
+### 示例：
+无
+
+### 请求方式：
+	POST
+
+### 参数类型：param
+
+	|参数	    |是否必选    |类型        |说明
+    |uid        |Y          |String      |当前用户ID
+    |name       |Y          |String      |实名制姓名
+    |num        |Y          |String      |实名制身份证号码
+    |address    |Y          |String      |实名制身份证地址
+    |sex        |Y          |int         |实名制性别
+    |birth      |Y          |string      |实名制生日
+    |nationality|Y          |string      |实名制民族
+	
+
+### 返回示例： 
+	{
+	    "status":"OK",  //成功
+	}
+	{
+	    "status":"Fail",  //失败
+        "errMes"：DataBase fail. //存入数据库失败
+	}
