@@ -1562,7 +1562,7 @@
         "errMes"：DataBase fail. //存入数据库失败
 	}
 	
-## 41、实名认证
+## 41、根据Uid和videoid进行点赞
      
 ### 请求URL：
 	http://www.equnshang.com/handlers/dozan.php
