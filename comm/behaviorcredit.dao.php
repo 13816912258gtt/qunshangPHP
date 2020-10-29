@@ -1,6 +1,6 @@
 <?PHP
 require_once 'comm/common.php';
-//短视频点赞，0加0.1
+//短视频喜欢，0加0.1
 function addVideoCredit($uid){
 	$link=get_connect();
 	$sql="insert into `tbl_behaviorcredit`(`uid`,`behavior`,`getcredit`)values($uid,0,0.1)";
@@ -12,6 +12,13 @@ function addVideoCredit($uid){
 function deleteVideoCredit($creditid){
 	$link=get_connect();
 	$sql="delete from `tbl_behaviorcredit` where `creditid`=$creditid";
+	$rs=execUpdate($sql,$link);
+	return $rs;
+}
+//短视频点赞，2加0.1
+function addVideoZanCredit($uid){
+	$link=get_connect();
+	$sql="insert into `tbl_behaviorcredit`(`uid`,`behavior`,`getcredit`)values($uid,2,0.1)";
 	$rs=execUpdate($sql,$link);
 	return $rs;
 }

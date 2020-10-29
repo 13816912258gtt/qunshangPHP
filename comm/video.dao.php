@@ -152,6 +152,34 @@ function updateVideoCredit($videoid,$creditid){
 	$rs=execUpdate($sql,$link);
 	return $rs;
 }
+/*---------videozan.dao------*/
+function findVideoZan($uid,$videoid){
+	$sql="select * from `tbl_videozan` where `videoid`=$videoid and `uid`=$uid";
+	$link=get_connect();
+	$rs=execQuery($sql,$link);
+	return $rs;
+}
+function addVideoZan($uid,$videoid){
+	$sql="insert into  `tbl_videozan`(`videoid`,`uid`)values($videoid,$uid)";
+	$link=get_connect();
+	$rs=execUpdate($sql,$link);
+	return $rs;
+}
+function findVideoZanCount($videoid){
+	$sql="select `zancount` from `tbl_video` where `videoid`=$videoid";
+	$link=get_connect();
+	$rs=execQuery($sql,$link);
+	if(count($rs)>0){
+		return $rs[0]['zancount'];
+	}
+	return $rs;
+}
+function updateVideoZanCount($videoid,$zancount){
+	$sql="update `tbl_video` set `zancount`=$zancount where `videoid`=$videoid";
+	$link=get_connect();
+	$rs=execUpdate($sql,$link);
+	return $rs;
+}
 /*---------videofocus.dao------*/
 function findVideoFocus($followid,$leadid){
     // echo "主：".$leadid."从：".$followid;

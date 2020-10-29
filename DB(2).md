@@ -177,6 +177,7 @@ uname char(10) not null comment '作者名称',
 headimage varchar(255) not null comment '作者头像',
 productid int unsigned not null comment '商品编号',
 publishtime timestamp not null default current_timestamp comment '发布时间',
+zancouont int not null default 0 comment '点赞数';
 primary key (videoid),
 foreign key(uid) references tbl_user(uid),
 foreign key(productid) references tbl_product(productid) 
@@ -195,6 +196,20 @@ primary key (likeid),
 foreign  key(uid) references tbl_user(uid),
 foreign  key(videoid) references tbl_video(videoid),
 foreign  key(creditid) references tbl_behaviorcredit(creditid),
+unique(videoid,uid)
+)engine=InnoDB  default charset=utf8;
+```
+
+#### 创建视频点赞表tbl_videozan
+```sql
+create  table tbl_videozan(
+zanid int unsigned not null auto_increment comment  '短视频点赞编号',
+videoid int unsigned not null comment '短视频编号',
+uid int(10) unsigned zerofill not null comment  '用户编号',
+liketime timestamp not null default current_timestamp comment '点赞时间',
+primary key (zanid),
+foreign  key(uid) references tbl_user(uid),
+foreign  key(videoid) references tbl_video(videoid),
 unique(videoid,uid)
 )engine=InnoDB  default charset=utf8;
 ```
