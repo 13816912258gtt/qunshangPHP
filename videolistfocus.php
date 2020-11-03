@@ -23,7 +23,7 @@ require_once 'comm/video.dao.php';
 			if(findVideoFocus($uid,$focusvideoarr[$i]['uid'])){
 				$isfocus=true;
 			}
-			$videolistarr=array(array('videoid'=>$videoid,'url'=>$focusvideoarr[$i]['url'],'posterurl'=>$focusvideoarr[$i]['posterurl'],'videodesc'=>$focusvideoarr[$i]['videodesc'],'uid'=>$focusvideoarr[$i]['uid'],'uname'=>$focusvideoarr[$i]['uname'],'headimage'=>$focusvideoarr[$i]['headimage'],'productid'=>$focusvideoarr[$i]['productid'],'publishtime'=>$focusvideoarr[$i]['publishtime'],'islike'=>$islike,'isfocus'=>$isfocus,'likecount'=>$likecount,'replycount'=>$replycount));
+			$videolistarr=array(array('videoid'=>$videoid,'url'=>$focusvideoarr[$i]['url'],'posterurl'=>$focusvideoarr[$i]['posterurl'],'videodesc'=>$focusvideoarr[$i]['videodesc'],'uid'=>$focusvideoarr[$i]['uid'],'uname'=>$focusvideoarr[$i]['uname'],'headimage'=>$focusvideoarr[$i]['headimage'],'productid'=>$focusvideoarr[$i]['productid'],'publishtime'=>$focusvideoarr[$i]['publishtime'],'islike'=>$islike,'isfocus'=>$isfocus,'likecount'=>$likecount,'replycount'=>$replycount,'zancount'=>$focusvideoarr[$i]['zancount']));
 			$videolist=array_merge_recursive($videolist,$videolistarr);
 	}
 	echo json_encode($videolist,JSON_UNESCAPED_UNICODE);

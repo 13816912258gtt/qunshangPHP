@@ -6,12 +6,12 @@ require_once 'comm/video.dao.php';
 	$vcount=$videocount['num'];
 	$number=range(1,$vcount);
 	shuffle($number);
-	$n=9;
+	$n=10;
     // $n=6;
 	//得到所有video的信息并且打乱顺序作为随机
 	$videolist=array();
 	for($i=1;$i<=$n;$i++){
-		if($i==1){
+	if($i==1){
 			$videoid=11;
 		}else if($i==2){
 			$videoid=18;
@@ -24,7 +24,8 @@ require_once 'comm/video.dao.php';
 			$replycount=findVideoReplyCount($videoid);
 			$islike=false;
 			$isfocus=false;
-			if(isset($_GET['uid'])){
+			$iszan=false;
+			if(!empty($_GET['uid'])){
 				$uid=$_GET['uid'];
 				$islike=false;
 				if(findVideoLikeByUid($videoid,$uid)){
@@ -34,8 +35,12 @@ require_once 'comm/video.dao.php';
 				if(findVideoFocus($uid,$rs['uid'])){
 					$isfocus=true;
 				}
+				$iszan=false;
+				if(findVideoZanById($uid,$videoid)){
+					$iszan=true;
+				}
 			}
-			$videolistarr=array(array('videoid'=>$videoid,'url'=>$rs['url'],'posterurl'=>$rs['posterurl'],'videodesc'=>$rs['videodesc'],'uid'=>$rs['uid'],'uname'=>$rs['uname'],'headimage'=>$rs['headimage'],'productid'=>$rs['productid'],'publishtime'=>$rs['publishtime'],'islike'=>$islike,'isfocus'=>$isfocus,'likecount'=>$likecount,'replycount'=>$replycount));
+			$videolistarr=array(array('videoid'=>$videoid,'url'=>$rs['url'],'posterurl'=>$rs['posterurl'],'videodesc'=>$rs['videodesc'],'uid'=>$rs['uid'],'uname'=>$rs['uname'],'headimage'=>$rs['headimage'],'productid'=>$rs['productid'],'publishtime'=>$rs['publishtime'],'islike'=>$islike,'isfocus'=>$isfocus,'likecount'=>$likecount,'replycount'=>$replycount,'zancount'=>$rs['zancount'],'iszan'=>$iszan));
 			$videolist=array_merge_recursive($videolist,$videolistarr);
 		}else{
 			$i=$i-1;

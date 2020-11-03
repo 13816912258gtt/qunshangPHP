@@ -236,7 +236,9 @@
 			"islike":false,
 			"isfocus":false,
 			"likecount":"0",
-			"replycount":"0"
+			"replycount":"0",
+			"zancount": "0",
+			"iszan": true
 		},
 		{
 			"videoid":7,
@@ -251,7 +253,9 @@
 			"islike":false,
 			"isfocus":false,
 			"likecount":"0",
-			"replycount":"0"
+			"replycount":"0",
+			"zancount": "0",
+			"iszan": true
 		},10条数据
 	]
 
@@ -336,7 +340,8 @@
 				"hedimage":"",
 				"productid":"0",
 				"publishtime":"2020-07-23 21:34:14",
-				"likecount":"0"
+				"likecount":"0",
+				"zancount":"10"
 			},所有我的视频数据
 		],
 		"mylikevideolist":[
@@ -350,7 +355,8 @@
 				"hedimage":"",
 				"productid":"0",
 				"publishtime":"2020-07-23 21:34:14",
-				"likecount":"0"
+				"likecount":"0",
+				"zancount":"10"
 			}
 		],
 		"product":[
@@ -546,7 +552,8 @@
 			"islike":false,
 			"isfocus":true,
 			"likecount":"0",
-			"replycount":"0"
+			"replycount":"0",
+			"zancount":"10"
 		},
 		{
 			"videoid":"14",
@@ -561,7 +568,8 @@
 			"islike":false,
 			"isfocus":true,
 			"likecount":"0",
-			"replycount":"0"
+			"replycount":"0",
+			"zancount":"10"
 		},10条视频
 	]
 
@@ -639,7 +647,8 @@
 				"hedimage":"",
 				"productid":"0",
 				"publishtime":"2020-07-23 21:34:14",
-				"likecount":"0"
+				"likecount":"0",
+				"zancount":"10"
 			},所有我的视频数据
 		],
 		"mylikevideolist":[
@@ -653,7 +662,8 @@
 				"hedimage":"",
 				"productid":"0",
 				"publishtime":"2020-07-23 21:34:14",
-				"likecount":"0"
+				"likecount":"0",
+				"zancount":"1"
 			}
 		],
 		"product":[

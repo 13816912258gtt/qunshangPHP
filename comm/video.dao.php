@@ -180,10 +180,16 @@ function updateVideoZanCount($videoid,$zancount){
 	$rs=execUpdate($sql,$link);
 	return $rs;
 }
+function findVideoZanById($uid,$videoid){
+	$sql="select * from `tbl_videozan` where `uid`=$uid and `videoid`=$videoid";
+	$link=get_connect();
+	$rs=execQuery($sql,$link);
+	return $rs;
+}
 /*---------videofocus.dao------*/
 function findVideoFocus($followid,$leadid){
     // echo "主：".$leadid."从：".$followid;
-	$sql="select * from `tbl_videofocus` where `followid`=".$followid." and `leadid`=$leadid";
+	$sql="select * from `tbl_videofocus` where `followid`=$followid and `leadid`=$leadid";
 	$link=get_connect();
 	$rs=execQuery($sql,$link);
 	return $rs;
