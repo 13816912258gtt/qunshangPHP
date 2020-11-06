@@ -42,6 +42,7 @@
 [39、通过uid和上传的图片进行实名认证（新）](#39通过uid和上传的图片进行实名认证（新）)<br/>
 [40、实名认证](#40实名认证)<br/>
 [41、视频点赞](#41根据Uid和videoid进行点赞)<br/>
+[42、返回关注的人的信息](#42根据Uid获得关注的人的信息列表)<br/>
 
 ## 1、根据手机密码身份插入注册
      
@@ -1050,7 +1051,9 @@
 		"islike":false,
 		"isfocus":false,
 		"likecount":"0",
-		"replycount":"0"
+		"replycount":"0",
+		"iszan":false,
+		"zancount":"0",
 	} 
 	
 ## 26、通过用户ID返回所有的收货地址列表
@@ -1598,3 +1601,36 @@
 	    "statusCode": 1,
 	    "zancount": "1"//当前视频点赞数
 	}
+	
+## 42、根据Uid获得关注的人的信息列表
+     
+### 请求URL：
+	http://www.equnshang.com/handlers/focususerlist.php
+
+### 示例：
+无
+
+### 请求方式：
+	POST
+
+### 参数类型：param
+
+	|参数	    |是否必选    |类型        |说明
+    |uid        |Y          |String      |当前用户ID
+
+### 返回示例： 
+	[
+	    {
+	        "uid": "0000000001",
+	        "uname": "CEO",
+	        "headimage": "http:\/\/www.equnshang.com\/headimg\/1603965457806_mmexport1603960831264.png",
+	        "introduce": ""
+	    },
+	    {
+	        "uid": "0000000011",
+	        "uname": "kot",
+	        "headimage": "http:\/\/www.equnshang.com\/headimg\/1604368971669_1604137199-IMG_0182.JPG",
+	        "introduce": "hhhhhh"
+	    }
+	]
+	

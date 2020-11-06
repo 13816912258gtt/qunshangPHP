@@ -212,6 +212,13 @@ function findFocusVideoByUid($uid){
 	$rs=execQuery($sql,$link);
 	return $rs;
 }
+function findFocusList($followid){
+	$sql="select `leadid` from `tbl_videofocus` where `followid`=$followid";
+	$link=get_connect();
+	$rs=execQuery($sql,$link);
+	return $rs;
+	
+}
 function updateHeadimg($uid,$headimage){
 	$sql="update `tbl_video` set `headimage`='$headimage' where `uid`=$uid";
 	$link=get_connect();

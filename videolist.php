@@ -25,7 +25,7 @@ require_once 'comm/video.dao.php';
 			$islike=false;
 			$isfocus=false;
 			$iszan=false;
-			if(!empty($_GET['uid'])){
+			if(isset($_GET['uid'])){
 				$uid=$_GET['uid'];
 				$islike=false;
 				if(findVideoLikeByUid($videoid,$uid)){
