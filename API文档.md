@@ -43,6 +43,8 @@
 [40、实名认证](#40实名认证)<br/>
 [41、视频点赞](#41根据Uid和videoid进行点赞)<br/>
 [42、返回关注的人的信息](#42根据Uid获得关注的人的信息列表)<br/>
+[43、获得省市地址列表](#43根据parentid获得下一级地址列表)<br/>
+
 
 ## 1、根据手机密码身份插入注册
      
@@ -482,44 +484,41 @@
 
 ### 返回示例：
 	[
-		{
-			"sellername":"用户_1381691",
-			"productid":"2",
-			"productimageurl":"\/",
-			"productname":"test",
-			"productspeclist":[
-				{
-					"cartid":"5",
-					"productspecid":"1",
-					"productspecdesc":"..",
-					"productoldprice":"0",
-					"productnum":"4"
-				}
-			]
-		},
-		{
-			"sellername":"用户_1381691",
-			"productid":"3",
-			"productimageurl":"..\/jpg",
-			"productname":"test","
-			productspeclist":[
-				{
-					"cartid":"3",
-					"productspecid":"1",
-					"productspecdesc":"暂无",
-					"productoldprice":"0",
-					"productnum":"8"
-				},
-				{
-					"cartid":"4",
-					"productspecid":"2",
-					"productspecdesc":"暂无",
-					"productoldprice":"20",
-					"productnum":"8"
-				}
-			]
-		}
-	] 
+	    {
+	        "sellername": "CEO",
+	        "sellerid": "0000000001",
+	        "productlist": [
+	            {
+	                "productid": "5",
+	                "productimageurl": "http:\/\/www.equnshang.com\/goodsPic\/5.jpg",
+	                "productname": "蝉花虫草孢子粉（金标）",
+	                "productspeclist": [
+	                    {
+	                        "cartid": "7",
+	                        "productspecid": "5",
+	                        "productspecdesc": "30克（2克X15）",
+	                        "productoldprice": "1999",
+	                        "productnum": "1"
+	                    }
+	                ]
+	            },
+	            {
+	                "productid": "12",
+	                "productimageurl": "http:\/\/www.equnshang.com\/goodsPic\/14.jpg",
+	                "productname": "虫草益生菌粉",
+	                "productspeclist": [
+	                    {
+	                        "cartid": "8",
+	                        "productspecid": "14",
+	                        "productspecdesc": "  1.5g*30",
+	                        "productoldprice": "99",
+	                        "productnum": "1"
+	                    }
+	                ]
+	            }
+	        ]
+	    }
+	]
 
 ## 12、根据用户ID获取关注的人的视频列表
      
@@ -1633,4 +1632,137 @@
 	        "introduce": "hhhhhh"
 	    }
 	]
-	
+
+## 43、根据parentid获得下一级地址列表
+     
+### 请求URL：
+	http://www.equnshang.com/handlers/findregionarr.php
+
+### 示例：
+无
+
+### 请求方式：
+	POST
+
+### 参数类型：param
+
+	|参数	    |是否必选    |类型        |说明
+    |parentid   |Y          |String      |父地址id
+
+### 返回示例： 
+	[
+	    {
+	        "cityid": "2703",
+	        "cityparentid": "321",
+	        "cityname": "长宁区",
+	        "citytype": "3"
+	    },
+	    {
+	        "cityid": "2704",
+	        "cityparentid": "321",
+	        "cityname": "闸北区",
+	        "citytype": "3"
+	    },
+	    {
+	        "cityid": "2705",
+	        "cityparentid": "321",
+	        "cityname": "闵行区",
+	        "citytype": "3"
+	    },
+	    {
+	        "cityid": "2706",
+	        "cityparentid": "321",
+	        "cityname": "徐汇区",
+	        "citytype": "3"
+	    },
+	    {
+	        "cityid": "2707",
+	        "cityparentid": "321",
+	        "cityname": "浦东新区",
+	        "citytype": "3"
+	    },
+	    {
+	        "cityid": "2708",
+	        "cityparentid": "321",
+	        "cityname": "杨浦区",
+	        "citytype": "3"
+	    },
+	    {
+	        "cityid": "2709",
+	        "cityparentid": "321",
+	        "cityname": "普陀区",
+	        "citytype": "3"
+	    },
+	    {
+	        "cityid": "2710",
+	        "cityparentid": "321",
+	        "cityname": "静安区",
+	        "citytype": "3"
+	    },
+	    {
+	        "cityid": "2711",
+	        "cityparentid": "321",
+	        "cityname": "卢湾区",
+	        "citytype": "3"
+	    },
+	    {
+	        "cityid": "2712",
+	        "cityparentid": "321",
+	        "cityname": "虹口区",
+	        "citytype": "3"
+	    },
+	    {
+	        "cityid": "2713",
+	        "cityparentid": "321",
+	        "cityname": "黄浦区",
+	        "citytype": "3"
+	    },
+	    {
+	        "cityid": "2714",
+	        "cityparentid": "321",
+	        "cityname": "南汇区",
+	        "citytype": "3"
+	    },
+	    {
+	        "cityid": "2715",
+	        "cityparentid": "321",
+	        "cityname": "松江区",
+	        "citytype": "3"
+	    },
+	    {
+	        "cityid": "2716",
+	        "cityparentid": "321",
+	        "cityname": "嘉定区",
+	        "citytype": "3"
+	    },
+	    {
+	        "cityid": "2717",
+	        "cityparentid": "321",
+	        "cityname": "宝山区",
+	        "citytype": "3"
+	    },
+	    {
+	        "cityid": "2718",
+	        "cityparentid": "321",
+	        "cityname": "青浦区",
+	        "citytype": "3"
+	    },
+	    {
+	        "cityid": "2719",
+	        "cityparentid": "321",
+	        "cityname": "金山区",
+	        "citytype": "3"
+	    },
+	    {
+	        "cityid": "2720",
+	        "cityparentid": "321",
+	        "cityname": "奉贤区",
+	        "citytype": "3"
+	    },
+	    {
+	        "cityid": "2721",
+	        "cityparentid": "321",
+	        "cityname": "崇明县",
+	        "citytype": "3"
+	    }
+	]
