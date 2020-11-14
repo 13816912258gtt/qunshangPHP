@@ -9,15 +9,18 @@ $productspecrs=findProductSpecBySpecid($productspecid);
 
 $productid=$productspecrs['productid'];
 $productrs=findProductByProductid($productid);
-$productimageurl=$productrs['productcover'];
+$productimageurl=$productspecrs['specimgurl'];
 $productname=$productrs['productname'];
 $productspecdesc=$productspecrs['productspecdesc'];
+$sellerid=$productspecrs['sellerid'];
+$usearr=findUserByUid($sellerid);
+$sellername=$usearr['uname'];
 $findShoppingcart=findShoppingcart($uid,$productspecid);
 if($findShoppingcart){
 	$productnum=$productnum+$findShoppingcart['productnum'];
 	$rs=updateShoppingcart($uid,$productspecid,$productnum);
 }else{
-	$rs=addShoppingCart($uid,$productid,$productimageurl,$productname,$productspecid,$productspecdesc,$productnum);
+	$rs=addShoppingCart($uid,$productid,$productimageurl,$productname,$productspecid,$productspecdesc,$productnum,$sellerid,$sellername);
 }
 if($rs){
 	$numarr=findShoppingcart($uid,$productspecid);

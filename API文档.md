@@ -497,6 +497,7 @@
 	                        "cartid": "7",
 	                        "productspecid": "5",
 	                        "productspecdesc": "30克（2克X15）",
+							"specimgurl": null,
 	                        "productoldprice": "1999",
 	                        "productnum": "1"
 	                    }
@@ -511,6 +512,7 @@
 	                        "cartid": "8",
 	                        "productspecid": "14",
 	                        "productspecdesc": "  1.5g*30",
+							"specimgurl": null,
 	                        "productoldprice": "99",
 	                        "productnum": "1"
 	                    }
