@@ -436,6 +436,7 @@ create  table tbl_productspec(
 productspecid int unsigned not null auto_increment comment  '商品规格编号',
 productid int unsigned not null comment  '商品编号',
 productspecdesc char(30) not null default '暂无描述' comment  '规格描述',
+specimgurl varchar(225) not null comment '规格图片url',
 storenum int not null default 0 comment  '商品库存',
 productoldprice int(11) not null default 0 comment  '商品价格',
 primary key (productspecid),

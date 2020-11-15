@@ -1,7 +1,7 @@
 <?PHP
-$uid=$_GET['uid'];
-$productspecid=$_GET['productspecid'];
-$productnum=$_GET['productnum'];
+$uid=(int)$_POST['uid'];
+$productspecid=(int)$_POST['productspecid'];
+$productnum=(int)$_POST['productnum'];
 require_once 'comm/product.dao.php';
 require_once 'comm/user.dao.php';
 $userrs=findUserByUid($uid);
@@ -9,11 +9,14 @@ $productspecrs=findProductSpecBySpecid($productspecid);
 
 $productid=$productspecrs['productid'];
 $productrs=findProductByProductid($productid);
+// var_dump($productrs);
 $productimageurl=$productspecrs['specimgurl'];
 $productname=$productrs['productname'];
 $productspecdesc=$productspecrs['productspecdesc'];
-$sellerid=$productspecrs['sellerid'];
+$sellerid=$productrs['sellerid'];
+
 $usearr=findUserByUid($sellerid);
+
 $sellername=$usearr['uname'];
 $findShoppingcart=findShoppingcart($uid,$productspecid);
 if($findShoppingcart){
