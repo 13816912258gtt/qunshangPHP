@@ -186,6 +186,12 @@ function findVideoZanById($uid,$videoid){
 	$rs=execQuery($sql,$link);
 	return $rs;
 }
+function clearZanTable(){
+	$sql="truncate table `tbl_videozan`";
+	$link=get_connect();
+	$rs=execUpdate($sql,$link);
+	return $rs;
+}
 /*---------videofocus.dao------*/
 function findVideoFocus($followid,$leadid){
     // echo "主：".$leadid."从：".$followid;

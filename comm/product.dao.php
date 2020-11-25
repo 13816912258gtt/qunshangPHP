@@ -53,15 +53,15 @@ function updateStorenumBySpecid($productspecid,$storenum){
 	return $rs;
 }
 /*---------shoppingcart.dao------*/
-function addShoppingCart($uid,$productid,$productimageurl,$productname,$productspecid,$productspecdesc,$productnum){
+function addShoppingCart($uid,$productid,$productimageurl,$productname,$productspecid,$productspecdesc,$productnum,$sellerid,$sellername){
 	$link=get_connect();
-	$sql="insert into `tbl_shoppingcart`(`uid`,`productid`,`productimageurl`,`productname`,`productspecid`,`productspecdesc`,`productnum`)values($uid,$productid,'$productimageurl','$productname',$productspecid,'$productspecdesc',$productnum)";
+	$sql="insert into `tbl_shoppingcart`(`uid`,`productid`,`productimageurl`,`productname`,`productspecid`,`productspecdesc`,`productnum`,`sellerid`,`sellername`)values($uid,$productid,'$productimageurl','$productname',$productspecid,'$productspecdesc',$productnum,$sellerid,'$sellername')";
 	$rs=execUpdate($sql,$link);
 	return $rs;
 }
 function findShoppingcartByUid($uid){
 	$link = get_connect();
-	$sql="select * from tbl_shoppingcart where `uid`=$uid group by `productid` order by `cartid` desc";
+	$sql="select * from tbl_shoppingcart where `uid`=$uid group by `sellerid` order by `cartid` desc";
 	$rs=execQuery($sql,$link);
 	return $rs;
 }
@@ -103,6 +103,12 @@ function findPriceBySpecid($productspecid){
 	$sql="select * from `tbl_productspec` where `productspecid`=$productspecid";
 	$rs=execQuery($sql,$link);
 	return $rs[0]["productoldprice"];
+}
+function findProductBySellerid($uid,$sellerid){
+	$link = get_connect();
+	$sql="select * from `tbl_shoppingcart` where `sellerid`=$sellerid and `uid`=$uid";
+	$rs=execQuery($sql,$link);
+	return $rs;	
 }
 function updateShoppingcart($uid,$productspecid,$productnum){
 	$link = get_connect();

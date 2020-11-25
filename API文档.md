@@ -45,6 +45,8 @@
 [42、返回关注的人的信息](#42根据Uid获得关注的人的信息列表)<br/>
 [43、获得省市地址列表](#43根据parentid获得下一级地址列表)<br/>
 [44、获得用户的默认地址](#44根据uid获得该用户的默认收货地址信息)<br/>
+[45、获得新注册用户信息](#45返回新成为粉丝的前三名用户)<br/>
+
 
 ## 1、根据手机密码身份插入注册
      
@@ -1791,3 +1793,41 @@
 		"utel":"123",
 		"realaddress":".."
 	}
+
+## 45、返回新成为粉丝的前三名用户
+     
+### 请求URL：
+	http://www.equnshang.com/handlers/newidentitydata.php
+
+### 示例：
+无
+
+### 请求方式：
+	POST
+
+### 参数类型：param
+
+	|参数	    |是否必选    |类型        |说明
+   
+
+### 返回示例： 
+	[
+	    {
+	        "headimage": "http:\/\/www.equnshang.com\/headimg\/default.jpg",
+	        "uname": "用户915",
+	        "identity": "0",
+	        "regtime": "2020-11-25 14:17:05"
+	    },
+	    {
+	        "headimage": "http:\/\/www.equnshang.com\/headimg\/default.jpg",
+	        "uname": "用户418",
+	        "identity": "0",
+	        "regtime": "2020-11-25 11:57:40"
+	    },
+	    {
+	        "headimage": "http:\/\/www.equnshang.com\/headimg\/default.jpg",
+	        "uname": "用户880",
+	        "identity": "0",
+	        "regtime": "2020-11-25 11:57:32"
+	    }
+	]

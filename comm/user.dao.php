@@ -162,11 +162,21 @@ function addInviteInfo($invitedid,$invitedidentity,$inviterid,$inviteridentity){
 	$rs=execUpdate($sql,$link);
 	return $rs;
 }
-function updateDefaultAddress($uid,$address){
+function updateDefaultAddress($uid,$addressid){
 	$link = get_connect();
-	$sql="update `tbl_user` set `address`='$address' where `uid`=$uid";
+	$sql="update `tbl_user` set `addressid`='$addressid' where `uid`=$uid";
 	$rs=execUpdate($sql,$link);
 	mysql_close($link);
+	return $rs;
+}
+function findAddressById($addressid){
+	$link=get_connect();
+	$sql="select * from `tbl_shippingaddress` where `addressid`=$addressid";
+	$rs=execQuery($sql,$link);
+	if(count($rs)>0){
+		$result=$rs[0];
+		return $result;
+	}
 	return $rs;
 }
 function updatePartnerid($uid,$partnerid){
@@ -200,6 +210,18 @@ function findRealById($uid){
 	if(count($rs)>0){
 		return $rs[0];
 	}
+	return $rs;
+}
+function findCityByParentid($cityparentid){
+	$sql="select * from `tbl_pcity` where `cityparentid`=$cityparentid";
+	$link=get_connect();
+	$rs=execQuery($sql,$link);
+	return $rs;
+}
+function findNewIdentityData(){
+	$sql="select * from `tbl_user` where `identity`=0 order by regtime desc limit 0,3";
+	$link=get_connect();
+	$rs=execQuery($sql,$link);
 	return $rs;
 }
 ?>
