@@ -46,6 +46,10 @@
 [43、获得省市地址列表](#43根据parentid获得下一级地址列表)<br/>
 [44、获得用户的默认地址](#44根据uid获得该用户的默认收货地址信息)<br/>
 [45、获得新注册用户信息](#45返回新成为粉丝的前三名用户)<br/>
+[46、新增消费行为积分](#46根据从订单id和uid增加消费行为)<br/>
+[47、更新合伙人表](#47通过uid插入合伙人表新信息)<br/>
+[48、会员费合伙人收益](#48通过uid和订单项id计算合伙人收益并且创建会员用户信息)<br/>
+[49、摇钱树（新）](#49通过uid获得今天，昨天，本周，上月，本月数据)<br/>
 
 
 ## 1、根据手机密码身份插入注册
@@ -1829,5 +1833,240 @@
 	        "uname": "用户880",
 	        "identity": "0",
 	        "regtime": "2020-11-25 11:57:32"
+	    }
+	]
+	
+## 46、根据从订单id和uid增加消费行为
+     
+### 请求URL：
+	http://www.equnshang.com/handlers/consumptioncredit.php
+
+### 示例：
+无
+
+### 请求方式：
+	POST
+
+### 参数类型：param
+
+	|参数	     |是否必选     |类型        |说明
+    |uid         |Y           |String      |当前用户ID
+	|minororderid|Y           |String      |从订单id
+
+### 返回示例： 
+	{
+		"statusCode":1 //成功
+	}
+
+## 47、通过uid插入合伙人表新信息
+     
+### 请求URL：
+	http://www.equnshang.com/handlers/updatepartner.php
+
+### 示例：
+无
+
+### 请求方式：
+	POST
+
+### 参数类型：param
+
+	|参数	     |是否必选     |类型        |说明
+    |uid         |Y           |String      |当前用户ID
+
+### 返回示例： 
+	{
+		"statusCode":1 //成功
+	}
+
+## 48、通过uid和订单项id计算合伙人收益并且创建会员用户信息
+     
+### 请求URL：
+	http://www.equnshang.com/handlers/vipdeservedsum.php
+
+### 示例：
+无
+
+### 请求方式：
+	POST
+
+### 参数类型：param
+
+	|参数	     |是否必选     |类型        |说明
+    |uid         |Y           |String      |当前用户ID
+	|orderitemid |Y           |String      |当前用户ID
+
+### 返回示例： 
+	无返回
+
+## 49、通过uid获得今天，昨天，本周，上月，本月数据
+     
+### 请求URL：
+	http://www.equnshang.com/handlers/moneysourcedata.php
+
+### 示例：
+无
+
+### 请求方式：
+	POST
+
+### 参数类型：param
+
+	|参数	     |是否必选     |类型        |说明
+    |uid         |Y           |String      |当前用户ID
+
+### 返回示例： 
+	[
+	    {
+	        "today": [
+	            {
+	                "sumcredit": "2816.6",
+	                "avercredit": 910.46,
+	                "todayprearr": [
+	                    {
+	                        "name": "短视频喜欢",
+	                        "number": "3.00"
+	                    },
+	                    {
+	                        "name": "浏览视频",
+	                        "number": "665.40"
+	                    },
+	                    {
+	                        "name": "短视频点赞",
+	                        "number": "14.60"
+	                    },
+	                    {
+	                        "name": "短视频评论",
+	                        "number": "15.00"
+	                    },
+	                    {
+	                        "name": "拉新",
+	                        "number": "200.00"
+	                    }
+	                ],
+	                "lastfivedayarr": [
+	                    {
+	                        "number": "1854.50",
+	                        "day": "11-28"
+	                    },
+	                    {
+	                        "number": "3231.90",
+	                        "day": "11-29"
+	                    },
+	                    {
+	                        "number": "1304.10",
+	                        "day": "11-30"
+	                    },
+	                    {
+	                        "number": "1008.30",
+	                        "day": "12-01"
+	                    },
+	                    {
+	                        "number": "898.00",
+	                        "day": "12-02"
+	                    }
+	                ]
+	            }
+	        ],
+	        "yesterday": {
+	            "yserterdayarr": [
+	                {
+	                    "name": "短视频喜欢",
+	                    "number": "0.60"
+	                },
+	                {
+	                    "name": "浏览视频",
+	                    "number": "680.70"
+	                },
+	                {
+	                    "name": "短视频点赞",
+	                    "number": "11.00"
+	                },
+	                {
+	                    "name": "短视频评论",
+	                    "number": "16.00"
+	                },
+	                {
+	                    "name": "拉新",
+	                    "number": "300.00"
+	                }
+	            ]
+	        },
+	        "lastweek": {
+	            "lastweekarr": [
+	                {
+	                    "name": "短视频喜欢",
+	                    "number": "6.40"
+	                },
+	                {
+	                    "name": "浏览视频",
+	                    "number": "3416.70"
+	                },
+	                {
+	                    "name": "短视频点赞",
+	                    "number": "49.20"
+	                },
+	                {
+	                    "name": "短视频评论",
+	                    "number": "70.00"
+	                },
+	                {
+	                    "name": "拉新",
+	                    "number": "2900.00"
+	                }
+	            ]
+	        },
+	        "thismonth": {
+	            "thismontharr": [
+	                {
+	                    "name": "短视频喜欢",
+	                    "number": "3.60"
+	                },
+	                {
+	                    "name": "浏览视频",
+	                    "number": "1346.10"
+	                },
+	                {
+	                    "name": "短视频点赞",
+	                    "number": "25.60"
+	                },
+	                {
+	                    "name": "短视频评论",
+	                    "number": "31.00"
+	                },
+	                {
+	                    "name": "拉新",
+	                    "number": "500.00"
+	                }
+	            ]
+	        },
+	        "lastmonth": {
+	            "lastmontharr": [
+	                {
+	                    "name": "短视频喜欢",
+	                    "number": "32.40"
+	                },
+	                {
+	                    "name": "浏览视频",
+	                    "number": "22412.40"
+	                },
+	                {
+	                    "name": "短视频点赞",
+	                    "number": "81.00"
+	                },
+	                {
+	                    "name": "短视频评论",
+	                    "number": "47.00"
+	                },
+	                {
+	                    "name": "拉新",
+	                    "number": "13300.00"
+	                },
+	                {
+	                    "name": "兑换群币",
+	                    "number": "-30000.00"
+	                }
+	            ]
+	        }
 	    }
 	]
