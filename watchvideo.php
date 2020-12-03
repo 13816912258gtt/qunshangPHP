@@ -1,15 +1,16 @@
 <?PHP
 require_once 'comm/user.dao.php';
 require_once 'comm/behaviorcredit.dao.php';
+require_once 'comm/define.php';
 $uid=(int)$_POST['uid'];
-
-$bili=array(1,1,1);
+//第一年行为积分比例
+	$bili=$BEHAVIORPERIOD[0];
 	for($i=0;$i<count($bili);$i++){
 		$userarr=findUserByUid($uid);
 		if($userarr['identity']>=0){
 			addWatchVideo($uid);
 			$userarr=findUserByUid($uid);
-			$credit=$userarr['credit']+0.3;
+			$credit=$userarr['credit']+0.3*bili[$i];
 			$rs=updateUserCredit($uid,$credit);
 		}
 		if(findPreinviteid($uid)!=0){
